@@ -14,24 +14,26 @@ export CC="{{ .language.cpp.cc }}"
 export CXX="{{ .language.cpp.cxx }}"
 export CMAKE_GENERATOR="{{ .language.cpp.cmake_generator }}"
 export CMAKE_BUILD_PARALLEL_LEVEL=
-{{- if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" -}}
 $(sysctl -n hw.ncpu)
-{{- else if eq .chezmoi.os "linux" }}
+{{- else if eq .chezmoi.os "linux" -}}
 $(nproc)
-{{- else }}
+{{- else -}}
 8
 {{ end }}
 
 # Vulkan SDK
-{{ if eq .tools.vulkan.version "" -}}
-# WARNING: Vulkan SDK not configured
-{{ else -}}
-export VULKAN_SDK_VERSION="{{ .lib.vulkan_version }}"
-export VULKAN_SDK_ROOT="$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
-if [ -f "$VULKAN_SDK_ROOT/setup-env.sh" ]; then
-    source "$VULKAN_SDK_ROOT/setup-env.sh"
+if [ -d "$DEV_SDK_ROOT" ]; then
+    export VULKAN_SDK_VERSION={{ .lib.vulkan_sdk_version }}
+    export VULKAN_SDK_ROOT="$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
+    if [ -f "$VULKAN_SDK_ROOT/setup-env.sh" ]; then
+        source "$VULKAN_SDK_ROOT/setup-env.sh"
+    else
+        # WARNING: Vulkan SDK setup script not found at $VULKAN_SDK_ROOT/setup-env.sh
+    fi
+else
+    # WARNING: DEV_SDK_ROOT directory not found, Vulkan SDK will not be configured
 fi
-{{ end }}
 
 # Homebrew settings
 BREW=$(which brew 2>/dev/null)
