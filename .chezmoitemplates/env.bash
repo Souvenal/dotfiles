@@ -1,9 +1,5 @@
 # User SDK Root
-{{ if eq .user.dev_sdk_root "" -}}
-export DEV_SDK_ROOT="$HOME/Library"
-{{ else -}}
 export DEV_SDK_ROOT="{{ .user.dev_sdk_root }}"
-{{ end -}}
 
 # XDG Config
 export XDG_CONFIG_HOME="{{ .user.xdg_config_home }}"
