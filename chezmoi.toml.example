@@ -2,11 +2,24 @@
 warn_on_empty = true
 
 [data.user]
-dev_sdk_root = "~/Library"
-xdg_config_home = "~/.config"
+xdg_config_home = "$HOME/.config"
 
-[data.tools.vulkan]
-version = ""
+[data.proxy]
+http = "http://localhost:7890"
+https = "https://localhost:7890"
 
-[data.tools.cuda]
-version = ""
+[data.lib]
+dev_sdk_root = "$HOME/Libraries"
+pkg_config_path = "" # blank
+
+vulkan_version = "" # blank
+
+[data.language.cpp]
+cc = "" # blank
+cxx = "" # blank
+cmake_generator = "Ninja"
+
+[data.app.homebrew]
+pip_index_url = "https://mirrors.aliyun.com/pypi/simple/"
+api_domain = "https://mirrors.aliyun.com/homebrew-bottles/api"
+bottle_domain = "https://mirrors.aliyun.com/homebrew-bottles"
