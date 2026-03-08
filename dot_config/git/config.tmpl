@@ -1,0 +1,20 @@
+[user]
+	name = {{ .personal.name | quote }}
+	email = {{ .personal.email | quote }}
+
+[credential]
+{{- if eq .chezmoi.os "darwin" }}
+    helper = osxkeychain
+{{- else if eq .chezmoi.os "windows" }}
+    helper = manager
+{{- else if eq .chezmoi.os "linux" }}
+    helper = libsecret
+{{- else }}
+	helper = cache --timeout=3600
+{{- end }}
+
+[http]
+	proxy = {{ .proxy.http | quote }}
+
+[https]
+	proxy = {{ .proxy.https | quote }}

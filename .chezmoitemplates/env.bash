@@ -1,29 +1,23 @@
 # XDG config
-export XDG_DATA_HOME="{{ .system.xdg.data_home }}"
-export XDG_STATE_HOME="{{ .system.xdg.state_home }}"
-export XDG_CONFIG_HOME="{{ .system.xdg.config_home }}"
-export XDG_CACHE_HOME="{{ .system.xdg.cache_home }}"
+export XDG_DATA_HOME={{ .system.xdg.data_home | quote }}
+export XDG_STATE_HOME={{ .system.xdg.state_home | quote }}
+export XDG_CONFIG_HOME={{ .system.xdg.config_home | quote }}
+export XDG_CACHE_HOME={{ .system.xdg.cache_home | quote }}
 
 # Network proxy
-export HTTP_PROXY="{{ .proxy.http }}"
-export HTTPS_PROXY="{{ .proxy.https }}"
+# export HTTP_PROXY={{ .proxy.http | quote }}
+# export HTTPS_PROXY={{ .proxy.https | quote }}
+
+# vim with XDG config
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
+
+# xmake with XDG config
+export XMAKE_PKG_CACHEDIR="$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
-export DEV_SDK_ROOT="{{ .lib.dev_sdk_root }}"
-export PKG_CONFIG_PATH="{{ .lib.pkg_config_path }}:$PKG_CONFIG_PATH"
-
-# C/C++ settings
-export CC="{{ .language.cpp.cc }}"
-export CXX="{{ .language.cpp.cxx }}"
-export CMAKE_GENERATOR="{{ .language.cpp.cmake_generator }}"
-export CMAKE_BUILD_PARALLEL_LEVEL=
-{{- if eq .chezmoi.os "darwin" -}}
-$(sysctl -n hw.ncpu)
-{{- else if eq .chezmoi.os "linux" -}}
-$(nproc)
-{{- else -}}
-8
-{{ end }}
+export DEV_SDK_ROOT={{ .lib.dev_sdk_root | quote }}
+export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
 
 # Vulkan SDK
 if [ -d "$DEV_SDK_ROOT" ]; then
@@ -38,11 +32,26 @@ else
     # WARNING: DEV_SDK_ROOT directory not found, Vulkan SDK will not be configured
 fi
 
+# C/C++ settings
+export CC={{ .language.cpp.cc | quote }}
+export CXX={{ .language.cpp.cxx | quote }}
+export CMAKE_GENERATOR={{ .language.cpp.cmake_generator | quote }}
+export CMAKE_BUILD_PARALLEL_LEVEL=
+{{- if eq .chezmoi.os "darwin" -}}
+$(sysctl -n hw.ncpu)
+{{- else if eq .chezmoi.os "linux" -}}
+$(nproc)
+{{- else -}}
+8
+{{ end }}
+
 # Homebrew settings
 BREW=$(which brew 2>/dev/null)
 if [ -x "$BREW" ]; then
-    export HOMEBREW_PIP_INDEX_URL="{{ .app.homebrew.pip_index_url }}"
-    export HOMEBREW_API_DOMAIN="{{ .app.homebrew.api_domain }}"
-    export HOMEBREW_BOTTLE_DOMAIN="{{ .app.homebrew.bottle_domain }}"
+    export HOMEBREW_API_DOMAIN={{ .app.homebrew.api_domain | quote }}
+    export HOMEBREW_BREW_GIT_REMOTE={{ .app.homebrew.brew_git_remote | quote }}
+    export HOMEBREW_CORE_GIT_REMOTE={{ .app.homebrew.core_git_remote | quote }}
+    export HOMEBREW_BOTTLE_DOMAIN={{ .app.homebrew.bottle_domain | quote }}
+    export HOMEBREW_PIP_INDEX_URL={{ .app.homebrew.pip_index_url | quote }}
     eval "$($BREW shellenv)"
 fi

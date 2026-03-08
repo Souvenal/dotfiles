@@ -1,6 +1,10 @@
 [data.validation]
 warn_on_empty = true
 
+[data.personal]
+    name = ""
+    email = ""
+
 [data.system.xdg]
 data_home = "$HOME/.local/share"
 config_home = "$HOME/.config"
@@ -11,18 +15,29 @@ cache_home = "$HOME/.cache"
 http = "http://localhost:7890"
 https = "https://localhost:7890"
 
+[data.app.homebrew]
+    brew_git_remote = "https://mirrors.ustc.edu.cn/brew.git"
+    core_git_remote = "https://mirrors.ustc.edu.cn/homebrew-core.git"
+    api_domain = "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+    bottle_domain = "https://mirrors.ustc.edu.cn/homebrew-bottles"
+    pip_index_url = "https://mirrors.ustc.edu.cn/pypi/simple/"
+
+[data.app.conda]
+    mirrors = [
+        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/",
+        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/",
+        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/",
+        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/",
+        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/"
+    ]
+
 [data.lib]
 dev_sdk_root = "$HOME/Libraries"
-pkg_config_path = "" # blank
+pkg_config_path = "" # the path depends on system
 
 vulkan_sdk_version = "" # blank
 
 [data.language.cpp]
-cc = "" # blank
-cxx = "" # blank
+cc = "" # the compiler path depends on system
+cxx = "" # the compiler path depends on system
 cmake_generator = "Ninja"
-
-[data.app.homebrew]
-pip_index_url = "https://mirrors.aliyun.com/pypi/simple/"
-api_domain = "https://mirrors.aliyun.com/homebrew-bottles/api"
-bottle_domain = "https://mirrors.aliyun.com/homebrew-bottles"

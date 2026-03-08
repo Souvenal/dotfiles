@@ -5,3 +5,12 @@ chezmoi.toml
 {{- if ne .chezmoi.os "windows" }}
 *.ps1
 {{- end }}
+
+{{- if eq .chezmoi.os "windows" }}
+# Windows 忽略 zsh/fish，保留 bash 给 git bash
+dot_zprofile.tmpl
+dot_zshrc.tmpl
+dot_config/fish/
+.chezmoitemplates/env.zsh
+.chezmoitemplates/env.fish
+{{- end }}
