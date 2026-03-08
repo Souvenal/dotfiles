@@ -6,7 +6,7 @@
 - jq: command-line tool for processing JSON data
 
 1. Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
-2. Install jq via your package manager.
+2. Install jq via package manager.
 
 ## Usage
 
@@ -29,5 +29,6 @@
 
 ## Issues
 
-- Windows is not yet supported.
+- Windows pwsh is not yet supported.
+- Fish support is incomplete.
 - A meta build system for injecting environment variables into different shell profiles (bash, zsh, fish, etc.) is yet missing.

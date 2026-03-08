@@ -1,8 +1,11 @@
 [data.validation]
 warn_on_empty = true
 
-[data.user]
-xdg_config_home = "$HOME/.config"
+[data.system.xdg]
+data_home = "$HOME/.local/share"
+config_home = "$HOME/.config"
+state_home = "$HOME/.local/state"
+cache_home = "$HOME/.cache"
 
 [data.proxy]
 http = "http://localhost:7890"

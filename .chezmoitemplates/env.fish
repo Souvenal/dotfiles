@@ -1,5 +1,8 @@
 # XDG config
-set -gx XDG_CONFIG_HOME "{{ .user.xdg_config_home }}"
+set -gx XDG_DATA_HOME "{{ .system.xdg.data_home }}"
+set -gx XDG_STATE_HOME "{{ .system.xdg.state_home }}"
+set -gx XDG_CONFIG_HOME "{{ .system.xdg.config_home }}"
+set -gx XDG_CACHE_HOME "{{ .system.xdg.cache_home }}"
 
 # Network proxy
 set -gx HTTP_PROXY "{{ .proxy.http }}"
