@@ -1,5 +1,7 @@
 README.md
 
+chezmoi.toml
+
 {{- if ne .chezmoi.os "windows" }}
 *.ps1
 {{- end }}
