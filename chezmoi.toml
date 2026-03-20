@@ -40,4 +40,4 @@ vulkan_sdk_version = "" # blank
 [data.language.cpp]
 cc = "" # the compiler path depends on system
 cxx = "" # the compiler path depends on system
-cmake_generator = "Ninja"
+cmake_generator = "Ninja Multi-Config"
