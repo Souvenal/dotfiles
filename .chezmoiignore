@@ -9,9 +9,13 @@ chezmoi.toml
 
 {{- if eq .chezmoi.os "windows" }}
 # Windows 忽略 zsh/fish，保留 bash 给 git bash
+dot_bash_profile.tmpl
+dot_bashrc.tmpl
 dot_zprofile.tmpl
 dot_zshrc.tmpl
 dot_config/fish/
 .chezmoitemplates/env.zsh
 .chezmoitemplates/env.fish
+run_after_apply.ps1
+run_before_validate.sh
 {{- end }}
