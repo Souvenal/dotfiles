@@ -1,9 +1,10 @@
 README.md
 
 # windows is not currently supported
-# {{- if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.os "windows" }}
 *.ps1
-# {{- end }}
+Documents/PowerShell/
+{{- end }}
 
 {{- if eq .chezmoi.os "windows" }}
 # Windows 忽略 zsh/fish/bash 配置文件

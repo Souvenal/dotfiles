@@ -1,18 +1,18 @@
 [data.validation]
-warn_on_empty = true
+    warn_on_empty = true
 
 [data.personal]
     location = "" # work | school | home
 
 [data.system.xdg]
-data_home = "$HOME/.local/share"
-config_home = "$HOME/.config"
-state_home = "$HOME/.local/state"
-cache_home = "$HOME/.cache"
+    data_home = "$HOME/.local/share"
+    config_home = "$HOME/.config"
+    state_home = "$HOME/.local/state"
+    cache_home = "$HOME/.cache"
 
 [data.proxy]
-http = "http://localhost:7890"
-https = "https://localhost:7890"
+    http = "http://localhost:7890"
+    https = "https://localhost:7890"
 
 [data.app.homebrew]
     brew_git_remote = "https://mirrors.ustc.edu.cn/brew.git"
@@ -31,12 +31,12 @@ https = "https://localhost:7890"
     ]
 
 [data.lib]
-dev_sdk_root = "$HOME/Libraries"
-pkg_config_path = "" # the path depends on system
+    dev_sdk_root = "$HOME/Libraries"
+    pkg_config_path = "" # the path depends on system
 
-vulkan_sdk_version = "" # blank
+    vulkan_sdk_version = "" # blank
 
 [data.language.cpp]
-cc = "" # the compiler path depends on system
-cxx = "" # the compiler path depends on system
-cmake_generator = "Ninja Multi-Config"
+    cc = "" # the compiler path depends on system
+    cxx = "" # the compiler path depends on system
+    cmake_generator = "Ninja Multi-Config"
