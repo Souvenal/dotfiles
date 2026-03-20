@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.os "windows" -}}
 #!/bin/bash
 
 # 捕获 chezmoi data 的 JSON 输出
@@ -28,3 +29,4 @@ echo "$JSON_OUTPUT" | jq -r '
     # 启动递归：初始路径为空数组，初始值为整个JSON
     walk_empty([]; .)
 '
+{{- end }}

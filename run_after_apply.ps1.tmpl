@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.os "windows" -}}
 #Requires -RunAsAdministrator
 # 获取当前配置数据
 $Data = chezmoi data | ConvertFrom-Json
@@ -70,3 +71,4 @@ Set-ItemProperty -Path $RegPath -Name "ManagedList" -Value $ManagedList
 $PathEntriesValue = ($NewPathEntries -join ';')
 Set-ItemProperty -Path $RegPath -Name "PATH_ENTRIES" -Value $PathEntriesValue
 Write-Host "Environment variables updated. Restart applications to see changes."
+{{- end }}
