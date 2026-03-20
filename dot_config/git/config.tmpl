@@ -1,6 +1,14 @@
 [user]
-	name = {{ .personal.name | quote }}
-	email = {{ .personal.email | quote }}
+{{- if eq .personal.location "work" }}
+    name = "suchang.zhang"
+    email = "suchang.zhang@unity.cn"
+{{- else if eq .personal.location "school" }}
+    name = "Suchang Zhang"
+    email = "231820107@smail.nju.edu.cn"
+{{- else }}
+    name = "Souvenal"
+    email = "souvenal777@gmail.com"
+{{- end }}
 
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
@@ -10,11 +18,11 @@
 {{- else if eq .chezmoi.os "linux" }}
     helper = libsecret
 {{- else }}
-	helper = cache --timeout=3600
+    helper = cache --timeout=3600
 {{- end }}
 
 [http]
-	proxy = {{ .proxy.http | quote }}
+    proxy = {{ .proxy.http | quote }}
 
 [https]
-	proxy = {{ .proxy.https | quote }}
+    proxy = {{ .proxy.https | quote }}

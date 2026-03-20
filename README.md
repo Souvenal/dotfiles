@@ -18,7 +18,7 @@
 2. Copy the default config file to the config directory.
 
     ```shell
-    cp ~/.local/share/chezmoi/chezmoi.toml ~/.config/chezmoi/chezmoi.toml
+    cp ~/.local/share/chezmoi/chezmoi.template.toml ~/.config/chezmoi/chezmoi.toml
     ```
 3. Manually specify some blank values or change some default values
 4. Apply the chezmoi configuration.

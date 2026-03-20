@@ -2,8 +2,7 @@
 warn_on_empty = true
 
 [data.personal]
-    name = ""
-    email = ""
+    location = "" # work | school | home
 
 [data.system.xdg]
 data_home = "$HOME/.local/share"

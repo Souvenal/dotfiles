@@ -1,7 +1,5 @@
 README.md
 
-chezmoi.toml
-
 # windows is not currently supported
 # {{- if ne .chezmoi.os "windows" }}
 *.ps1
