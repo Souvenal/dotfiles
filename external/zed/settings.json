@@ -1,0 +1,67 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "git_panel": {
+    "tree_view": true
+  },
+  "document_folding_ranges": "on",
+  "document_symbols": "on",
+  "vim_mode": true,
+  "languages": {
+    "C++": {
+      "format_on_save": "on",
+      "indent_guides": {
+        "coloring": "indent_aware"
+      }
+    }
+  },
+  "semantic_tokens": "combined",
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    }
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "gdefault": false
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme"
+  },
+  "terminal": {
+    "font_size": 14.0,
+    "font_family": "Hack Nerd Font"
+  },
+  "base_keymap": "VSCode",
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "buffer_font_family": "Consolas",
+  "file_types": {
+    "glsl": [
+      "*.ush",
+      "*.usf"
+    ]
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 14.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+}

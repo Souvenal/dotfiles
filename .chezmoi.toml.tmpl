@@ -1,8 +1,11 @@
 [data.validation]
     warn_on_empty = true
 
+{{- $email := promptStringOnce .personal "email" "Email address"}}
+
 [data.personal]
-    location = "" # work | school | home
+    location = "home" # work | school | home
+    email = {{ $email | quote }}
 
 [data.system.xdg]
     data_home = "$HOME/.local/share"
