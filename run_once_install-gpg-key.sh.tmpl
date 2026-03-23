@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Check if gpg is installed
+if ! command -v gpg &> /dev/null; then
+    echo "Error: GPG is not installed. Please install GPG first."
+    echo "  macOS: brew install gnupg"
+    echo "  Linux: sudo apt-get install gnupg"
+    exit 1
+fi
+
+# Import GPG private key from Bitwarden (only runs if key doesn't exist)
+KEY_ID={{ .public_keys.gpg_key_id | quote }}
+
+# Check if the GPG key already exists
+if gpg --list-secret-keys "$KEY_ID" >/dev/null 2>&1; then
+    echo "GPG key $KEY_ID already exists, skipping import."
+    exit 0
+fi
+echo "Importing GPG private key from Bitwarden..."
+# Get private key from Bitwarden and import
+cat << 'GPG_PRIVATE_KEY_EOF' | gpg --batch --import
+{{ (bitwarden "item" "gpg-private-key").notes }}
+GPG_PRIVATE_KEY_EOF
+if [ $? -eq 0 ]; then
+    echo "GPG key imported successfully!"
+    echo "Setting trust level to ultimate..."
+    # Set trust level to ultimate
+    echo -e "5\ny\n" | gpg --command-fd 0 --edit-key "$KEY_ID" trust
+else
+    echo "Failed to import GPG key."
+    exit 1
+fi

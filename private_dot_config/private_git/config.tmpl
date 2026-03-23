@@ -1,15 +1,6 @@
-[user]
-{{- if eq .personal.location "work" }}
-    name = "suchang.zhang"
-    email = "suchang.zhang@unity.cn"
-{{- else if eq .personal.location "school" }}
-    name = "Suchang Zhang"
-    email = "231820107@smail.nju.edu.cn"
-{{- else }}
-    name = "Souvenal"
-    email = "souvenal777@gmail.com"
-{{- end }}
-
+[commit]
+	gpgsign = true
+	
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
     helper = osxkeychain
@@ -21,8 +12,16 @@
     helper = cache --timeout=3600
 {{- end }}
 
+[gpg]
+    program = gpg
+
 [http]
     proxy = {{ .proxy.http | quote }}
 
 [https]
     proxy = {{ .proxy.https | quote }}
+
+[user]
+    email = {{ .personal.email | quote }}
+    name = {{ .personal.name | quote }}
+	signingkey = {{ .public_keys.gpg_key_id | quote }}

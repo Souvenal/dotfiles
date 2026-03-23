@@ -2,11 +2,12 @@
 
 ## Dependency
 
+- bitwarden-cli: access bitwarden password manager
 - chezmoi: a cross-platform tool for managing dotfiles and personal configuration
+- gpg: register gpg private keys
 - jq: command-line tool for processing JSON data
 
-1. Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
-2. Install jq via package manager.
+Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
 
 ## Usage
 
@@ -15,13 +16,8 @@
     ```shell
     chezmoi init https://github.com/Souvenal/dotfiles.git
     ```
-2. Copy the default config file to the config directory.
 
-    ```shell
-    cp ~/.local/share/chezmoi/chezmoi.template.toml ~/.config/chezmoi/chezmoi.toml
-    ```
-3. Manually specify some blank values or change some default values
-4. Apply the chezmoi configuration.
+2. Apply the chezmoi configuration.
 
     ```shell
     chezmoi apply

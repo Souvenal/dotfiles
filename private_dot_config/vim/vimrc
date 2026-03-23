@@ -1,18 +1,3 @@
-" XDG Base Directory 支持
-if empty($XDG_CONFIG_HOME)
-  let $XDG_CONFIG_HOME = $HOME . '/.config'
-endif
-if empty($XDG_CACHE_HOME)
-  let $XDG_CACHE_HOME = $HOME . '/.cache'
-endif
-if empty($XDG_DATA_HOME)
-  let $XDG_DATA_HOME = $HOME . '/.local/share'
-endif
-
-" 设置 Vim 目录
-let $VIMDOTDIR = $XDG_CONFIG_HOME . '/vim'
-
-" 重新定位各类文件
 set directory=$XDG_CACHE_HOME/vim/swap//    " swap 文件
 set backupdir=$XDG_CACHE_HOME/vim/backup//  " 备份文件
 set undodir=$XDG_CACHE_HOME/vim/undo//      " undo 文件

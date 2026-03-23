@@ -1,21 +1,5 @@
-[data.validation]
-    warn_on_empty = true
-
-{{- $email := promptStringOnce .personal "email" "Email address"}}
-
-[data.personal]
-    location = "home" # work | school | home
-    email = {{ $email | quote }}
-
-[data.system.xdg]
-    data_home = "$HOME/.local/share"
-    config_home = "$HOME/.config"
-    state_home = "$HOME/.local/state"
-    cache_home = "$HOME/.cache"
-
-[data.proxy]
-    http = "http://localhost:7890"
-    https = "https://localhost:7890"
+[chezmoi.config.bitwarden]
+    unlock = "auto"
 
 [data.app.homebrew]
     brew_git_remote = "https://mirrors.ustc.edu.cn/brew.git"
@@ -33,13 +17,38 @@
         "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/"
     ]
 
+[data.language.cpp]
+    cc = "" # the compiler path depends on system
+    cxx = "" # the compiler path depends on system
+    cmake_generator = "Ninja Multi-Config"
+    
 [data.lib]
     dev_sdk_root = "$HOME/Libraries"
     pkg_config_path = "" # the path depends on system
 
     vulkan_sdk_version = "" # blank
 
-[data.language.cpp]
-    cc = "" # the compiler path depends on system
-    cxx = "" # the compiler path depends on system
-    cmake_generator = "Ninja Multi-Config"
+[data.personal]
+{{- $email := promptStringOnce . "personal.email" "Email address" "souvenal777@gmail.com" }}
+    email = {{ $email | quote }}
+{{- $location_choices := list "nju" "unity-cn" "home" }}
+{{- $location := promptChoiceOnce . "personal.location" "Location" $location_choices "home" }}
+    location = {{ $location | quote }}
+{{- $name := promptStringOnce . "personal.name" "Name" "Souvenal" }}
+    name = {{ $name | quote }}
+
+[data.proxy]
+    http = "http://localhost:7890"
+    https = "https://localhost:7890"
+
+[data.public_keys]
+    gpg_key_id = "333F460B105EC701"
+
+[data.system.xdg]
+    data_home = "$HOME/.local/share"
+    config_home = "$HOME/.config"
+    state_home = "$HOME/.local/state"
+    cache_home = "$HOME/.cache"
+
+[data.validation]
+    warn_on_empty = true
