@@ -8,6 +8,9 @@ export XDG_CACHE_HOME={{ .system.xdg.cache_home | quote }}
 # export HTTP_PROXY={{ .proxy.http | quote }}
 # export HTTPS_PROXY={{ .proxy.https | quote }}
 
+# GPG
+export GPG_TTY=$(tty)
+
 # vim with XDG config
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
