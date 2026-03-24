@@ -27,7 +27,12 @@
         "*.usf": "glsl"
     },
     "files.autoSave": "afterDelay",
+    "git.autoStash": true,
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.ignoreWhitespace": true,
     "git.enableCommitSigning": true,
+    "git.fetchOnPull": true,
+    "github.gitProtocol": "ssh",
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
