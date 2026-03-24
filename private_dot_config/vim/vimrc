@@ -1,7 +1,9 @@
 set directory=$XDG_CACHE_HOME/vim/swap//    " swap 文件
 set backupdir=$XDG_CACHE_HOME/vim/backup//  " 备份文件
 set undodir=$XDG_CACHE_HOME/vim/undo//      " undo 文件
-set viminfofile=$XDG_CACHE_HOME/vim/viminfo " viminfo
+if !has('nvim')
+    set viminfofile=$XDG_CACHE_HOME/vim/viminfo " viminfo
+endif
 
 " netrw 历史文件也移到 cache
 let g:netrw_home = $XDG_CACHE_HOME . '/vim'
@@ -9,3 +11,6 @@ let g:netrw_home = $XDG_CACHE_HOME . '/vim'
 " runtimepath 调整
 set runtimepath^=$VIMDOTDIR
 set runtimepath+=$VIMDOTDIR/after
+
+" use system clipboard
+set clipboard^=unnamed,unnamedplus
