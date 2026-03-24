@@ -1,17 +1,18 @@
 README.md
 
+# File that are managed externally by other apps
 external/
 
 # windows is dealed differently
 {{- if eq .chezmoi.os "windows" }}
-# Windows 忽略 zsh/fish/bash 配置文件
+**/*.sh
 .bash_profile
 .bashrc
 .zprofile
 .zshrc
 .config/fish/
 {{- else }}
-*.ps1
+**/*.ps1
 Documents/PowerShell/
 AppData/
 {{- end }}

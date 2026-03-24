@@ -1,0 +1,69 @@
+{
+    "clangd.path": "/Users/mac/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/20.1.8/clangd_20.1.8/bin/clangd",
+    "cmake.buildArgs": [
+        "-j", "16"
+    ],
+    "cmake.configureArgs": [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.12"
+    ],
+    "cmake.configureOnEdit": false,
+    "cmake.configureOnOpen": false,
+    "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
+    "C_Cpp.default.compilerPath": "/usr/local/bin/clang++",
+    "debug.console.fontFamily": "Consolas",
+    "debug.toolBarLocation": "commandCenter",
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": 14,
+    "editor.largeFileOptimizations": false,
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "files.associations": {
+        "*.ush": "glsl",
+        "*.usf": "glsl"
+    },
+    "files.autoSave": "afterDelay",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "cpp": false,
+        "c": true
+    },
+    "json.schemaDownload.trustedDomains": {
+        "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent": true,
+        "https://opencode.ai/": true,
+        "https://models.dev/": true
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "remote.defaultExtensionsIfInstalledLocally": [],
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.profiles.windows": {
+        "PowerShell 7": {
+        "path": "D:/Programs/PowerShell/7/pwsh.exe"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell 7",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.external.windowsExec": "D:\\Programs\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.fontSize": 14,
+    "workbench.colorTheme": "Theme",
+    "workbench.editorAssociations": {
+        "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.bin_0": "hexEditor.hexedit",
+        "*.bin": "hexEditor.hexedit",
+        "*.png": "magickImageReader.readImage"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 20,
+}
