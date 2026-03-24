@@ -26,6 +26,7 @@
         "*.usf": "glsl"
     },
     "files.autoSave": "afterDelay",
+    "git.enableCommitSigning": true,
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
@@ -65,5 +66,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
-    "workbench.tree.indent": 20,
+    "workbench.tree.indent": 20
 }
