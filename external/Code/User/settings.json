@@ -1,5 +1,5 @@
 {
-    "clangd.path": "/Users/mac/Library/Application Support/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/20.1.8/clangd_20.1.8/bin/clangd",
+    "clangd.path": "/usr/local/bin/clangd",
     "cmake.buildArgs": [
         "-j", "16"
     ],
@@ -10,6 +10,7 @@
     "cmake.configureOnOpen": false,
     "C_Cpp.default.intelliSenseMode": "macos-clang-arm64",
     "C_Cpp.default.compilerPath": "/usr/local/bin/clang++",
+    "C_Cpp.intelliSenseEngine": "disabled",
     "debug.console.fontFamily": "Consolas",
     "debug.toolBarLocation": "commandCenter",
     "editor.fontFamily": "Consolas",
