@@ -26,13 +26,31 @@ if [ -x "$BREW" ]; then
     eval "$($BREW shellenv)"
 fi
 
+# C/C++ settings
+export CC={{ .language.cpp.cc | quote }}
+export CXX={{ .language.cpp.cxx | quote }}
+export CMAKE_GENERATOR={{ .language.cpp.cmake_generator | quote }}
+export CMAKE_BUILD_PARALLEL_LEVEL=
+{{- if eq .chezmoi.os "darwin" -}}
+$(sysctl -n hw.ncpu)
+{{- else if eq .chezmoi.os "linux" -}}
+$(nproc)
+{{- else -}}
+8
+{{- end }}
+
 # xmake with XDG config
 export XMAKE_PKG_CACHEDIR="$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
 export DEV_SDK_ROOT={{ .lib.dev_sdk_root | quote }}
 export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
+
 export LLVM_ROOT={{ .lib.llvm_root | quote }}
+# LLVM cmake prefix path
+if [ -n "$LLVM_ROOT" ] && [ -d "$LLVM_ROOT/lib/cmake" ]; then
+    export CMAKE_PREFIX_PATH="$LLVM_ROOT/lib/cmake${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
+fi
 
 if [ -d "$DEV_SDK_ROOT" ]; then
     # vcpkg config
@@ -49,16 +67,3 @@ if [ -d "$DEV_SDK_ROOT" ]; then
 else
     # WARNING: DEV_SDK_ROOT directory not found, Vulkan SDK will not be configured
 fi
-
-# C/C++ settings
-export CC={{ .language.cpp.cc | quote }}
-export CXX={{ .language.cpp.cxx | quote }}
-export CMAKE_GENERATOR={{ .language.cpp.cmake_generator | quote }}
-export CMAKE_BUILD_PARALLEL_LEVEL=
-{{- if eq .chezmoi.os "darwin" -}}
-$(sysctl -n hw.ncpu)
-{{- else if eq .chezmoi.os "linux" -}}
-$(nproc)
-{{- else -}}
-8
-{{ end }}
