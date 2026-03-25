@@ -2,28 +2,28 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "sisyphus-junior": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.5"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.1"
     },
     "prometheus": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "atlas": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.5-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.5"
     },
     "metis": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "hephaestus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "oracle": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "momus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.5"
     },
     "librarian": {
       "model": "opencode/minimax-m2p5-free"
@@ -32,7 +32,7 @@
       "model": "opencode/GPT-5-Nano"
     },
     "multimodal-looker": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     }
   },
   "categories": {
@@ -40,10 +40,10 @@
       "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "ultrabrain": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "deep": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.5-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.5"
     },
     "artistry": {
       "model": "minimax-cn-coding-plan/MiniMax-M2.7"
@@ -55,10 +55,10 @@
       "model": "opencode/minimax-m2p5-free"
     },
     "unspecified-high": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7-high"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "writing": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.5"
+      "model": "minimax-cn-coding-plan/MiniMax-M2.1"
     }
   }
 }
