@@ -58,7 +58,13 @@
     {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM?" -}}
     {{- if $use_brew_llvm }}
     use_brew_llvm = {{ $use_brew_llvm }}
+        {{- $llvm_version_choices := list "17" "18" "19" "20" "21" "latest" }}
+        {{- $llvm_version := promptChoiceOnce . "lib.llvm_version" "LLVM version" $llvm_version_choices "latest" }}
+        {{- if eq $llvm_version "latest" }}
     llvm_root = "$(brew --prefix llvm)"
+        {{- else }}
+    llvm_root = "$(brew --prefix llvm@{{ $llvm_version }})"
+        {{- end }}
     {{- end }}
 {{- else }}
     llvm_root = ""
