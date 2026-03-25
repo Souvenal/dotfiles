@@ -57,6 +57,7 @@
 {{- if eq .chezmoi.os "darwin" }}
     {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM?" -}}
     {{- if $use_brew_llvm }}
+    use_brew_llvm = {{ $use_brew_llvm }}
     llvm_root = "$(brew --prefix llvm)"
     {{- end }}
 {{- else }}
