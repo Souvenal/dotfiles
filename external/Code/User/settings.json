@@ -46,6 +46,10 @@
         "https://opencode.ai/": true,
         "https://models.dev/": true
     },
+    "projectManager.tags": [
+        "Render",
+        "Lifter"
+    ],
     "python.analysis.typeCheckingMode": "basic",
     "remote.defaultExtensionsIfInstalledLocally": [],
     "security.workspace.trust.untrustedFiles": "open",

@@ -15,7 +15,19 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
-            }
+            },
+            "problemMatcher": {
+                "owner": "cmake",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^CMake (Error|Warning) at (.*):(\\d+):\\s*(.*)$",
+                    "severity": 1,
+                    "file": 2,
+                    "line": 3,
+                    "message": 4
+                }
+            },
+            "group": "build"
         },
         {
             "label": "[Souvenal] CMake Reconfigure",
@@ -30,7 +42,19 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
-            }
+            },
+            "problemMatcher": {
+                "owner": "cmake",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^CMake (Error|Warning) at (.*):(\\d+):\\s*(.*)$",
+                    "severity": 1,
+                    "file": 2,
+                    "line": 3,
+                    "message": 4
+                }
+            },
+            "group": "build"
         },
         {
             "label": "[Souvenal] CMake Build (Debug)",
@@ -42,7 +66,9 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
-            }
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build"
         },
         {
             "label": "[Souvenal] CMake Build (Release)",
@@ -54,6 +80,11 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         },
         {
@@ -66,7 +97,8 @@
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
-            }
+            },
+            "group": "build"
         }
     ]
 }
