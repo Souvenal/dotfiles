@@ -42,7 +42,7 @@
         "c": true
     },
     "json.schemaDownload.trustedDomains": {
-        "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent": true,
+        "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode": true,
         "https://opencode.ai/": true,
         "https://models.dev/": true
     },
