@@ -14,6 +14,17 @@ export GPG_TTY=$(tty)
 # vim with XDG config
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
+# 
+# Homebrew settings
+BREW=$(which brew 2>/dev/null)
+if [ -x "$BREW" ]; then
+    export HOMEBREW_API_DOMAIN={{ .app.homebrew.api_domain | quote }}
+    export HOMEBREW_BREW_GIT_REMOTE={{ .app.homebrew.brew_git_remote | quote }}
+    export HOMEBREW_CORE_GIT_REMOTE={{ .app.homebrew.core_git_remote | quote }}
+    export HOMEBREW_BOTTLE_DOMAIN={{ .app.homebrew.bottle_domain | quote }}
+    export HOMEBREW_PIP_INDEX_URL={{ .app.homebrew.pip_index_url | quote }}
+    eval "$($BREW shellenv)"
+fi
 
 # xmake with XDG config
 export XMAKE_PKG_CACHEDIR="$XDG_CACHE_HOME/xmake/cache"
@@ -21,9 +32,13 @@ export XMAKE_PKG_CACHEDIR="$XDG_CACHE_HOME/xmake/cache"
 # Dev config
 export DEV_SDK_ROOT={{ .lib.dev_sdk_root | quote }}
 export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
+export LLVM_ROOT={{ .lib.llvm_root | quote }}
 
-# Vulkan SDK
 if [ -d "$DEV_SDK_ROOT" ]; then
+    # vcpkg config
+    export VCPKG_ROOT="$DEV_SDK_ROOT/vcpkg"
+    
+    # Vulkan SDK
     export VULKAN_SDK_VERSION={{ .lib.vulkan_sdk_version }}
     export VULKAN_SDK_ROOT="$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
     if [ -f "$VULKAN_SDK_ROOT/setup-env.sh" ]; then
@@ -47,14 +62,3 @@ $(nproc)
 {{- else -}}
 8
 {{ end }}
-
-# Homebrew settings
-BREW=$(which brew 2>/dev/null)
-if [ -x "$BREW" ]; then
-    export HOMEBREW_API_DOMAIN={{ .app.homebrew.api_domain | quote }}
-    export HOMEBREW_BREW_GIT_REMOTE={{ .app.homebrew.brew_git_remote | quote }}
-    export HOMEBREW_CORE_GIT_REMOTE={{ .app.homebrew.core_git_remote | quote }}
-    export HOMEBREW_BOTTLE_DOMAIN={{ .app.homebrew.bottle_domain | quote }}
-    export HOMEBREW_PIP_INDEX_URL={{ .app.homebrew.pip_index_url | quote }}
-    eval "$($BREW shellenv)"
-fi

@@ -1,5 +1,11 @@
 # My solution for dotfiles management
 
+## Design Philosophy
+
+**Multi-machine migration with per-OS toolchains.**
+
+Same config key (e.g., C++ compiler) may need different values on different OSes. Each OS gets its own list of valid options; the cached `chezmoi.toml` stores per-machine selections so prompts only ask when there are real choices.
+
 ## Dependency
 
 - bitwarden-cli: access bitwarden password manager

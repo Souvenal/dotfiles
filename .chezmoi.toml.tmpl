@@ -18,15 +18,50 @@
     ]
 
 [data.language.cpp]
-    cc = "" # the compiler path depends on system
-    cxx = "" # the compiler path depends on system
+{{- $cc_choices := list "" }}
+{{- $cc_default := "" }}
+{{- $cxx_choices := list "" }}
+{{- $cxx_default := "" }}
+{{- if eq .chezmoi.os "linux" }}
+    {{- $cc_choices = list "/usr/bin/gcc" }}
+    {{- $cc_default = "/usr/bin/gcc" }}
+    {{- $cxx_choices = list "/usr/bin/g++" }}
+    {{- $cxx_default = "/usr/bin/g++" }}
+{{- else if eq .chezmoi.os "darwin" }}
+    {{- $cc_choices = list "/usr/bin/clang" "/usr/local/bin/clang" }}
+    {{- $cc_default = "/usr/local/bin/clang" }}
+    {{- $cxx_choices = list "/usr/bin/clang++" "/usr/local/bin/clang++" }}
+    {{- $cxx_default = "/usr/local/bin/clang++" }}
+{{- else if eq .chezmoi.os "windows" }}
+    {{- $cc_choices = list "" }}
+    {{- $cc_default = "" }}
+    {{- $cxx_choices = list "" }}
+    {{- $cxx_default = "" }}
+{{- end }}
+{{- $cc := promptChoiceOnce . "language.cpp.cc" "C compiler" $cc_choices $cc_default }}
+{{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" $cxx_choices $cxx_default }}
+    cc = {{ $cc | quote }}
+    cxx = {{ $cxx | quote }}
+    
+{{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") }}
     cmake_generator = "Ninja Multi-Config"
+{{- else if eq .chezmoi.os "windows" }}
+    cmake_generator = "Visual Studio 17 2026"
+{{- end }}
     
 [data.lib]
     dev_sdk_root = "$HOME/Libraries"
     pkg_config_path = "" # the path depends on system
 
     vulkan_sdk_version = "" # blank
+{{- if eq .chezmoi.os "darwin" }}
+    {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM?" -}}
+    {{- if $use_brew_llvm }}
+    llvm_root = "$(brew --prefix llvm)"
+    {{- end }}
+{{- else }}
+    llvm_root = ""
+{{- end }}
 
 [data.personal]
 {{- $email := promptStringOnce . "personal.email" "Email address" "souvenal777@gmail.com" }}
