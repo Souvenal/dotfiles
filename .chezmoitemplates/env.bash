@@ -48,8 +48,8 @@ export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
 
 export LLVM_ROOT={{ .lib.llvm_root | quote }}
 # LLVM cmake prefix path
-if [ -n "$LLVM_ROOT" ] && [ -d "$LLVM_ROOT/lib/cmake" ]; then
-    export CMAKE_PREFIX_PATH="$LLVM_ROOT/lib/cmake${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
+if [ -n "$LLVM_ROOT" ]; then
+    export CMAKE_PREFIX_PATH="$LLVM_ROOT${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
 fi
 
 if [ -d "$DEV_SDK_ROOT" ]; then
