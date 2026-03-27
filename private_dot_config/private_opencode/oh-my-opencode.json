@@ -49,7 +49,7 @@
       "model": "minimax-cn-coding-plan/MiniMax-M2.7"
     },
     "quick": {
-      "model": "opencode/claude-haiku-4.5"
+      "model": "opencode/claude-haiku-4-5"
     },
     "unspecified-low": {
       "model": "opencode/minimax-m2.5-free"

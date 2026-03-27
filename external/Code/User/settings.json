@@ -46,6 +46,9 @@
         "https://opencode.ai/": true,
         "https://models.dev/": true
     },
+    "markdown.preview.typographer": true,
+    "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
     "projectManager.tags": [
         "Render",
         "Lifter"
