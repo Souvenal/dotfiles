@@ -15,11 +15,13 @@
 [gpg]
     program = gpg
 
+{{- if .proxy.use_proxy }}
 [http]
     proxy = {{ .proxy.http | quote }}
 
 [https]
     proxy = {{ .proxy.https | quote }}
+{{- end }}
 
 [user]
     email = {{ .personal.email | quote }}

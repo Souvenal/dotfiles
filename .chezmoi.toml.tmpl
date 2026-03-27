@@ -55,7 +55,7 @@
 
     vulkan_sdk_version = "" # blank
 {{- if eq .chezmoi.os "darwin" }}
-    {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM?" -}}
+    {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM" true }}
     {{- if $use_brew_llvm }}
     use_brew_llvm = {{ $use_brew_llvm }}
         {{- $llvm_version_choices := list "17" "18" "19" "20" "21" "latest" }}
@@ -80,6 +80,8 @@
     name = {{ $name | quote }}
 
 [data.proxy]
+{{- $use_proxy := promptBoolOnce . "proxy.use_proxy" "Use proxy" false}}
+    use_proxy = {{ $use_proxy }}
     http = "http://localhost:7890"
     https = "https://localhost:7890"
 
