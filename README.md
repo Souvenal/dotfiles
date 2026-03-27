@@ -10,7 +10,7 @@ Same config key (e.g., C++ compiler) may need different values on different OSes
 
 - bitwarden-cli: access bitwarden password manager
 - chezmoi: a cross-platform tool for managing dotfiles and personal configuration
-- gpg: register gpg private keys (gpg is packed with git on Windows)
+- gpg: register gpg private keys (gpg is packed with git on Windows, /path/to/Git/usr/bin should be added to PATH)
 - jq: command-line tool for processing JSON data
 
 Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
