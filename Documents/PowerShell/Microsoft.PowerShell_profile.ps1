@@ -1,1 +1,1 @@
-$env:EDITOR = "zed"
+# $env:EDITOR = "zed"

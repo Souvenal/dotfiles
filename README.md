@@ -10,7 +10,7 @@ Same config key (e.g., C++ compiler) may need different values on different OSes
 
 - bitwarden-cli: access bitwarden password manager
 - chezmoi: a cross-platform tool for managing dotfiles and personal configuration
-- gpg: register gpg private keys
+- gpg: register gpg private keys (gpg is packed with git on Windows)
 - jq: command-line tool for processing JSON data
 
 Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
@@ -34,3 +34,5 @@ Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
 - Windows pwsh is not yet supported.
 - Fish support is incomplete.
 - A meta build system for injecting environment variables into different shell profiles (bash, zsh, fish, etc.) is yet missing.
+- Key bindings for Windows are inconsistent with those for Unix.
+- Bitwarden is not supported yet on Windows.
