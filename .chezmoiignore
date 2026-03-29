@@ -1,7 +1,7 @@
 AGENTS.md
 README.md
 
-# File that are managed externally by other apps
+# Files that are managed externally by other apps
 external/
 
 # windows is dealed differently

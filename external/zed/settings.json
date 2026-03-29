@@ -7,12 +7,45 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "opencode": {
+      "type": "registry"
+    }
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "base_keymap": "VSCode",
+  "buffer_font_family": "Consolas",
+  "buffer_font_size": 15.0,
+  "document_folding_ranges": "on",
+  "document_symbols": "on",
+  "file_finder": {
+    "file_icons": true
+  },
+  "file_types": {
+    "glsl": [
+      "*.ush",
+      "*.usf"
+    ]
+  },
+  "format_on_save": "off",
   "git_panel": {
     "tree_view": true
   },
-  "document_folding_ranges": "on",
-  "document_symbols": "on",
-  "vim_mode": true,
+  "gutter": {
+    "line_numbers": true
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme"
+  },
   "languages": {
     "C++": {
       "format_on_save": "on",
@@ -21,47 +54,28 @@
       }
     }
   },
-  "semantic_tokens": "combined",
-  "agent_servers": {
-    "opencode": {
-      "type": "registry"
-    }
+  "project_panel": {
+    "hide_root": false,
+    "hide_hidden": false,
+    "hide_gitignore": false
   },
+  "proxy": "http://localhost:7890",
+  "semantic_tokens": "combined",
+  "terminal": {
+    "font_fallbacks": ["Consolas"],
+    "font_family": "Hack Nerd Font Mono",
+    "font_size": 14.0
+  },
+  "relative_line_numbers": "enabled",
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Mirage",
+    "dark": "Ayu Mirage",
+  },
+  "ui_font_size": 16,
   "vim": {
     "toggle_relative_line_numbers": true,
     "gdefault": false
   },
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Zed (Default)",
-    "dark": "Material Icon Theme"
-  },
-  "terminal": {
-    "font_size": 14.0,
-    "font_family": "Hack Nerd Font"
-  },
-  "base_keymap": "VSCode",
-  "relative_line_numbers": "enabled",
-  "gutter": {
-    "line_numbers": true
-  },
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000
-    }
-  },
-  "buffer_font_family": "Consolas",
-  "file_types": {
-    "glsl": [
-      "*.ush",
-      "*.usf"
-    ]
-  },
-  "ui_font_size": 16,
-  "buffer_font_size": 14.0,
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "One Dark",
-  },
+  "vim_mode": true
 }

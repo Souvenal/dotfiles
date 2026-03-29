@@ -18,4 +18,11 @@
       // "j k": "vim::NormalBefore"
     },
   },
+  {
+    "context": "VimControl",
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "ctrl-/": "editor::ToggleComments"
+    },
+  },
 ]
