@@ -1,3 +1,4 @@
+AGENTS.md
 README.md
 
 # File that are managed externally by other apps
@@ -20,6 +21,7 @@ AppData/
 # macOS specific
 {{- if ne .chezmoi.os "darwin" }}
 Library/
+.local/share/gnupg/gpg-agent.conf
 {{- end }}
 
 # Linux specific

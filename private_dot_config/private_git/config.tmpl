@@ -23,6 +23,9 @@
     proxy = {{ .proxy.https | quote }}
 {{- end }}
 
+[pull]
+    rebase = true
+
 [user]
     email = {{ .personal.email | quote }}
     name = {{ .personal.name | quote }}

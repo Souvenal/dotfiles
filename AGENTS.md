@@ -46,7 +46,7 @@ The guiding principle: **OS-specific defaults, machine-specific choices.**
 | `dot_bash_profile.tmpl` | bash profile |
 | `dot_zprofile.tmpl` | zsh profile |
 | `external/` | External repos as git subtrees |
-| `private_*` | Private configs (not committed publicly) |
+| `private_*` | Private configs (file permissions set to 0o600/0o700, but still version controlled) |
 | `run_after_apply.ps1.tmpl` | PowerShell post-apply script |
 | `run_before_validate.sh.tmpl` | Pre-validation shell script |
 | `run_once_install-gpg-key.sh.tmpl` | One-time GPG key import |
@@ -68,7 +68,7 @@ The guiding principle: **OS-specific defaults, machine-specific choices.**
 - **Optional features**: Check for empty string `if $value` before writing optional `[data]` blocks.
 - **Shell templates**: Multi-shell support via `.chezmoitemplates/` sourced in shell rc files.
 - **Secret handling**: GPG keys and passwords are NOT stored in chezmoi — they reference `bitwarden-cli` or require manual import.
-- **Private configs**: Files prefixed `private_` are skipped from the public dotfiles repo.
+- **Private configs**: `private_` prefix removes all group/world permissions (0o600 for files, 0o700 for dirs) when applied — files are still version controlled.
 
 ## Dependency
 
