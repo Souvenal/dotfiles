@@ -56,8 +56,8 @@
     vulkan_sdk_version = "" # blank
 {{- if eq .chezmoi.os "darwin" }}
     {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM" true }}
-    {{- if $use_brew_llvm }}
     use_brew_llvm = {{ $use_brew_llvm }}
+    {{- if $use_brew_llvm }}
         {{- $llvm_version_choices := list "17" "18" "19" "20" "21" "latest" }}
         {{- $llvm_version := promptChoiceOnce . "lib.llvm_version" "LLVM version" $llvm_version_choices "latest" }}
         {{- if eq $llvm_version "latest" }}
@@ -65,6 +65,8 @@
         {{- else }}
     llvm_root = "$(brew --prefix llvm@{{ $llvm_version }})"
         {{- end }}
+    {{- else }}
+    llvm_root = ""
     {{- end }}
 {{- else }}
     llvm_root = ""
