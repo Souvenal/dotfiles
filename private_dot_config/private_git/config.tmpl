@@ -1,6 +1,12 @@
+[alias]
+    pushf = "push --force-with-lease"
+
 [commit]
 	gpgsign = true
-	
+
+[core]
+    editor = "code --wait"
+
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
     helper = osxkeychain
@@ -11,6 +17,9 @@
 {{- else }}
     helper = cache --timeout=3600
 {{- end }}
+
+[diff]
+    renameLimit = 10000
 
 [gpg]
     program = gpg
@@ -25,6 +34,9 @@
 
 [pull]
     rebase = true
+    
+[rebase]
+    autoStash = true
 
 [user]
     email = {{ .personal.email | quote }}
