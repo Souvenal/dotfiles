@@ -8,15 +8,6 @@
     bottle_domain = "https://mirrors.ustc.edu.cn/homebrew-bottles"
     pip_index_url = "https://mirrors.ustc.edu.cn/pypi/simple/"
 
-[data.app.conda]
-    mirrors = [
-        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/",
-        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/",
-        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/",
-        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/",
-        "https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/"
-    ]
-
 [data.language.cpp]
 {{- $cc_choices := list "" }}
 {{- $cc_default := "" }}
@@ -42,13 +33,17 @@
 {{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" $cxx_choices $cxx_default }}
     cc = {{ $cc | quote }}
     cxx = {{ $cxx | quote }}
-    
 {{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") }}
     cmake_generator = "Ninja Multi-Config"
 {{- else if eq .chezmoi.os "windows" }}
     cmake_generator = "Visual Studio 17 2026"
 {{- end }}
-    
+ 
+[data.language.python]
+{{- if eq .chezmoi.os "darwin" }}
+    conda_root = "{{ .chezmoi.homeDir }}/miniconda3"
+{{- end }}
+
 [data.lib]
     dev_sdk_root = "$HOME/Libraries"
     pkg_config_path = "" # the path depends on system

@@ -1,3 +1,8 @@
+{{- if eq .chezmoi.os "darwin" -}}
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+{{- end }}
+
 # Zsh specific settings
 # oh-my-zsh, plugins, etc.
 
@@ -122,3 +127,23 @@ compinit
 # End of Docker CLI completions
 
 GITSTATUS_LOG_LEVEL=DEBUG
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('{{ .language.python.conda_root }}/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "{{ .language.python.conda_root }}/etc/profile.d/conda.sh" ]; then
+        . "{{ .language.python.conda_root }}/etc/profile.d/conda.sh"
+    else
+        export PATH="{{ .language.python.conda_root }}/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+{{- end }}

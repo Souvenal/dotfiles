@@ -1,9 +1,0 @@
-channels:
-{{- range .app.conda.mirrors }}
-  - {{ . }}
-{{- end }}
-  - defaults
-show_channel_urls: true
-ssl_verify: true
-
-auto_activate: false

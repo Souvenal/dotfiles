@@ -98,9 +98,5 @@ if [ -d "$DEV_SDK_ROOT" ]; then
     export VULKAN_SDK_ROOT="$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
     if [ -f "$VULKAN_SDK_ROOT/setup-env.sh" ]; then
         source "$VULKAN_SDK_ROOT/setup-env.sh"
-    else
-        # WARNING: Vulkan SDK setup script not found at $VULKAN_SDK_ROOT/setup-env.sh
     fi
-else
-    # WARNING: DEV_SDK_ROOT directory not found, Vulkan SDK will not be configured
 fi
