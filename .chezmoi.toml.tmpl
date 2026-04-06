@@ -1,13 +1,6 @@
 [chezmoi.config.bitwarden]
     unlock = "auto"
 
-[data.app.homebrew]
-    brew_git_remote = "https://mirrors.ustc.edu.cn/brew.git"
-    core_git_remote = "https://mirrors.ustc.edu.cn/homebrew-core.git"
-    api_domain = "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-    bottle_domain = "https://mirrors.ustc.edu.cn/homebrew-bottles"
-    pip_index_url = "https://mirrors.ustc.edu.cn/pypi/simple/"
-
 [data.language.cpp]
 {{- $cc_choices := list "" }}
 {{- $cc_default := "" }}
@@ -84,12 +77,6 @@
 
 [data.public_keys]
     gpg_key_id = "333F460B105EC701"
-
-[data.system.xdg]
-    data_home = "$HOME/.local/share"
-    config_home = "$HOME/.config"
-    state_home = "$HOME/.local/state"
-    cache_home = "$HOME/.cache"
 
 [data.validation]
     warn_on_empty = true
