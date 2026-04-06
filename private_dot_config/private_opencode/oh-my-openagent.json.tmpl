@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "model_fallback": true,
+  "agents": {
+    "sisyphus": {
+      "model": {{ if eq .personal.location "unity-cn" }}"codely/glm-5-fp8"{{ else }}"minimax-cn-coding-plan/MiniMax-M2.7"{{ end }}
+    }
+  }
+}
