@@ -71,6 +71,4 @@ This ensures zsh reads configs from `$XDG_CONFIG_HOME/zsh` instead of `$HOME`.
 
 ## Issues
 
-- Windows pwsh is not yet supported.
-- Key bindings for Windows are inconsistent with those for Unix.
 - Bitwarden is not supported yet on Windows.
