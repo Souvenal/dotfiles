@@ -15,6 +15,7 @@ class ShellBackend:
     alias_line: Callable
     eval_line: Callable
     source_line: Callable
+    mkdir_line: Callable
     translate_condition: Callable
     close_block: str
     close_template: str
@@ -87,6 +88,7 @@ BACKENDS = {
         translate_condition=translate_bash_condition,
         close_block="fi",
         close_template="{{- end -}}",
+        mkdir_line=lambda v, d: f"{'    ' * d}if [ ! -d \"{v}\" ]; then mkdir -p \"{v}\"; fi",
     ),
     "zsh": ShellBackend(
         name="zsh",
@@ -99,6 +101,7 @@ BACKENDS = {
         translate_condition=translate_bash_condition,
         close_block="fi",
         close_template="{{- end -}}",
+        mkdir_line=lambda v, d: f"{'    ' * d}if [ ! -d \"{v}\" ]; then mkdir -p \"{v}\"; fi",
     ),
     "fish": ShellBackend(
         name="fish",
@@ -111,6 +114,7 @@ BACKENDS = {
         translate_condition=translate_fish_condition,
         close_block="end",
         close_template="{{- end -}}",
+        mkdir_line=lambda v, d: f"{'    ' * d}if not test -d \"{v}\"; mkdir -p \"{v}\"; end",
     ),
     "ps1": ShellBackend(
         name="ps1",
@@ -123,6 +127,7 @@ BACKENDS = {
         translate_condition=translate_ps1_condition,
         close_block="}",
         close_template="{{- end -}}",
+        mkdir_line=lambda v, d: f"{'    ' * d}if (-not (Test-Path \"{v}\")) {{ New-Item -ItemType Directory -Path \"{v}\" -Force }}",
     ),
 }
 
@@ -142,12 +147,16 @@ def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> 
         comments = block.get("comment", [])
         env_vars = block.get("env", [])
         condition = block.get("condition")
+        dirs = block.get("dir", [])
 
         for c in comments:
             lines.append(f"# {c}")
 
         block_depth = 0
         block_close = None
+
+        for d in dirs:
+            lines.append(backend.mkdir_line(d, block_depth))
 
         if condition:
             is_tpl = is_chezmoi_template(condition)

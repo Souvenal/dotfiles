@@ -41,21 +41,6 @@ $env:PYTHONUSERBASE = "$XDG_DATA_HOME/python"
 $env:VIMINIT = "let $MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source $MYVIMRC"
 $env:VIMDOTDIR = "$XDG_CONFIG_HOME/vim"
 
-# wget
-$env:WGETRC = "$XDG_CONFIG_HOME/wgetrc"
-Set-Alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
-
-# Homebrew settings
-if Test-Path "$(which brew)"  {
-    $BREW = "$(which brew 2>/dev/null)"
-    $env:HOMEBREW_API_DOMAIN = "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-    $env:HOMEBREW_BREW_GIT_REMOTE = "https://mirrors.ustc.edu.cn/brew.git"
-    $env:HOMEBREW_CORE_GIT_REMOTE = "https://mirrors.ustc.edu.cn/homebrew-core.git"
-    $env:HOMEBREW_BOTTLE_DOMAIN = "https://mirrors.ustc.edu.cn/homebrew-bottles"
-    $env:HOMEBREW_PIP_INDEX_URL = "https://mirrors.ustc.edu.cn/pypi/simple/"
-    Invoke-Expression "$($BREW shellenv)"
-}
-
 # C/C++ settings
 export CC={{ .language.cpp.cc | quote }}
 export CXX={{ .language.cpp.cxx | quote }}

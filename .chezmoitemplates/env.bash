@@ -8,6 +8,17 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # bash
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 
+# Homebrew settings
+if [ -x "$(which brew)" ]; then
+    BREW=$(which brew 2>/dev/null)
+    export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+    export HOMEBREW_PIP_INDEX_URL="https://mirrors.ustc.edu.cn/pypi/simple/"
+    eval "$($BREW shellenv)"
+fi
+
 # Docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME/docker-machine"
@@ -47,17 +58,6 @@ export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
-
-# Homebrew settings
-if [ -x "$(which brew)" ]; then
-    BREW=$(which brew 2>/dev/null)
-    export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-    export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-    export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
-    export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
-    export HOMEBREW_PIP_INDEX_URL="https://mirrors.ustc.edu.cn/pypi/simple/"
-    eval "$($BREW shellenv)"
-fi
 
 # C/C++ settings
 export CC={{ .language.cpp.cc | quote }}
