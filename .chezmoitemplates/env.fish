@@ -5,6 +5,24 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
+# wget
+set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
+alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
+
+# bun
+export PATH={{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH
+
+# Homebrew settings
+if test -x "$(which brew)" 
+    set BREW $(which brew 2>/dev/null)
+    set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+    set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
+    set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
+    set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+    set -gx HOMEBREW_PIP_INDEX_URL "https://mirrors.ustc.edu.cn/pypi/simple/"
+    eval "$($BREW shellenv)"
+end
+
 # Docker
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx MACHINE_STORAGE_PATH "$XDG_DATA_HOME/docker-machine"
@@ -38,7 +56,7 @@ set -gx PYTHONPYCACHEPREFIX "$XDG_CACHE_HOME/python"
 set -gx PYTHONUSERBASE "$XDG_DATA_HOME/python"
 
 # vim with XDG config
-set -gx VIMINIT "let $MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source $MYVIMRC"
+set -gx VIMINIT "source $XDG_CONFIG_HOME/vim/vimrc"
 set -gx VIMDOTDIR "$XDG_CONFIG_HOME/vim"
 
 # C/C++ settings

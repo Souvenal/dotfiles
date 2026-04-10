@@ -5,6 +5,9 @@ $env:XDG_CONFIG_HOME = "$HOME/.config"
 $env:XDG_DATA_HOME = "$HOME/.local/share"
 $env:XDG_STATE_HOME = "$HOME/.local/state"
 
+# bun
+export PATH={{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH
+
 # Docker
 $env:DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker"
 $env:MACHINE_STORAGE_PATH = "$XDG_DATA_HOME/docker-machine"
@@ -38,7 +41,7 @@ $env:PYTHONPYCACHEPREFIX = "$XDG_CACHE_HOME/python"
 $env:PYTHONUSERBASE = "$XDG_DATA_HOME/python"
 
 # vim with XDG config
-$env:VIMINIT = "let $MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source $MYVIMRC"
+$env:VIMINIT = "source $XDG_CONFIG_HOME/vim/vimrc"
 $env:VIMDOTDIR = "$XDG_CONFIG_HOME/vim"
 
 # C/C++ settings

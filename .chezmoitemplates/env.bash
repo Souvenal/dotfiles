@@ -8,6 +8,13 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # bash
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 
+# wget
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
+
+# bun
+export PATH={{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH
+
 # Homebrew settings
 if [ -x "$(which brew)" ]; then
     BREW=$(which brew 2>/dev/null)
@@ -52,12 +59,8 @@ export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
 
 # vim with XDG config
-export VIMINIT="let $MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source $MYVIMRC"
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
-
-# wget
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # C/C++ settings
 export CC={{ .language.cpp.cc | quote }}
