@@ -24,7 +24,7 @@
 [gpg]
     program = gpg
 
-{{- if .proxy.use_proxy }}
+{{ if .proxy.use_proxy -}}
 [http]
     proxy = {{ .proxy.http | quote }}
 
