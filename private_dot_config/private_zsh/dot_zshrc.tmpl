@@ -1,22 +1,28 @@
-{{- if and (eq .chezmoi.os "darwin") .app.use_kiro_cli -}}
+{{- if .zsh.use_kiro_cli -}}
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
 {{- end }}
 
 # Zsh specific settings
 
+{{- if and (not .zsh.use_theme_starship) .zsh.use_theme_p10k }}
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+{{- end }}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+{{- if and (not .zsh.use_theme_starship) .zsh.use_theme_p10k }}
 ZSH_THEME="powerlevel10k/powerlevel10k"
+{{- else }}
+ZSH_THEME=""
+{{- end }}
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -36,50 +42,38 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+COMPLETION_WAITING_DOTS="true"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
-    git
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
+{{- if and (not .zsh.use_theme_starship) .zsh.use_theme_p10k }}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ${ZDOTDIR:-~}/.p10k.zsh ]] || source ${ZDOTDIR:-~}/.p10k.zsh
+{{- end }}
+
+{{- if .zsh.use_theme_starship }}
+# Load Starship prompt
+eval "$(starship init zsh)"
+{{- end }}
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/mac/.docker/completions $fpath)
 autoload -Uz compinit
 compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
 # End of Docker CLI completions
-
-GITSTATUS_LOG_LEVEL=DEBUG
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -96,7 +90,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-{{- if and (eq .chezmoi.os "darwin") .app.use_kiro_cli -}}
+{{- if .zsh.use_kiro_cli -}}
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
 {{- end }}

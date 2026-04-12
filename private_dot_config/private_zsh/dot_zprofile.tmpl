@@ -1,4 +1,4 @@
-{{- if and (eq .chezmoi.os "darwin") .app.use_kiro_cli -}}
+{{- if .zsh.use_kiro_cli -}}
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh"
 {{- end }}
@@ -9,7 +9,7 @@ if [ -f ~/.zshrc ]; then
     source ~/.zshrc
 fi
 
-{{- if and (eq .chezmoi.os "darwin") .app.use_kiro_cli -}}
+{{- if .zsh.use_kiro_cli -}}
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.post.zsh"
 {{- end }}

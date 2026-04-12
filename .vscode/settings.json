@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    ".chezmoi.toml.tmpl": "toml",
+    "dot_bash_profile.tmpl": "shellscript",
+    "dot_bashrc.tmpl": "shellscript",
+
+    "**/*conda/condarc.tmpl": "yaml",
+    "**/*zsh/dot_zprofile.tmpl": "shellscript",
+    "**/*zsh/dot_zshrc.tmpl": "shellscript",
+    "**/*git/config.tmpl": "ini",
+    "**/*gnupg/gpg-agent.conf.tmpl": "ini",
+
+    "**/*.json.tmpl": "json",
+    "**/*.sh.tmpl": "shellscript",
+    "**/*.fish.tmpl": "fish"
+  }
+}
