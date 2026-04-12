@@ -1,6 +1,9 @@
 {
   "files.associations": {
+    "**/symlink_*": "plaintext",
+
     ".chezmoi.toml.tmpl": "toml",
+    ".chezmoiignore": "ignore",
     "dot_bash_profile.tmpl": "shellscript",
     "dot_bashrc.tmpl": "shellscript",
 
