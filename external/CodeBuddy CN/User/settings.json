@@ -1,0 +1,141 @@
+{
+    // CodeBuddy CN settings
+    "codingcopilot.enableInlineChat": true,
+    "codingcopilot.enableInlineChatIDEShortcutsTip": false,
+    "codingcopilot.commitMessageStyle": "Auto",
+    "codingcopilot.commitMessageLanguage": "zh_CN",
+    "codingcopilot.toolbarOnSelection": false,
+    "codingcopilot.enableAutoCompletions": true,
+    "codingcopilot.enableNextEditSuggestions": true,
+    "codingcopilot.generationPreference": "intelligentMode",
+    "codingcopilot.selectedCompletionModel": "",
+    "codingcopilot.enableCompletionLanguage": {
+        "scmInput": false
+    },
+    "codingcopilot.enableFloatShortcut": true,
+    "codingcopilot.enableIDENotification": true,
+    "CodeBuddy.preferredLanguage": "en",
+    
+    // Align to Code settings
+    "cmake.buildArgs": [
+        "-j", "16"
+    ],
+    "cmake.configureArgs": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.12"
+    ],
+    "cmake.allowCommentsInPresetsFile": true,
+    "cmake.configureOnEdit": false,
+    "cmake.configureOnOpen": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "debug.console.fontFamily": "Consolas",
+    "debug.toolBarLocation": "commandCenter",
+    "editor.accessibilitySupport": "on",
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": 14,
+    "editor.largeFileOptimizations": false,
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "files.associations": {
+        "*.ush": "glsl",
+        "*.usf": "glsl"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "git.autoStash": true,
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.ignoreWhitespace": true,
+    "git.enableCommitSigning": true,
+    "git.fetchOnPull": true,
+    "github.gitProtocol": "ssh",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "cpp": false,
+        "c": true
+    },
+    "json.schemaDownload.trustedDomains": {
+        "https://aka.ms/": true,
+        "https://models.dev/": true,
+        "https://opencode.ai/": true,
+        "https://raw.githubusercontent.com/": true
+    },
+    "markdown.preview.typographer": true,
+    "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
+    "projectManager.tags": [
+        "Render",
+        "Lifter"
+    ],
+    "python.analysis.typeCheckingMode": "basic",
+    "remote.defaultExtensionsIfInstalledLocally": [],
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.external.windowsExec": "D:\\Programs\\PowerShell\\7\\pwsh.exe",
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.action.toggleSidebarVisibility"
+    ],
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "icon": "terminal-bash",
+            "path": "bash"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "pwsh": {
+            "icon": "terminal-powershell",
+            "path": "pwsh"
+        },
+        "tmux": {
+            "icon": "terminal-tmux",
+            "path": "tmux"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+    },
+    "terminal.integrated.profiles.windows": {
+        "cmd": {
+            "icon": "terminal-cmd",
+            "path": "cmd.exe",
+        },
+        "Command Prompt": {
+            "args": [],
+            "icon": "terminal-cmd",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ]
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "PowerShell": {
+            "icon": "terminal-powershell",
+            "source": "PowerShell"
+        }
+    },
+    "workbench.colorTheme": "Theme",
+    "workbench.editorAssociations": {
+        "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.bin_0": "hexEditor.hexedit",
+        "*.bin": "hexEditor.hexedit",
+        "*.png": "magickImageReader.readImage"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 20
+}
