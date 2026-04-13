@@ -6,7 +6,7 @@
         "when": "true"
     },
     {
-        "key": "ctrl+shift+b",
+        "key": "ctrl+alt+b",
         "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
