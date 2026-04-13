@@ -6,6 +6,14 @@
         "when": "true"
     },
     {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+cmd+v",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
         "key": "ctrl+p",
         "command": "-list.focusUp",
         "when": "listFocus && !inputFocus"
@@ -14,11 +22,6 @@
         "key": "ctrl+p",
         "command": "-list.focusUp",
         "when": "inReferenceSearchEditor && neovim.mode == 'normal'"
-    },
-    {
-        "key": "ctrl+shift+b",
-        "command": "cmake.build",
-        "when": "cmake:enableFullFeatureSet && !cmake:hideBuildCommand"
     },
     {
         "key": "shift+enter",

@@ -1,9 +1,9 @@
 {
     // CodeBuddy CN settings
     "codingcopilot.enableInlineChat": true,
-    "codingcopilot.enableInlineChatIDEShortcutsTip": false,
+    "codingcopilot.enableInlineChatIDEShortcutsTip": true,
     "codingcopilot.commitMessageStyle": "Auto",
-    "codingcopilot.commitMessageLanguage": "zh_CN",
+    "codingcopilot.commitMessageLanguage": "en",
     "codingcopilot.toolbarOnSelection": false,
     "codingcopilot.enableAutoCompletions": true,
     "codingcopilot.enableNextEditSuggestions": true,
@@ -137,5 +137,20 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "codingcopilot.taskList": false,
+    "codingcopilot.enabledWebSearch": true,
+    "codingcopilot.autoAcceptWebSearch": true,
+    "codingcopilot.standaloneTerminal": true,
+	"codingcopilot.enableImageGen": false,
+	"claw.channels": {
+		"wechatmp": {
+			"enabled": true,
+			"connectionMode": "webhook",
+			"registration": {
+				"webhookUrl": "",
+				"sessionId": "673adca6-d651-4a90-ac37-fe47fc31b818_2cc9599b879d2560685d3ff437957b69ba291105b1d56f1c325719d2cdb4cdb2_9444018b7c9bebdce00a2fd04ebe984c81f9b6681d17d1ed5728b490d97ecd77"
+			}
+		}
+	}
 }

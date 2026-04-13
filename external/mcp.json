@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "qmd": {
+            "command": "qmd",
+            "args": ["mcp"]
+        },
+        "renderdoc-mcp-server": {
+            "command": "renderdoc-mcp",
+            "args": []
+        }
+    }
+}

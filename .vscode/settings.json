@@ -2,7 +2,6 @@
   "files.associations": {
     "**/symlink_*": "plaintext",
 
-    ".chezmoi.toml.tmpl": "toml",
     ".chezmoiignore": "ignore",
     "dot_bash_profile.tmpl": "shellscript",
     "dot_bashrc.tmpl": "shellscript",
@@ -14,6 +13,7 @@
     "**/*gnupg/gpg-agent.conf.tmpl": "ini",
 
     "**/*.json.tmpl": "json",
+    "**/*.toml.tmpl": "toml",
     "**/*.sh.tmpl": "shellscript",
     "**/*.fish.tmpl": "fish"
   }

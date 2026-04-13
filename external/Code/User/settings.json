@@ -119,5 +119,6 @@
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 20,
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "C_Cpp.intelliSenseEngine": "disabled"
 }
