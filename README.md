@@ -72,3 +72,4 @@ This ensures zsh reads configs from `$XDG_CONFIG_HOME/zsh` instead of `$HOME`.
 ## Issues
 
 - Bitwarden is not supported yet on Windows.
+- Compound conditions (e.g., `&&`, `||`, `!`) in `env.json` are not supported yet.

@@ -9,7 +9,6 @@
     "cmake.allowCommentsInPresetsFile": true,
     "cmake.configureOnEdit": false,
     "cmake.configureOnOpen": false,
-    "C_Cpp.intelliSenseEngine": "disabled",
     "debug.console.fontFamily": "Consolas",
     "debug.toolBarLocation": "commandCenter",
     "editor.accessibilitySupport": "on",
@@ -35,8 +34,8 @@
     "git.fetchOnPull": true,
     "github.gitProtocol": "ssh",
     "github.copilot.enable": {
-        "*": true,
-        "plaintext": true,
+        "*": false,
+        "plaintext": false,
         "markdown": false,
         "scminput": false,
         "cpp": false,
@@ -119,5 +118,6 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "diffEditor.ignoreTrimWhitespace": false
 }

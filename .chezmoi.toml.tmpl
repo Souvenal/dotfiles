@@ -32,7 +32,7 @@
 {{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") }}
     cmake_generator = "Ninja Multi-Config"
 {{- else if eq .chezmoi.os "windows" }}
-    cmake_generator = "Visual Studio 17 2026"
+    cmake_generator = "Visual Studio 18 2026"
 {{- end }}
  
 [data.language.python]
@@ -85,6 +85,7 @@
     warn_on_empty = true
 
 [data.zsh]
+    use_oh_my_zsh = {{ if eq .chezmoi.os "darwin" -}}true{{- else }}false{{- end }}
     use_kiro_cli = false
     use_theme_p10k = false
     use_theme_starship = true

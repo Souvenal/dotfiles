@@ -16,7 +16,7 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # bun
-export PATH={{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH
+export PATH="{{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH"
 
 # Homebrew settings
 if [ -x "$(which brew)" ]; then
@@ -66,37 +66,30 @@ export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
 
 # C/C++ settings
-export CC={{ .language.cpp.cc | quote }}
-export CXX={{ .language.cpp.cxx | quote }}
-export CMAKE_GENERATOR={{ .language.cpp.cmake_generator | quote }}
-export CMAKE_BUILD_PARALLEL_LEVEL=
-{{- if eq .chezmoi.os "darwin" -}}
-$(sysctl -n hw.ncpu)
-{{- else if eq .chezmoi.os "linux" -}}
-$(nproc)
-{{- else -}}
-8
-{{- end }}
+export CC="{{ .language.cpp.cc }}"
+export CXX="{{ .language.cpp.cxx }}"
+export CMAKE_GENERATOR="{{ .language.cpp.cmake_generator }}"
+export CMAKE_BUILD_PARALLEL_LEVEL="8"
 
 # xmake with XDG config
 export XMAKE_PKG_CACHEDIR="$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
-export DEV_SDK_ROOT={{ .lib.dev_sdk_root | quote }}
-export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
-export LLVM_ROOT={{ .lib.llvm_root | quote }}
+export DEV_SDK_ROOT="{{ .lib.dev_sdk_root }}"
+export PKG_CONFIG_PATH="{{ .lib.pkg_config_path }}:$PKG_CONFIG_PATH"
+export LLVM_ROOT="{{ .lib.llvm_root }}"
 
 # LLVM cmake prefix path
-if [ -n "$LLVM_ROOT" ]; then
+if [ -n "${LLVM_ROOT}" ]; then
     export CMAKE_PREFIX_PATH="$LLVM_ROOT${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
 fi
 
 # vcpkg and Vulkan SDK
-if [ -d "$DEV_SDK_ROOT" ]; then
+if [ -d "${DEV_SDK_ROOT}" ]; then
     export VCPKG_ROOT="$DEV_SDK_ROOT/vcpkg"
-    export VULKAN_SDK_VERSION={{ .lib.vulkan_sdk_version }}
+    export VULKAN_SDK_VERSION="{{ .lib.vulkan_sdk_version }}"
     export VULKAN_SDK_ROOT="$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
-    if [ -f "$VULKAN_SDK_ROOT/setup-env.sh" ]; then
+    if [ -f "${VULKAN_SDK_ROOT/setup-env.sh}" ]; then
         source "$VULKAN_SDK_ROOT/setup-env.sh"
     fi
 fi

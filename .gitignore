@@ -1,2 +1,6 @@
-# oh my opencode
+# cache
+**/__pycache__
+
+# agents
 .sisyphus
+.codely-cli

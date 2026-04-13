@@ -10,10 +10,10 @@ set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
 alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # bun
-export PATH={{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH
+set -gx PATH "{{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH"
 
 # Homebrew settings
-if test -x "$(which brew)" 
+if test -x "$(which brew)"
     set BREW $(which brew 2>/dev/null)
     set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
@@ -60,37 +60,30 @@ set -gx VIMINIT "source $XDG_CONFIG_HOME/vim/vimrc"
 set -gx VIMDOTDIR "$XDG_CONFIG_HOME/vim"
 
 # C/C++ settings
-export CC={{ .language.cpp.cc | quote }}
-export CXX={{ .language.cpp.cxx | quote }}
-export CMAKE_GENERATOR={{ .language.cpp.cmake_generator | quote }}
-export CMAKE_BUILD_PARALLEL_LEVEL=
-{{- if eq .chezmoi.os "darwin" -}}
-$(sysctl -n hw.ncpu)
-{{- else if eq .chezmoi.os "linux" -}}
-$(nproc)
-{{- else -}}
-8
-{{- end }}
+set -gx CC "{{ .language.cpp.cc }}"
+set -gx CXX "{{ .language.cpp.cxx }}"
+set -gx CMAKE_GENERATOR "{{ .language.cpp.cmake_generator }}"
+set -gx CMAKE_BUILD_PARALLEL_LEVEL "8"
 
 # xmake with XDG config
 set -gx XMAKE_PKG_CACHEDIR "$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
-export DEV_SDK_ROOT={{ .lib.dev_sdk_root | quote }}
-export PKG_CONFIG_PATH={{ .lib.pkg_config_path | quote }}:$PKG_CONFIG_PATH
-export LLVM_ROOT={{ .lib.llvm_root | quote }}
+set -gx DEV_SDK_ROOT "{{ .lib.dev_sdk_root }}"
+set -gx PKG_CONFIG_PATH "{{ .lib.pkg_config_path }}:$PKG_CONFIG_PATH"
+set -gx LLVM_ROOT "{{ .lib.llvm_root }}"
 
 # LLVM cmake prefix path
-if test -n "$LLVM_ROOT" 
+if test -n "${LLVM_ROOT}"
     set -gx CMAKE_PREFIX_PATH "$LLVM_ROOT${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
 end
 
 # vcpkg and Vulkan SDK
-if test -d "$DEV_SDK_ROOT" 
+if test -d "${DEV_SDK_ROOT}"
     set -gx VCPKG_ROOT "$DEV_SDK_ROOT/vcpkg"
-    export VULKAN_SDK_VERSION={{ .lib.vulkan_sdk_version }}
+    set -gx VULKAN_SDK_VERSION "{{ .lib.vulkan_sdk_version }}"
     set -gx VULKAN_SDK_ROOT "$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
-    if test -f "$VULKAN_SDK_ROOT/setup-env.sh" 
+    if test -f "${VULKAN_SDK_ROOT/setup-env.sh}"
         source "$VULKAN_SDK_ROOT/setup-env.sh"
     end
 end

@@ -1,18 +1,24 @@
-# ide
-.vscode
-
-AGENTS.md
+# Files that belongs to this project
 README.md
+docs
 
 env.json
 generate_env.py
 
+# agents
+.agents
+AGENTS.md
+
 # cache and compiled files
 .local/share/oh-my-zsh/cache/
 .local/share/oh-my-zsh/**/*.zwc
+**/__pycache__
 
 # Files that are managed externally by other apps
 external/
+
+# ide
+.vscode
 
 # windows is dealed differently
 {{- if eq .chezmoi.os "windows" }}
