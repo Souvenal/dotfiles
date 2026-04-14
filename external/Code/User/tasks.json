@@ -71,6 +71,23 @@
             "group": "build"
         },
         {
+            "label": "[Souvenal] CMake Build (RelWithDebInfo)",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build", "build",
+                "--config", "RelWithDebInfo"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
             "label": "[Souvenal] CMake Build (Release)",
             "type": "shell",
             "command": "cmake",
