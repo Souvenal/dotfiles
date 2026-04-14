@@ -1,7 +1,7 @@
 {
     // CodeBuddy CN settings
     "codingcopilot.enableInlineChat": true,
-    "codingcopilot.enableInlineChatIDEShortcutsTip": true,
+    "codingcopilot.enableInlineChatIDEShortcutsTip": false,
     "codingcopilot.commitMessageStyle": "Auto",
     "codingcopilot.commitMessageLanguage": "en",
     "codingcopilot.toolbarOnSelection": false,
@@ -126,7 +126,6 @@
             "source": "PowerShell"
         }
     },
-    "workbench.colorTheme": "Theme",
     "workbench.editorAssociations": {
         "{hexdiff}:/**/*.*": "hexEditor.hexedit",
         "*.copilotmd": "vscode.markdown.preview.editor",
