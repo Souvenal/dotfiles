@@ -29,12 +29,12 @@
 [gpg]
     program = gpg
 
-{{ if .proxy.use_proxy -}}
+{{ if ne .personal.location "unity-cn" -}}
 [http]
-    proxy = {{ .proxy.http | quote }}
+    proxy = {{ .network.http_proxy | quote }}
 
 [https]
-    proxy = {{ .proxy.https | quote }}
+    proxy = {{ .network.https_proxy | quote }}
 {{- end }}
 
 [pull]

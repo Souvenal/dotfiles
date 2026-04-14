@@ -5,12 +5,21 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# bash
-export HISTFILE="$XDG_STATE_HOME/bash/history"
+# Network proxy config
+# Use both upper and lower cases for compatibility
+export http_proxy="{{ .network.http_proxy }}"
+export HTTP_PROXY="$http_proxy"
+export https_proxy="{{ .network.https_proxy }}"
+export HTTPS_PROXY="$https_proxy"
+export no_proxy="{{ .network.no_proxy }}"
+export NO_PROXY="$no_proxy"
 
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
+
+# bash
+export HISTFILE="$XDG_STATE_HOME/bash/history"
 
 # bun
 export PATH="{{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH"
