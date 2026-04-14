@@ -1,4 +1,11 @@
 {
+    "[makefile]": {
+        "editor.insertSpaces": false,    // Pressing tab will insert '\t'
+        "editor.detectIndentation": false, // Ban VS Code from auto-detecting
+        "editor.tabSize": 4,            // Tab visual sapces
+        "editor.formatOnSave": false    // Present automatically converting
+    },
+    "C_Cpp.intelliSenseEngine": "disabled",
     "cmake.buildArgs": [
         "-j", "16"
     ],
@@ -11,11 +18,13 @@
     "cmake.configureOnOpen": false,
     "debug.console.fontFamily": "Consolas",
     "debug.toolBarLocation": "commandCenter",
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.accessibilitySupport": "on",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 14,
     "editor.largeFileOptimizations": false,
     "editor.lineNumbers": "relative",
+    "editor.renderWhitespace": "all",           // Render a dot in white space  
     "explorer.confirmDelete": false,
     "explorer.compactFolders": false,
     "extensions.experimental.affinity": {
@@ -118,7 +127,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
-    "workbench.tree.indent": 20,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "C_Cpp.intelliSenseEngine": "disabled"
+    "workbench.tree.indent": 20
 }
