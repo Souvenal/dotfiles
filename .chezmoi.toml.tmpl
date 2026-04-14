@@ -1,5 +1,10 @@
 [chezmoi.config.bitwarden]
     unlock = "auto"
+{{- if eq .chezmoi.os "windows" }}
+
+[cd]
+    command = "pwsh"
+{{- end }}
     
 [data.bash]
     use_kiro_cli = false
