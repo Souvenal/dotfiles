@@ -5,6 +5,15 @@
 [cd]
     command = "pwsh"
 {{- end }}
+
+[data.personal]
+{{- $email := promptStringOnce . "personal.email" "Email address" "souvenal777@gmail.com" }}
+    email = {{ $email | quote }}
+{{- $location_choices := list "nju" "unity-cn" "home" }}
+{{- $location := promptChoiceOnce . "personal.location" "Location" $location_choices "home" }}
+    location = {{ $location | quote }}
+{{- $name := promptStringOnce . "personal.name" "Name" "Souvenal" }}
+    name = {{ $name | quote }}
     
 [data.bash]
     use_kiro_cli = false
@@ -69,24 +78,19 @@
 {{- end }}
 
 [data.network]
+{{- if ne .personal.location "unity-cn" }}
     http_proxy = "http://localhost:7890"
     https_proxy = "http://localhost:7890"
+{{- else }}
+    http_proxy = ""
+    https_proxy = ""
+{{- end }}
 {{- $no_proxy_list := list
         "localhost" "127.0.0.0/8" "::1" "10.0.0.0/8"
         "172.16.0.0/12" "192.168.0.0/16" ".local"
         ".cn" ".aliyun.com" ".huaweicloud.com" ".hiascend.com"
         ".qq.com" ".163.com" ".npmmirror.com" }}
     no_proxy = {{ $no_proxy_list | join "," | quote }}
-
-[data.personal]
-{{- $email := promptStringOnce . "personal.email" "Email address" "souvenal777@gmail.com" }}
-    email = {{ $email | quote }}
-{{- $location_choices := list "nju" "unity-cn" "home" }}
-{{- $location := promptChoiceOnce . "personal.location" "Location" $location_choices "home" }}
-    location = {{ $location | quote }}
-{{- $name := promptStringOnce . "personal.name" "Name" "Souvenal" }}
-    name = {{ $name | quote }}
-
 
 [data.public_keys]
     gpg_key_id = "333F460B105EC701"
