@@ -11,6 +11,7 @@
     autocrlf = input
 {{- end }}
     editor = "code --wait"
+    symlinks = true
 
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
