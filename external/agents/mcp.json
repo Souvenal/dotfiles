@@ -1,27 +1,32 @@
 {
   "mcpServers": {
     "qmd": {
-        "command": "qmd",
-        "args": ["mcp"],
-        "type": "stdio",
-        "description": "Query Markup Document MCP"
+      "command": "qmd",
+      "args": [
+        "mcp"
+      ],
+      "type": "stdio",
+      "description": "Query Markup Document MCP"
     },
     "renderdoc-mcp-server": {
-        "command": "renderdoc-mcp",
-        "args": []
+      "command": "renderdoc-mcp",
+      "args": []
     },
     "Context7": {
-        "timeout": 60000,
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp"],
-        "type": "stdio",
-        "disabled": false
+      "timeout": 60000,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "type": "stdio",
+      "disabled": false
     },
     "grep_app": {
-        "timeout": 60000,
-        "type": "remote",
-        "url": "https://mcp.grep.app",
-        "description": "Grep App MCP"
+      "timeout": 60000,
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "description": "Grep App MCP"
     }
   }
 }
