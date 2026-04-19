@@ -14,8 +14,13 @@ $env:HTTPS_PROXY = "$env:https_proxy"
 $env:no_proxy = "{{ .network.no_proxy }}"
 $env:NO_PROXY = "$env:no_proxy"
 
+# npm
+$env:NPM_CONFIG_USERCONFIG = "$env:XDG_CONFIG_HOME/npm/npmrc"
+$env:PATH = "$env:XDG_DATA_HOME/npm;$env:PATH"
+
 # bun
-$env:PATH = "{{ .chezmoi.homeDir }}/.cache/.bun/bin:$env:PATH"
+$env:BUN_INSTALL = "$env:XDG_DATA_HOME/bun"
+$env:PATH = "$env:BUN_INSTALL/bin;$env:PATH"
 
 # Docker
 $env:DOCKER_CONFIG = "$env:XDG_CONFIG_HOME/docker"
@@ -32,9 +37,6 @@ $env:GRADLE_USER_HOME = "$env:XDG_DATA_HOME/gradle"
 
 # Node.js
 $env:NODE_REPL_HISTORY = "$env:XDG_DATA_HOME/node_repl_history"
-
-# npm
-$env:NPM_CONFIG_USERCONFIG = "$env:XDG_CONFIG_HOME/npm/npmrc"
 
 # Nuget (partial)
 $env:NUGET_PACKAGES = "$env:XDG_DATA_HOME/nuget/packages"
@@ -59,7 +61,7 @@ $env:XMAKE_PKG_CACHEDIR = "$env:XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
 $env:DEV_SDK_ROOT = "{{ .lib.dev_sdk_root }}"
-$env:PKG_CONFIG_PATH = "{{ .lib.pkg_config_path }}:$env:PKG_CONFIG_PATH"
+$env:PKG_CONFIG_PATH = "{{ .lib.pkg_config_path }};$env:PKG_CONFIG_PATH"
 $env:LLVM_ROOT = "{{ .lib.llvm_root }}"
 
 # LLVM cmake prefix path

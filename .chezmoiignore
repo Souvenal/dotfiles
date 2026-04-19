@@ -27,6 +27,7 @@ external/
 .bashrc
 .config/fish/
 .config/zsh/
+.config/zed/
 {{- else }}
 **/*.ps1
 Documents/PowerShell/
@@ -34,7 +35,9 @@ AppData/
 {{- end }}
 
 # macOS specific
-{{- if ne .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
+
+{{- else }}
 Library/
 .local/share/gnupg/gpg-agent.conf
 {{- end }}

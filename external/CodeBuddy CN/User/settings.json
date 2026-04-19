@@ -64,6 +64,8 @@
         "asvetliakov.vscode-neovim": 1
     },
     "files.associations": {
+        "*.uplugin": "json",
+        "*.uproject": "json",
         "*.ush": "glsl",
         "*.usf": "glsl"
     },
@@ -75,6 +77,9 @@
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "github.gitProtocol": "ssh",
+    "github.copilot.enable": {
+        "*": false,
+    },
     "json.schemaDownload.trustedDomains": {
         "https://aka.ms/": true,
         "https://models.dev/": true,

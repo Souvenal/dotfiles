@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import json
 import argparse
+import re
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Callable
@@ -36,7 +37,7 @@ def translate_ps1_condition(cond: str) -> tuple:
 
 def render_bash_condition(cond_type: str, cond_value: str) -> str:
     # 如果 cond_value 以 $ 开头，去掉 $
-    var_name = cond_value[1:] if cond_value.startswith('$') else cond_value
+    var_name = cond_value[1:] if cond_value.startswith("$") else cond_value
 
     condition_map = {
         "executable": '[ -x "$(which ' + var_name + ')" ]',
@@ -51,7 +52,7 @@ def render_bash_condition(cond_type: str, cond_value: str) -> str:
 
 def render_fish_condition(cond_type: str, cond_value: str) -> str:
     # 如果 cond_value 以 $ 开头，去掉 $
-    var_name = cond_value[1:] if cond_value.startswith('$') else cond_value
+    var_name = cond_value[1:] if cond_value.startswith("$") else cond_value
 
     condition_map = {
         "executable": 'test -x "$(which ' + var_name + ')"',
@@ -67,21 +68,25 @@ def render_fish_condition(cond_type: str, cond_value: str) -> str:
 def render_ps1_condition(cond_type: str, cond_value: str) -> str:
     def to_env_var(v: str) -> str:
         # 如果已经是 $env: 格式，直接返回
-        if v.startswith('$env:'):
+        if v.startswith("$env:"):
             return v
         # 如果是 $VAR 格式，转换为 $env:VAR
-        if v.startswith('$') and ':' not in v:
+        if v.startswith("$") and ":" not in v:
             return "$env:" + v[1:]
         # 否则（如 LLVM_ROOT），添加 $env: 前缀
         return "$env:" + v
 
     condition_map = {
-        "executable": '(Get-Command ' + cond_value + ').Source | Test-Path -PathType Leaf -ErrorAction SilentlyContinue',
-        "not_empty": '[string]::IsNullOrEmpty(' + to_env_var(cond_value) + ') -eq $false',
-        "dir_exists": 'Test-Path ' + to_env_var(cond_value) + ' -PathType Container',
+        "executable": "(Get-Command "
+        + cond_value
+        + ").Source | Test-Path -PathType Leaf -ErrorAction SilentlyContinue",
+        "not_empty": "[string]::IsNullOrEmpty("
+        + to_env_var(cond_value)
+        + ") -eq $false",
+        "dir_exists": "Test-Path " + to_env_var(cond_value) + " -PathType Container",
         "file_exists": 'Test-Path "' + to_env_var(cond_value) + '" -PathType Leaf',
-        "empty": '[string]::IsNullOrEmpty(' + to_env_var(cond_value) + ')',
-        "path_exists": 'Test-Path ' + to_env_var(cond_value),
+        "empty": "[string]::IsNullOrEmpty(" + to_env_var(cond_value) + ")",
+        "path_exists": "Test-Path " + to_env_var(cond_value),
     }
     return condition_map.get(cond_type, "")
 
@@ -89,21 +94,58 @@ def render_ps1_condition(cond_type: str, cond_value: str) -> str:
 def make_export_line(indent_fn: Callable, quote_fn: Callable):
     def f(key: str, value: str, depth: int, quote: str = '"') -> str:
         if quote == '"' and '"' in value:
-            value = value.replace('\\', '\\\\').replace('"', '\\"')
-            return f"{indent_fn(depth)}export {key}=\"{value}\""
+            value = value.replace("\\", "\\\\").replace('"', '\\"')
+            return f'{indent_fn(depth)}export {key}="{value}"'
         elif quote == "'" and "'" in value:
             value = value.replace("'", "'\\''")
             return f"{indent_fn(depth)}export {key}='{value}'"
-        return f"{indent_fn(depth)}export {key}={quote_fn(quote)}{value}{quote_fn(quote)}"
+        return (
+            f"{indent_fn(depth)}export {key}={quote_fn(quote)}{value}{quote_fn(quote)}"
+        )
+
     return f
 
 
 def escape_value(value: str, quote: str) -> str:
     if quote == '"' and '"' in value:
-        return value.replace('\\', '\\\\').replace('"', '\\"')
+        return value.replace("\\", "\\\\").replace('"', '\\"')
     elif quote == "'" and "'" in value:
         return value.replace("'", "'\\''")
     return value
+
+
+def convert_path_separator(value: str, target_shell: str) -> str:
+    if target_shell != "ps1":
+        return value
+
+    path_keys = [
+        "PATH",
+        "PKG_CONFIG_PATH",
+        "LD_LIBRARY_PATH",
+        "PYTHONPATH",
+        "CLASSPATH",
+        "GOPATH",
+    ]
+
+    if not any(k in value for k in path_keys):
+        return value
+
+    if "${" in value:
+        return value
+
+    protected = []
+    placeholder = "___PROT_{}___"
+
+    def protect(match):
+        protected.append(match.group(0))
+        return placeholder.format(len(protected) - 1)
+
+    protected_value = re.sub(r"\$env:[A-Za-z_][A-Za-z0-9_]*", protect, value)
+    protected_value = protected_value.replace(":", ";")
+    for i, p in enumerate(protected):
+        protected_value = protected_value.replace(placeholder.format(i), p)
+
+    return protected_value
 
 
 def postprocess_ps1(content: str) -> str:
@@ -111,17 +153,16 @@ def postprocess_ps1(content: str) -> str:
     Post-process PowerShell content to convert environment variable references
     from shell-style ($VAR or ${VAR}) to PowerShell-style ($env:VAR).
     """
-    lines = content.split('\n')
+    lines = content.split("\n")
     processed_lines = []
 
     for line in lines:
         # Skip lines that are comments
-        if line.strip().startswith('#'):
+        if line.strip().startswith("#"):
             processed_lines.append(line)
             continue
 
         # Handle lines with chezmoi templates by temporarily replacing them
-        import re
 
         # Find and protect chezmoi templates
         template_parts = []
@@ -135,7 +176,7 @@ def postprocess_ps1(content: str) -> str:
             template_parts.append(match.group(0))
             return placeholder
 
-        line_with_templates = re.sub(r'{{.*?}}', protect_template, line)
+        line_with_templates = re.sub(r"{{.*?}}", protect_template, line)
 
         # Replace environment variable references
         # Skip $HOME and other built-in variables
@@ -145,90 +186,121 @@ def postprocess_ps1(content: str) -> str:
         # First pass: mark $env:VAR as already correct by adding a temporary marker
         # This prevents them from being re-matched
         temp_marker = "___ENV___"
-        line_with_templates = re.sub(r'\$env:([A-Za-z_][A-Za-z0-9_]*)', temp_marker + r'\1', line_with_templates)
+        line_with_templates = re.sub(
+            r"\$env:([A-Za-z_][A-Za-z0-9_]*)", temp_marker + r"\1", line_with_templates
+        )
 
         # Second pass: convert $VAR or ${VAR} to $env:VAR
         # Pattern to match $VAR or ${VAR} but not $HOME
-        pattern = r'\$(?:([A-Za-z_][A-Za-z0-9_]*)|\{([A-Za-z_][A-Za-z0-9_]*)\})'
+        pattern = r"\$(?:([A-Za-z_][A-Za-z0-9_]*)|\{([A-Za-z_][A-Za-z0-9_]*)\})"
 
         def replace_var(match):
             var_name = match.group(1) or match.group(2)
             # Skip PowerShell built-in variables
-            built_in_vars = ['HOME', 'PWD', 'USERPROFILE', 'HOSTNAME', 'NULL', 'TRUE', 'FALSE', 'NULL']
+            built_in_vars = [
+                "HOME",
+                "PWD",
+                "USERPROFILE",
+                "HOSTNAME",
+                "NULL",
+                "TRUE",
+                "FALSE",
+                "NULL",
+            ]
             if var_name in built_in_vars:
                 return match.group(0)
-            return f'$env:{var_name}'
+            return f"$env:{var_name}"
 
         processed_line = re.sub(pattern, replace_var, line_with_templates)
 
         # Third pass: restore the temporary markers back to $env:VAR
-        processed_line = re.sub(temp_marker + r'([A-Za-z_][A-Za-z0-9_]*)', r'$env:\1', processed_line)
+        processed_line = re.sub(
+            temp_marker + r"([A-Za-z_][A-Za-z0-9_]*)", r"$env:\1", processed_line
+        )
 
         # Restore chezmoi templates
         for i, template in enumerate(template_parts):
-            processed_line = processed_line.replace(template_placeholder.format(i), template)
+            processed_line = processed_line.replace(
+                template_placeholder.format(i), template
+            )
 
         processed_lines.append(processed_line)
 
-    return '\n'.join(processed_lines)
+    return "\n".join(processed_lines)
 
 
 BACKENDS = {
     "bash": ShellBackend(
         name="bash",
         indent="    ",
-        export_line=lambda k, v, d, q='"': f"{'    ' * d}export {k}=\"{escape_value(v, q)}\"",
+        export_line=lambda k, v, d, q='"': (
+            f'{"    " * d}export {k}="{escape_value(v, q)}"'
+        ),
         local_line=lambda k, v, d: f"{'    ' * d}{k}={v}",
         alias_line=lambda k, v, d: f"{'    ' * d}alias {k}='{v}'",
-        eval_line=lambda v, d: f"{'    ' * d}eval \"{v}\"",
+        eval_line=lambda v, d: f'{"    " * d}eval "{v}"',
         source_line=lambda v, d: f"{'    ' * d}{v}",
         translate_condition=translate_bash_condition,
         render_condition=render_bash_condition,
         close_block="fi",
         close_template="{{- end -}}",
-        mkdir_line=lambda v, d: f"{'    ' * d}if [ ! -d \"{v}\" ]; then mkdir -p \"{v}\"; fi",
+        mkdir_line=lambda v, d: (
+            f'{"    " * d}if [ ! -d "{v}" ]; then mkdir -p "{v}"; fi'
+        ),
     ),
     "zsh": ShellBackend(
         name="zsh",
         indent="    ",
-        export_line=lambda k, v, d, q='"': f"{'    ' * d}export {k}=\"{escape_value(v, q)}\"",
+        export_line=lambda k, v, d, q='"': (
+            f'{"    " * d}export {k}="{escape_value(v, q)}"'
+        ),
         local_line=lambda k, v, d: f"{'    ' * d}{k}={v}",
         alias_line=lambda k, v, d: f"{'    ' * d}alias {k}='{v}'",
-        eval_line=lambda v, d: f"{'    ' * d}eval \"{v}\"",
+        eval_line=lambda v, d: f'{"    " * d}eval "{v}"',
         source_line=lambda v, d: f"{'    ' * d}{v}",
         translate_condition=translate_bash_condition,
         render_condition=render_bash_condition,
         close_block="fi",
         close_template="{{- end -}}",
-        mkdir_line=lambda v, d: f"{'    ' * d}if [ ! -d \"{v}\" ]; then mkdir -p \"{v}\"; fi",
+        mkdir_line=lambda v, d: (
+            f'{"    " * d}if [ ! -d "{v}" ]; then mkdir -p "{v}"; fi'
+        ),
     ),
     "fish": ShellBackend(
         name="fish",
         indent="    ",
-        export_line=lambda k, v, d, q='"': f"{'    ' * d}set -gx {k} \"{escape_value(v, q)}\"",
+        export_line=lambda k, v, d, q='"': (
+            f'{"    " * d}set -gx {k} "{escape_value(v, q)}"'
+        ),
         local_line=lambda k, v, d: f"{'    ' * d}set {k} {v}",
         alias_line=lambda k, v, d: f"{'    ' * d}alias {k} '{v}'",
-        eval_line=lambda v, d: f"{'    ' * d}eval \"{v}\"",
+        eval_line=lambda v, d: f'{"    " * d}eval "{v}"',
         source_line=lambda v, d: f"{'    ' * d}{v}",
         translate_condition=translate_fish_condition,
         render_condition=render_fish_condition,
         close_block="end",
         close_template="{{- end -}}",
-        mkdir_line=lambda v, d: f"{'    ' * d}if not test -d \"{v}\"; mkdir -p \"{v}\"; end",
+        mkdir_line=lambda v, d: (
+            f'{"    " * d}if not test -d "{v}"; mkdir -p "{v}"; end'
+        ),
     ),
     "ps1": ShellBackend(
         name="ps1",
         indent="    ",
-        export_line=lambda k, v, d, q='"': f"{'    ' * d}$env:{k} = \"{escape_value(v, q)}\"",
-        local_line=lambda k, v, d: f"{'    ' * d}${k} = \"{v}\"",
+        export_line=lambda k, v, d, q='"': (
+            f'{"    " * d}$env:{k} = "{escape_value(v, q)}"'
+        ),
+        local_line=lambda k, v, d: f'{"    " * d}${k} = "{v}"',
         alias_line=lambda k, v, d: f"{'    ' * d}Set-Alias {k} '{v}'",
-        eval_line=lambda v, d: f"{'    ' * d}Invoke-Expression \"{v}\"",
+        eval_line=lambda v, d: f'{"    " * d}Invoke-Expression "{v}"',
         source_line=lambda v, d: f"{'    ' * d}. {v}",
         translate_condition=translate_ps1_condition,
         render_condition=render_ps1_condition,
         close_block="}",
         close_template="{{- end -}}",
-        mkdir_line=lambda v, d: f"{'    ' * d}if (-not (Test-Path \"{v}\")) {{ New-Item -ItemType Directory -Path \"{v}\" -Force }}",
+        mkdir_line=lambda v, d: (
+            f'{"    " * d}if (-not (Test-Path "{v}")) {{ New-Item -ItemType Directory -Path "{v}" -Force }}'
+        ),
     ),
 }
 
@@ -271,6 +343,7 @@ def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> 
         for env in env_vars:
             key = env.get("key", "")
             value = env.get("value", "").replace("\\n", "\n")
+            value = convert_path_separator(value, target_shell)
             env_condition = env.get("condition")
             env_type = env.get("type", "export")
             quote = env.get("quote", '"')
@@ -320,7 +393,9 @@ def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--shell", choices=["bash", "zsh", "fish", "ps1", "all"], default="bash")
+    parser.add_argument(
+        "--shell", choices=["bash", "zsh", "fish", "ps1", "all"], default="bash"
+    )
     parser.add_argument("--output", type=Path)
     parser.add_argument("--input", type=Path, default=Path("env.json"))
     args = parser.parse_args()

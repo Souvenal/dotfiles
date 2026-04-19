@@ -31,6 +31,8 @@
         "asvetliakov.vscode-neovim": 1
     },
     "files.associations": {
+        "*.uplugin": "json",
+        "*.uproject": "json",
         "*.ush": "glsl",
         "*.usf": "glsl"
     },
@@ -44,11 +46,6 @@
     "github.gitProtocol": "ssh",
     "github.copilot.enable": {
         "*": false,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "cpp": false,
-        "c": true
     },
     "json.schemaDownload.trustedDomains": {
         "https://aka.ms/": true,

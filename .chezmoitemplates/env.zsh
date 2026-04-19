@@ -24,8 +24,13 @@ if [ ! -d "$XDG_CACHE_HOME/zsh" ]; then mkdir -p "$XDG_CACHE_HOME/zsh"; fi
 export ZSH="$XDG_DATA_HOME/oh-my-zsh"
 export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PATH="$XDG_DATA_HOME/npm:$PATH"
+
 # bun
-export PATH="{{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH"
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
 if [ -x "$(which brew)" ]; then
@@ -58,9 +63,6 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 # Node.js
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
-
-# npm
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # Nuget (partial)
 export NUGET_PACKAGES="$XDG_DATA_HOME/nuget/packages"

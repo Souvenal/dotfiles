@@ -18,8 +18,13 @@ set -gx NO_PROXY "$no_proxy"
 set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
 alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
+# npm
+set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
+set -gx PATH "$XDG_DATA_HOME/npm:$PATH"
+
 # bun
-set -gx PATH "{{ .chezmoi.homeDir }}/.cache/.bun/bin:$PATH"
+set -gx BUN_INSTALL "$XDG_DATA_HOME/bun"
+set -gx PATH "$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
 if test -x "$(which brew)"
@@ -52,9 +57,6 @@ set -gx GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
 
 # Node.js
 set -gx NODE_REPL_HISTORY "$XDG_DATA_HOME/node_repl_history"
-
-# npm
-set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 
 # Nuget (partial)
 set -gx NUGET_PACKAGES "$XDG_DATA_HOME/nuget/packages"
