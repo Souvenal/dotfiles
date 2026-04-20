@@ -50,9 +50,7 @@
 {{- end }}
  
 [data.language.python]
-{{- if eq .chezmoi.os "darwin" }}
     conda_root = "{{ .chezmoi.homeDir }}/miniconda3"
-{{- end }}
 
 [data.lib]
     dev_sdk_root = "$HOME/Libraries"

@@ -23,8 +23,6 @@ external/
 # windows is dealed differently
 {{- if eq .chezmoi.os "windows" }}
 **/*.sh
-.bash_profile
-.bashrc
 .config/fish/
 .config/zsh/
 .config/zed/
