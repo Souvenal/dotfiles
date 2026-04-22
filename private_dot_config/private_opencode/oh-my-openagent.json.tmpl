@@ -2,9 +2,24 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "model_fallback": true,
   "agents": {
-    "sisyphus": {
-      "model": "minimax-cn-coding-plan/MiniMax-M2.7"
-    }
+    "sisyphus": { "model": "kimi-for-coding/k2p6" },
+    "oracle": { "model": "minimax-cn-coding-plan/MiniMax-M2.7" },
+    "librarian": { "model": "minimax-cn-coding-plan/MiniMax-M2.5" },
+    "explore": { "model": "minimax-cn-coding-plan/MiniMax-M2.1" },
+    "metis": { "model": "kimi-for-coding/k2p6" },
+    "momus": { "model": "minimax-cn-coding-plan/MiniMax-M2.7" },
+    "atlas": { "model": "minimax-cn-coding-plan/MiniMax-M2.7" },
+    "prometheus": { "model": "kimi-for-coding/k2p6" }
+  },
+  "categories": {
+    "deep": { "model": "minimax-cn-coding-plan/MiniMax-M2.7" },
+    "ultrabrain": { "model": "kimi-for-coding/k2p6" },
+    "artistry": { "model": "kimi-for-coding/k2p6" },
+    "unspecified-high": { "model": "kimi-for-coding/k2p6" },
+    "visual-engineering": { "model": "minimax-cn-coding-plan/MiniMax-M2.7" },
+    "quick": { "model": "minimax-cn-coding-plan/MiniMax-M2.5" },
+    "unspecified-low": { "model": "minimax-cn-coding-plan/MiniMax-M2.1" },
+    "writing": { "model": "minimax-cn-coding-plan/MiniMax-M2.5" }
   },
   "git_master": {
     "commit_footer": false,
