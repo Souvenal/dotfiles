@@ -64,6 +64,7 @@
         "asvetliakov.vscode-neovim": 1
     },
     "files.associations": {
+        "*ignore": "ignore",
         "*.uplugin": "json",
         "*.uproject": "json",
         "*.ush": "glsl",

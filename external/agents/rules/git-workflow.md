@@ -2,11 +2,13 @@
 description: git workflow rules
 alwaysApply: true
 enabled: true
-updatedAt: 2026-04-15T18:12:18.899Z
+updatedAt: 2026-04-21T20:39:02.774Z
 provider: 
 ---
 
 # Git Workflow Rules
+
+---
 
 - Never perform `git commit` automatically.
 - Never perform `git push` automatically.
