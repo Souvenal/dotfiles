@@ -1,5 +1,6 @@
 # agents
 **/AGENTS.local.md
 docs/plans/
+.codebuddy/plans/
 .sisyphus/
 .codely-cli/
