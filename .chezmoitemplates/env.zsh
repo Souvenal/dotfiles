@@ -73,8 +73,8 @@ export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
 
 # vim with XDG config
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
+alias vim='vim -u $VIMDOTDIR/vimrc'
 
 # C/C++ settings
 export CC="{{ .language.cpp.cc }}"

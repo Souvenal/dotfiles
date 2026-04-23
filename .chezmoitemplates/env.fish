@@ -67,8 +67,8 @@ set -gx PYTHONPYCACHEPREFIX "$XDG_CACHE_HOME/python"
 set -gx PYTHONUSERBASE "$XDG_DATA_HOME/python"
 
 # vim with XDG config
-set -gx VIMINIT "source $XDG_CONFIG_HOME/vim/vimrc"
 set -gx VIMDOTDIR "$XDG_CONFIG_HOME/vim"
+alias vim 'vim -u $VIMDOTDIR/vimrc'
 
 # C/C++ settings
 set -gx CC "{{ .language.cpp.cc }}"

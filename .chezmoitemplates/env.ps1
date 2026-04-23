@@ -47,8 +47,8 @@ $env:PYTHONPYCACHEPREFIX = "$env:XDG_CACHE_HOME/python"
 $env:PYTHONUSERBASE = "$env:XDG_DATA_HOME/python"
 
 # vim with XDG config
-$env:VIMINIT = "source $env:XDG_CONFIG_HOME/vim/vimrc"
 $env:VIMDOTDIR = "$env:XDG_CONFIG_HOME/vim"
+Set-Alias vim 'vim -u $env:VIMDOTDIR/vimrc'
 
 # C/C++ settings
 $env:CC = "{{ .language.cpp.cc }}"
