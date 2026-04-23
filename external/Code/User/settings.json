@@ -31,6 +31,8 @@
         "asvetliakov.vscode-neovim": 1
     },
     "files.associations": {
+        "Makefile.*": "makefile",
+        "README*": "markdown",
         "*ignore": "ignore",
         "*.uplugin": "json",
         "*.uproject": "json",
