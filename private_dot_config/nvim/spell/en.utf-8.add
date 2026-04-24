@@ -8,3 +8,11 @@ gcc
 perl
 ChangeLog
 SPDX
+github
+sha256
+lfs
+Preprocess
+float32
+postprocess
+uint8
+onnx
