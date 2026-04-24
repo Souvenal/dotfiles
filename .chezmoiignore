@@ -27,6 +27,7 @@ AGENTS.md
 .config/fish/
 .config/zsh/
 .config/zed/
+.config/uv/
 {{- else }}
 **/*.ps1
 Documents/PowerShell/
