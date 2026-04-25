@@ -19,34 +19,26 @@
     use_kiro_cli = false
 
 [data.language.cpp]
-{{- $cc_choices := list "" }}
-{{- $cc_default := "" }}
-{{- $cxx_choices := list "" }}
-{{- $cxx_default := "" }}
 {{- if eq .chezmoi.os "linux" }}
-    {{- $cc_choices = list "/usr/bin/gcc" }}
-    {{- $cc_default = "/usr/bin/gcc" }}
-    {{- $cxx_choices = list "/usr/bin/g++" }}
-    {{- $cxx_default = "/usr/bin/g++" }}
-{{- else if eq .chezmoi.os "darwin" }}
-    {{- $cc_choices = list "/usr/bin/clang" "/usr/local/bin/clang" }}
-    {{- $cc_default = "/usr/local/bin/clang" }}
-    {{- $cxx_choices = list "/usr/bin/clang++" "/usr/local/bin/clang++" }}
-    {{- $cxx_default = "/usr/local/bin/clang++" }}
-{{- else if eq .chezmoi.os "windows" }}
-    {{- $cc_choices = list "" }}
-    {{- $cc_default = "" }}
-    {{- $cxx_choices = list "" }}
-    {{- $cxx_default = "" }}
-{{- end }}
-{{- $cc := promptChoiceOnce . "language.cpp.cc" "C compiler" $cc_choices $cc_default }}
-{{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" $cxx_choices $cxx_default }}
+{{- $cc := promptChoiceOnce . "language.cpp.cc" "C compiler" (list "/usr/bin/gcc") "/usr/bin/gcc" }}
+{{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" (list "/usr/bin/g++") "/usr/bin/g++" }}
     cc = {{ $cc | quote }}
     cxx = {{ $cxx | quote }}
-{{- if or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin") }}
+    cmake_generator = "Ninja Multi-Config"
+{{- else if eq .chezmoi.os "darwin" }}
+{{- $cc := promptChoiceOnce . "language.cpp.cc" "C compiler" (list "/usr/bin/clang" "/usr/local/bin/clang") "/usr/local/bin/clang" }}
+{{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" (list "/usr/bin/clang++" "/usr/local/bin/clang++") "/usr/local/bin/clang++" }}
+    cc = {{ $cc | quote }}
+    cxx = {{ $cxx | quote }}
     cmake_generator = "Ninja Multi-Config"
 {{- else if eq .chezmoi.os "windows" }}
-    cmake_generator = "Visual Studio 18 2026"
+{{- $cc := promptChoiceOnce . "language.cpp.cc" "C compiler" (list "clang-cl") "clang-cl" }}
+{{- $cxx := promptChoiceOnce . "language.cpp.cxx" "C++ compiler" (list "clang-cl") "clang-cl" }}
+{{- $cmake_gen_choices := list "Ninja Multi-Config" "Visual Studio 18 2026" }}
+{{- $cmake_generator := promptChoiceOnce . "language.cpp.cmake_generator" "CMake generator" $cmake_gen_choices "Ninja Multi-Config" }}
+    cc = {{ $cc | quote }}
+    cxx = {{ $cxx | quote }}
+    cmake_generator = {{ $cmake_generator | quote }}
 {{- end }}
  
 [data.language.python]
@@ -76,13 +68,8 @@
 {{- end }}
 
 [data.network]
-{{- if ne .personal.location "unity-cn" }}
     http_proxy = "http://localhost:7890"
     https_proxy = "http://localhost:7890"
-{{- else }}
-    http_proxy = ""
-    https_proxy = ""
-{{- end }}
 {{- $no_proxy_list := list
         "localhost" "127.0.0.0/8" "::1" "10.0.0.0/8"
         "172.16.0.0/12" "192.168.0.0/16" ".local"
