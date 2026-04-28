@@ -64,14 +64,19 @@ $env:SDK_ROOT = "{{ .sdk.sdk_path }}"
 $env:PKG_CONFIG_PATH = "{{ .sdk.pkg_config_path }};$env:PKG_CONFIG_PATH"
 
 # LLVM
-$env:PATH = "{{ .sdk.llvm_path }}/bin;$env:PATH"
+$env:LLVM_PATH = "{{ .sdk.llvm_path }}"
+if (Test-Path $env:LLVM_PATH -PathType Container) {
+    $env:PATH = "$env:LLVM_PATH/bin;$env:PATH"
+}
 
-# vcpkg and Vulkan SDK
-if (Test-Path $env:DEV_SDK_ROOT -PathType Container) {
+# vcpkg
+if (Test-Path $env:SDK_ROOT -PathType Container) {
     $env:VCPKG_ROOT = "$env:SDK_ROOT/vcpkg"
-    $env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
-    $env:VULKAN_SDK_PATH = "$env:DEV_SDK_PATH/VulkanSDK/$env:VULKAN_SDK_VERSION"
-    if (Test-Path "$env:VULKAN_SDK_PATH/setup-env.sh" -PathType Leaf) {
-        . source "$env:VULKAN_SDK_PATH/setup-env.sh"
-    }
+}
+
+# Vulkan SDK
+$env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
+$env:VULKAN_SDK_PATH = "$env:DEV_SDK_PATH/VulkanSDK/$env:VULKAN_SDK_VERSION"
+if (Test-Path "$env:VULKAN_SDK_PATH/setup-env.sh" -PathType Leaf) {
+    . source "$env:VULKAN_SDK_PATH/setup-env.sh"
 }

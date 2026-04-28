@@ -96,6 +96,22 @@ style = "bg:color_aqua"
 format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
 
 [git_status]
+{{ if eq .chezmoi.os "windows" -}}
+## Windows-specific workaround:
+# Starship's git_status module spawns `git status` on every prompt render.
+# In repos with Git LFS, this repeatedly launches `git-lfs filter-process`.
+# On Windows, the ConPTY/anonymous pipe handle inheritance during the
+# pkt-line handshake causes `write /dev/stdout: The pipe is being closed.`
+# (ERROR_NO_DATA). This is a Windows pipe compatibility issue between
+# Git LFS and non-TTY subprocesses, not a Starship bug.
+#
+# Disabling git_status only removes dirty-state icons (! ? +) from the
+# prompt. git_branch remains fully functional and all git commands work.
+# See: https://github.com/git-lfs/git-lfs/issues/4247
+disabled = true
+{{ else -}}
+disabled = false
+{{ end -}}
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
 

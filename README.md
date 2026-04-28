@@ -75,3 +75,4 @@ This ensures zsh reads configs from `$XDG_CONFIG_HOME/zsh` instead of `$HOME`.
 - Compound conditions (e.g., `&&`, `||`, `!`) in `env.json` are not supported yet.
 - Skills management is not supported yet.
 - Lacks a way to symlink a entire directory (due to chezmoi pitfalls).
+- **Starship `git_status` disabled on Windows.** In repos with Git LFS, Starship's `git_status` module spawns `git status` on every prompt render, which repeatedly launches `git-lfs filter-process`. On Windows, ConPTY/anonymous pipe handle inheritance during the pkt-line handshake causes `write /dev/stdout: The pipe is being closed.` (ERROR_NO_DATA). This is a Windows pipe compatibility issue between Git LFS and non-TTY subprocesses, not a Starship bug. Workaround: `git_status` is disabled on Windows; `git_branch` remains functional. See [git-lfs/git-lfs#4247](https://github.com/git-lfs/git-lfs/issues/4247).

@@ -84,14 +84,19 @@ set -gx SDK_ROOT "{{ .sdk.sdk_path }}"
 set -gx PKG_CONFIG_PATH "{{ .sdk.pkg_config_path }}:$PKG_CONFIG_PATH"
 
 # LLVM
-set -gx PATH "{{ .sdk.llvm_path }}/bin:$PATH"
+set -gx LLVM_PATH "{{ .sdk.llvm_path }}"
+if test -d "$LLVM_PATH"
+    set -gx PATH "$LLVM_PATH/bin:$PATH"
+end
 
-# vcpkg and Vulkan SDK
-if test -d "${DEV_SDK_ROOT}"
+# vcpkg
+if test -d "$SDK_ROOT"
     set -gx VCPKG_ROOT "$SDK_ROOT/vcpkg"
-    set -gx VULKAN_SDK_VERSION "{{ .sdk.vulkan_sdk_version }}"
-    set -gx VULKAN_SDK_PATH "$DEV_SDK_PATH/VulkanSDK/$VULKAN_SDK_VERSION"
-    if test -f "${VULKAN_SDK_PATH/setup-env.sh}"
-        source "$VULKAN_SDK_PATH/setup-env.sh"
-    end
+end
+
+# Vulkan SDK
+set -gx VULKAN_SDK_VERSION "{{ .sdk.vulkan_sdk_version }}"
+set -gx VULKAN_SDK_PATH "$DEV_SDK_PATH/VulkanSDK/$VULKAN_SDK_VERSION"
+if test -f "$VULKAN_SDK_PATH/setup-env.sh"
+    source "$VULKAN_SDK_PATH/setup-env.sh"
 end

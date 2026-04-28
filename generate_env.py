@@ -36,57 +36,46 @@ def translate_ps1_condition(cond: str) -> tuple:
 
 
 def render_bash_condition(cond_type: str, cond_value: str) -> str:
-    # 如果 cond_value 以 $ 开头，去掉 $
-    var_name = cond_value[1:] if cond_value.startswith("$") else cond_value
-
     condition_map = {
-        "executable": '[ -x "$(which ' + var_name + ')" ]',
-        "not_empty": '[ -n "${' + var_name + '}" ]',
-        "dir_exists": '[ -d "${' + var_name + '}" ]',
-        "file_exists": '[ -f "${' + var_name + '}" ]',
-        "empty": '[ -z "${' + var_name + '}" ]',
-        "path_exists": '[ -e "${' + var_name + '}" ]',
+        "executable": f'[ -x "$(which {cond_value})" ]',
+        "not_empty": f'[ -n "{cond_value}" ]',
+        "dir_exists": f'[ -d "{cond_value}" ]',
+        "file_exists": f'[ -f "{cond_value}" ]',
+        "empty": f'[ -z "{cond_value}" ]',
+        "path_exists": f'[ -e "{cond_value}" ]',
     }
     return condition_map.get(cond_type, "")
 
 
 def render_fish_condition(cond_type: str, cond_value: str) -> str:
-    # 如果 cond_value 以 $ 开头，去掉 $
-    var_name = cond_value[1:] if cond_value.startswith("$") else cond_value
-
     condition_map = {
-        "executable": 'test -x "$(which ' + var_name + ')"',
-        "not_empty": 'test -n "${' + var_name + '}"',
-        "dir_exists": 'test -d "${' + var_name + '}"',
-        "file_exists": 'test -f "${' + var_name + '}"',
-        "empty": 'test -z "${' + var_name + '}"',
-        "path_exists": 'test -e "${' + var_name + '}"',
+        "executable": f'test -x "$(which {cond_value})"',
+        "not_empty": f'test -n "{cond_value}"',
+        "dir_exists": f'test -d "{cond_value}"',
+        "file_exists": f'test -f "{cond_value}"',
+        "empty": f'test -z "{cond_value}"',
+        "path_exists": f'test -e "{cond_value}"',
     }
     return condition_map.get(cond_type, "")
 
 
 def render_ps1_condition(cond_type: str, cond_value: str) -> str:
     def to_env_var(v: str) -> str:
-        # 如果已经是 $env: 格式，直接返回
         if v.startswith("$env:"):
             return v
-        # 如果是 $VAR 格式，转换为 $env:VAR
-        if v.startswith("$") and ":" not in v:
-            return "$env:" + v[1:]
-        # 否则（如 LLVM_ROOT），添加 $env: 前缀
-        return "$env:" + v
+        elif v.startswith("$"):
+            return f"$env:{v[1:]}"
+        else:
+            return f"$env:{v}"
 
+    env_var = to_env_var(cond_value)
     condition_map = {
-        "executable": "(Get-Command "
-        + cond_value
-        + ").Source | Test-Path -PathType Leaf -ErrorAction SilentlyContinue",
-        "not_empty": "[string]::IsNullOrEmpty("
-        + to_env_var(cond_value)
-        + ") -eq $false",
-        "dir_exists": "Test-Path " + to_env_var(cond_value) + " -PathType Container",
-        "file_exists": 'Test-Path "' + to_env_var(cond_value) + '" -PathType Leaf',
-        "empty": "[string]::IsNullOrEmpty(" + to_env_var(cond_value) + ")",
-        "path_exists": "Test-Path " + to_env_var(cond_value),
+        "executable": f"(Get-Command {cond_value}).Source | Test-Path -PathType Leaf -ErrorAction SilentlyContinue",
+        "not_empty": f"[string]::IsNullOrEmpty({env_var}) -eq $false",
+        "dir_exists": f"Test-Path {env_var} -PathType Container",
+        "file_exists": f'Test-Path "{env_var}" -PathType Leaf',
+        "empty": f"[string]::IsNullOrEmpty({env_var})",
+        "path_exists": f"Test-Path {env_var}",
     }
     return condition_map.get(cond_type, "")
 
