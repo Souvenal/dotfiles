@@ -1,5 +1,6 @@
 # agents
 **/AGENTS.local.md
+**/.claude/settings.local.json
 docs/plans/
 .codebuddy/plans/
 .sisyphus/

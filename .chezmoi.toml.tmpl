@@ -44,27 +44,15 @@
 [data.language.python]
     conda_root = "{{ .chezmoi.homeDir }}/miniconda3"
 
-[data.lib]
-    dev_sdk_root = "$HOME/Libraries"
+[data.sdk]
+    sdk_path = "$HOME/SDKs"
     pkg_config_path = "" # the path depends on system
 
     vulkan_sdk_version = "" # blank
 {{- if eq .chezmoi.os "darwin" }}
-    {{- $use_brew_llvm := promptBoolOnce . "lib.use_brew_llvm" "Use brew-installed LLVM" true }}
-    use_brew_llvm = {{ $use_brew_llvm }}
-    {{- if $use_brew_llvm }}
-        {{- $llvm_version_choices := list "17" "18" "19" "20" "21" "latest" }}
-        {{- $llvm_version := promptChoiceOnce . "lib.llvm_version" "LLVM version" $llvm_version_choices "latest" }}
-        {{- if eq $llvm_version "latest" }}
-    llvm_root = "$(brew --prefix llvm)"
-        {{- else }}
-    llvm_root = "$(brew --prefix llvm@{{ $llvm_version }})"
-        {{- end }}
-    {{- else }}
-    llvm_root = ""
-    {{- end }}
+    llvm_path = "$(brew --prefix llvm)"
 {{- else }}
-    llvm_root = ""
+    llvm_path = ""
 {{- end }}
 
 [data.network]
@@ -79,9 +67,6 @@
 
 [data.public_keys]
     gpg_key_id = "333F460B105EC701"
-
-[data.validation]
-    warn_on_empty = true
 
 [data.zsh]
     use_oh_my_zsh = {{ if eq .chezmoi.os "darwin" -}}true{{- else }}false{{- end }}

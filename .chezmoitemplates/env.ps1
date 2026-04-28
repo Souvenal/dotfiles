@@ -60,21 +60,18 @@ $env:CMAKE_BUILD_PARALLEL_LEVEL = "8"
 $env:XMAKE_PKG_CACHEDIR = "$env:XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
-$env:DEV_SDK_ROOT = "{{ .lib.dev_sdk_root }}"
-$env:PKG_CONFIG_PATH = "{{ .lib.pkg_config_path }};$env:PKG_CONFIG_PATH"
-$env:LLVM_ROOT = "{{ .lib.llvm_root }}"
+$env:SDK_ROOT = "{{ .sdk.sdk_path }}"
+$env:PKG_CONFIG_PATH = "{{ .sdk.pkg_config_path }};$env:PKG_CONFIG_PATH"
 
-# LLVM cmake prefix path
-if ([string]::IsNullOrEmpty($env:LLVM_ROOT) -eq $env:false) {
-    $env:CMAKE_PREFIX_PATH = "$env:LLVM_ROOT${CMAKE_PREFIX_PATH:+:$env:CMAKE_PREFIX_PATH}"
-}
+# LLVM
+$env:PATH = "{{ .sdk.llvm_path }}/bin;$env:PATH"
 
 # vcpkg and Vulkan SDK
 if (Test-Path $env:DEV_SDK_ROOT -PathType Container) {
-    $env:VCPKG_ROOT = "$env:DEV_SDK_ROOT/vcpkg"
-    $env:VULKAN_SDK_VERSION = "{{ .lib.vulkan_sdk_version }}"
-    $env:VULKAN_SDK_ROOT = "$env:DEV_SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION"
-    if (Test-Path "$env:VULKAN_SDK_ROOT/setup-env.sh" -PathType Leaf) {
-        . source "$env:VULKAN_SDK_ROOT/setup-env.sh"
+    $env:VCPKG_ROOT = "$env:SDK_ROOT/vcpkg"
+    $env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
+    $env:VULKAN_SDK_PATH = "$env:DEV_SDK_PATH/VulkanSDK/$env:VULKAN_SDK_VERSION"
+    if (Test-Path "$env:VULKAN_SDK_PATH/setup-env.sh" -PathType Leaf) {
+        . source "$env:VULKAN_SDK_PATH/setup-env.sh"
     }
 }

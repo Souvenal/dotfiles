@@ -80,21 +80,18 @@ set -gx CMAKE_BUILD_PARALLEL_LEVEL "8"
 set -gx XMAKE_PKG_CACHEDIR "$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
-set -gx DEV_SDK_ROOT "{{ .lib.dev_sdk_root }}"
-set -gx PKG_CONFIG_PATH "{{ .lib.pkg_config_path }}:$PKG_CONFIG_PATH"
-set -gx LLVM_ROOT "{{ .lib.llvm_root }}"
+set -gx SDK_ROOT "{{ .sdk.sdk_path }}"
+set -gx PKG_CONFIG_PATH "{{ .sdk.pkg_config_path }}:$PKG_CONFIG_PATH"
 
-# LLVM cmake prefix path
-if test -n "${LLVM_ROOT}"
-    set -gx CMAKE_PREFIX_PATH "$LLVM_ROOT${CMAKE_PREFIX_PATH:+:$CMAKE_PREFIX_PATH}"
-end
+# LLVM
+set -gx PATH "{{ .sdk.llvm_path }}/bin:$PATH"
 
 # vcpkg and Vulkan SDK
 if test -d "${DEV_SDK_ROOT}"
-    set -gx VCPKG_ROOT "$DEV_SDK_ROOT/vcpkg"
-    set -gx VULKAN_SDK_VERSION "{{ .lib.vulkan_sdk_version }}"
-    set -gx VULKAN_SDK_ROOT "$DEV_SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
-    if test -f "${VULKAN_SDK_ROOT/setup-env.sh}"
-        source "$VULKAN_SDK_ROOT/setup-env.sh"
+    set -gx VCPKG_ROOT "$SDK_ROOT/vcpkg"
+    set -gx VULKAN_SDK_VERSION "{{ .sdk.vulkan_sdk_version }}"
+    set -gx VULKAN_SDK_PATH "$DEV_SDK_PATH/VulkanSDK/$VULKAN_SDK_VERSION"
+    if test -f "${VULKAN_SDK_PATH/setup-env.sh}"
+        source "$VULKAN_SDK_PATH/setup-env.sh"
     end
 end

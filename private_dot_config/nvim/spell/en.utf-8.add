@@ -7,7 +7,8 @@ uname
 gcc
 perl
 ChangeLog
-SPDX
+Winget
+Homebrew
 github
 sha256
 lfs
