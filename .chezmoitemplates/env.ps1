@@ -5,15 +5,6 @@ $env:XDG_CONFIG_HOME = "$HOME/.config"
 $env:XDG_DATA_HOME = "$HOME/.local/share"
 $env:XDG_STATE_HOME = "$HOME/.local/state"
 
-# Network proxy config
-# Use both upper and lower cases for compatibility
-$env:http_proxy = "{{ .network.http_proxy }}"
-$env:HTTP_PROXY = "$env:http_proxy"
-$env:https_proxy = "{{ .network.https_proxy }}"
-$env:HTTPS_PROXY = "$env:https_proxy"
-$env:no_proxy = "{{ .network.no_proxy }}"
-$env:NO_PROXY = "$env:no_proxy"
-
 # npm
 $env:NPM_CONFIG_USERCONFIG = "$env:XDG_CONFIG_HOME/npm/npmrc"
 $env:PATH = "$env:XDG_DATA_HOME/npm;$env:PATH"

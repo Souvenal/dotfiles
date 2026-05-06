@@ -5,15 +5,6 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
-# Network proxy config
-# Use both upper and lower cases for compatibility
-set -gx http_proxy "{{ .network.http_proxy }}"
-set -gx HTTP_PROXY "$http_proxy"
-set -gx https_proxy "{{ .network.https_proxy }}"
-set -gx HTTPS_PROXY "$https_proxy"
-set -gx no_proxy "{{ .network.no_proxy }}"
-set -gx NO_PROXY "$no_proxy"
-
 # wget
 set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
 alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
