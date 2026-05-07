@@ -10,7 +10,8 @@
     },
     "renderdoc-mcp-server": {
       "command": "renderdoc-mcp",
-      "args": []
+      "args": [],
+      "disabled": true
     },
     "Context7": {
       "timeout": 60000,

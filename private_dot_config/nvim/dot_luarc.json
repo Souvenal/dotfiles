@@ -1,0 +1,13 @@
+{
+  "runtime.version": "LuaJIT",
+  "diagnostics.globals": [
+    "vim"
+  ],
+  "workspace.checkThirdParty": false,
+  "workspace.library": [
+    "${env:VIMRUNTIME}/lua",
+    "${env:VIMRUNTIME}/lua/vim",
+    "${env:HOME}/.config/nvim/lua"
+  ],
+  "telemetry.enable": false
+}

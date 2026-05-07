@@ -1,5 +1,5 @@
 # agents
-**/AGENTS.local.md
+**/*.local.md
 **/.claude/settings.local.json
 docs/plans/
 .codebuddy/plans/

@@ -124,6 +124,7 @@
         "*.bin": "hexEditor.hexedit",
         "*.png": "magickImageReader.readImage"
     },
+    "vscode-neovim.logOutputToConsole": true,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",

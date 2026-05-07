@@ -6,7 +6,7 @@ set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
 # wget
-set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
+set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # npm
@@ -18,7 +18,7 @@ set -gx BUN_INSTALL "$XDG_DATA_HOME/bun"
 set -gx PATH "$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
-if test -x "$(which brew)"
+if test -x "brew"
     set BREW $(which brew 2>/dev/null)
     set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
@@ -56,6 +56,12 @@ set -gx NUGET_PACKAGES "$XDG_DATA_HOME/nuget/packages"
 set -gx PYTHON_HISTORY "$XDG_STATE_HOME/python_history"
 set -gx PYTHONPYCACHEPREFIX "$XDG_CACHE_HOME/python"
 set -gx PYTHONUSERBASE "$XDG_DATA_HOME/python"
+
+# ipython
+set -gx IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+
+# matplotlib
+set -gx MPLCONFIGDIR "$XDG_CONFIG_HOME/matplotlib"
 
 # vim with XDG config
 set -gx VIMDOTDIR "$XDG_CONFIG_HOME/vim"

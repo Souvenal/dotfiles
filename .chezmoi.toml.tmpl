@@ -69,7 +69,7 @@
     gpg_key_id = "333F460B105EC701"
 
 [data.zsh]
-    use_oh_my_zsh = {{ if eq .chezmoi.os "darwin" -}}true{{- else }}false{{- end }}
     use_kiro_cli = false
-    use_theme_p10k = false
     use_theme_starship = true
+    use_theme_p10k = {{ if and (not .zsh.use_theme_starship) (eq .chezmoi.os "darwin") -}}true{{- else }}false{{- end }}
+    use_oh_my_zsh = {{ if and (not .zsh.use_theme_starship) (eq .chezmoi.os "darwin") -}}true{{- else }}false{{- end }}

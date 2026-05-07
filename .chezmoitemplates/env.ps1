@@ -37,6 +37,12 @@ $env:PYTHON_HISTORY = "$env:XDG_STATE_HOME/python_history"
 $env:PYTHONPYCACHEPREFIX = "$env:XDG_CACHE_HOME/python"
 $env:PYTHONUSERBASE = "$env:XDG_DATA_HOME/python"
 
+# ipython
+$env:IPYTHONDIR = "$env:XDG_CONFIG_HOME/ipython"
+
+# matplotlib
+$env:MPLCONFIGDIR = "$env:XDG_CONFIG_HOME/matplotlib"
+
 # vim with XDG config
 $env:VIMDOTDIR = "$env:XDG_CONFIG_HOME/vim"
 Set-Alias vim 'vim -u $env:VIMDOTDIR/vimrc'

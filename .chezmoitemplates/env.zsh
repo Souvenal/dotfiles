@@ -6,7 +6,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # wget
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # zsh
@@ -24,7 +24,7 @@ export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
-if [ -x "$(which brew)" ]; then
+if [ -x "brew" ]; then
     BREW=$(which brew 2>/dev/null)
     export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
@@ -62,6 +62,12 @@ export NUGET_PACKAGES="$XDG_DATA_HOME/nuget/packages"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/python"
 export PYTHONUSERBASE="$XDG_DATA_HOME/python"
+
+# ipython
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+
+# matplotlib
+export MPLCONFIGDIR="$XDG_CONFIG_HOME/matplotlib"
 
 # vim with XDG config
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
