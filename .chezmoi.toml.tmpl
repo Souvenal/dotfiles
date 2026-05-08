@@ -1,3 +1,10 @@
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/age-key.txt"
+    recipients = [
+        "age18x8k533jyg9g8ncgl2jmvyqnv2mzknyjrq6c603uex868ngjpu8qa079wz" # macbook
+    ]
+
 [chezmoi.config.bitwarden]
     unlock = "auto"
 {{- if eq .chezmoi.os "windows" }}
