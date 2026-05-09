@@ -1,0 +1,4 @@
+[private_dot_config/git/config.tmpl]
+indent_style = space
+indent_size = 8
+tab_width = 8

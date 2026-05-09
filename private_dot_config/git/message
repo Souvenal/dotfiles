@@ -1,0 +1,13 @@
+# Format: (<type>) <short summary>
+# Types:
+# feat     new feature
+# fix      bug fix
+# docs     documentation only
+# refactor code refactoring
+# perf     performance improvement
+# test     add or refactor tests
+# chore    build / config / dependency changes
+
+
+# Detailed description (optional)
+# Explain what changed and why

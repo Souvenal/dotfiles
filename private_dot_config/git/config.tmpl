@@ -1,51 +1,53 @@
 [alias]
-    pushf = "push --force-with-lease"
+        pushf = "push --force-with-lease"
 
 [commit]
-    gpgsign = true
+        cleanup = strip
+        gpgsign = true
+        template = "{{ .chezmoi.homeDir }}/.config/git/message"
 
 [core]
 {{- if eq .chezmoi.os "windows" }}
-    autocrlf = true
+        autocrlf = true
 {{- else }}
-    autocrlf = input
+        autocrlf = input
 {{- end }}
-    editor = "code --wait"
-    excludesfile = "{{ .chezmoi.homeDir }}/.config/git/ignore"
-    symlinks = true
+        editor = "code --wait"
+        excludesfile = "{{ .chezmoi.homeDir }}/.config/git/ignore"
+        symlinks = true
 
 [credential]
 {{- if eq .chezmoi.os "darwin" }}
-    helper = osxkeychain
+        helper = osxkeychain
 {{- else if eq .chezmoi.os "windows" }}
-    helper = manager
+        helper = manager
 {{- else if eq .chezmoi.os "linux" }}
-    helper = libsecret
+        helper = libsecret
 {{- else }}
-    helper = cache --timeout=3600
+        helper = cache --timeout=3600
 {{- end }}
 
 [diff]
-    renameLimit = 10000
+        renameLimit = 10000
 
 [gpg]
-    program = gpg
+        program = gpg
 
 {{ if ne .personal.location "unity-cn" -}}
 [http]
-    proxy = {{ .network.http_proxy | quote }}
+        proxy = {{ .network.http_proxy | quote }}
 
 [https]
-    proxy = {{ .network.https_proxy | quote }}
+        proxy = {{ .network.https_proxy | quote }}
 {{- end }}
 
 [pull]
-    rebase = true
+        rebase = true
     
 [rebase]
-    autoStash = true
+        autoStash = true
 
 [user]
-    email = {{ .personal.email | quote }}
-    name = {{ .personal.name | quote }}
-	signingkey = {{ .public_keys.gpg_key_id | quote }}
+        email = {{ .personal.email | quote }}
+        name = {{ .personal.name | quote }}
+        signingkey = {{ .public_keys.gpg_key_id | quote }}
