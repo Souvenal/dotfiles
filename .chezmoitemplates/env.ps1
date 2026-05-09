@@ -5,9 +5,12 @@ $env:XDG_CONFIG_HOME = "$HOME/.config"
 $env:XDG_DATA_HOME = "$HOME/.local/share"
 $env:XDG_STATE_HOME = "$HOME/.local/state"
 
+# local bin PATH
+$env:PATH = "~/.local/bin;$env:PATH"
+
 # npm
 $env:NPM_CONFIG_USERCONFIG = "$env:XDG_CONFIG_HOME/npm/npmrc"
-$env:PATH = "$env:XDG_DATA_HOME/npm;$env:PATH"
+$env:PATH = "$env:XDG_DATA_HOME/npm/bin;$env:PATH"
 
 # bun
 $env:BUN_INSTALL = "$env:XDG_DATA_HOME/bun"

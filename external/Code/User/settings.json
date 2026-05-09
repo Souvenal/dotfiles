@@ -6,6 +6,7 @@
         "editor.formatOnSave": false    // Present automatically converting
     },
     "C_Cpp.intelliSenseEngine": "disabled",
+    "claudeCode.preferredLocation": "sidebar",
     "cmake.buildArgs": [
         "-j", "16"
     ],

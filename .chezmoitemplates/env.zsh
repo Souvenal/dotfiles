@@ -5,6 +5,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# local bin PATH
+export PATH="~/.local/bin:$PATH"
+
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
@@ -17,7 +20,7 @@ export HISTFILE="$XDG_STATE_HOME/zsh/history"
 
 # npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export PATH="$XDG_DATA_HOME/npm:$PATH"
+export PATH="$XDG_DATA_HOME/npm/bin:$PATH"
 
 # bun
 export BUN_INSTALL="$XDG_DATA_HOME/bun"

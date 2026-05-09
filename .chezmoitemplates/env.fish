@@ -5,13 +5,16 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"
 set -gx XDG_STATE_HOME "$HOME/.local/state"
 
+# local bin PATH
+set -gx PATH "~/.local/bin:$PATH"
+
 # wget
 set -gx WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 alias wget 'wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 # npm
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
-set -gx PATH "$XDG_DATA_HOME/npm:$PATH"
+set -gx PATH "$XDG_DATA_HOME/npm/bin:$PATH"
 
 # bun
 set -gx BUN_INSTALL "$XDG_DATA_HOME/bun"
