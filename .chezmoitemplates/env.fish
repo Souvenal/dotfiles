@@ -31,6 +31,12 @@ if test -x "brew"
     eval "$($BREW shellenv)"
 end
 
+# pip
+set -gx PIP_CACHE_DIR "$XDG_CACHE_HOME/pip"
+
+# uv
+set -gx UV_CACHE_DIR "$XDG_CACHE_HOME/uv"
+
 # Docker
 set -gx DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -gx MACHINE_STORAGE_PATH "$XDG_DATA_HOME/docker-machine"

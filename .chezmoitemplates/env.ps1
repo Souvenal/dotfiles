@@ -16,6 +16,12 @@ $env:PATH = "$env:XDG_DATA_HOME/npm/bin;$env:PATH"
 $env:BUN_INSTALL = "$env:XDG_DATA_HOME/bun"
 $env:PATH = "$env:BUN_INSTALL/bin;$env:PATH"
 
+# pip
+$env:PIP_CACHE_DIR = "$env:XDG_CACHE_HOME/pip"
+
+# uv
+$env:UV_CACHE_DIR = "$env:XDG_CACHE_HOME/uv"
+
 # Docker
 $env:DOCKER_CONFIG = "$env:XDG_CONFIG_HOME/docker"
 $env:MACHINE_STORAGE_PATH = "$env:XDG_DATA_HOME/docker-machine"

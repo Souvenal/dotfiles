@@ -37,6 +37,12 @@ if [ -x "brew" ]; then
     eval "$($BREW shellenv)"
 fi
 
+# pip
+export PIP_CACHE_DIR="$XDG_CACHE_HOME/pip"
+
+# uv
+export UV_CACHE_DIR="$XDG_CACHE_HOME/uv"
+
 # Docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME/docker-machine"
