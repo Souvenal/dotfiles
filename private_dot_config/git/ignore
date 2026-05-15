@@ -1,6 +1,6 @@
 # agents
 **/*.local.md
-**/.claude/settings.local.json
+**/*.local.json
 docs/plans/
 .codebuddy/plans/
 .sisyphus/

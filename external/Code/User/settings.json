@@ -20,7 +20,6 @@
     "debug.console.fontFamily": "Consolas",
     "debug.toolBarLocation": "commandCenter",
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.accessibilitySupport": "on",
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 14,
     "editor.largeFileOptimizations": false,
