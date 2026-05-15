@@ -41,7 +41,11 @@
         proxy = {{ .network.https_proxy | quote }}
 {{- end }}
 
+[merge]
+        ff = only
+
 [pull]
+        ff = only
         rebase = true
     
 [rebase]
