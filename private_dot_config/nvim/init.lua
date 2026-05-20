@@ -11,3 +11,9 @@ vim.opt.clipboard:append("unnamedplus")
 vim.opt.spell = false
 
 vim.opt.termguicolors = true
+
+-- texts that exceed window width will show in the next line
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true -- keep indent when changing line
+vim.opt.textwidth = 0
