@@ -37,7 +37,7 @@ def translate_ps1_condition(cond: str) -> tuple:
 
 def render_bash_condition(cond_type: str, cond_value: str) -> str:
     condition_map = {
-        "executable": f'[ -x "{cond_value}" ]',
+        "executable": f'command -v "{cond_value}" > /dev/null',
         "not_empty": f'[ -n "{cond_value}" ]',
         "dir_exists": f'[ -d "{cond_value}" ]',
         "file_exists": f'[ -f "{cond_value}" ]',
@@ -49,7 +49,7 @@ def render_bash_condition(cond_type: str, cond_value: str) -> str:
 
 def render_fish_condition(cond_type: str, cond_value: str) -> str:
     condition_map = {
-        "executable": f'test -x "{cond_value}"',
+        "executable": f'command -v "{cond_value}" > /dev/null',
         "not_empty": f'test -n "{cond_value}"',
         "dir_exists": f'test -d "{cond_value}"',
         "file_exists": f'test -f "{cond_value}"',

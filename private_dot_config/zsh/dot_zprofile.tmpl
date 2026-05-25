@@ -1,7 +1,7 @@
 {{- if .zsh.use_kiro_cli -}}
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh"
-{{- end }}
+{{- end -}}
 
 {{ template "env.zsh" . }}
 # Load .zshrc

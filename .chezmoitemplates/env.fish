@@ -21,14 +21,14 @@ set -gx BUN_INSTALL "$XDG_DATA_HOME/bun"
 set -gx PATH "$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
-if test -x "brew"
-    set BREW $(which brew 2>/dev/null)
+if command -v "brew" > /dev/null
     set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
     set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
     set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
     set -gx HOMEBREW_PIP_INDEX_URL "https://mirrors.ustc.edu.cn/pypi/simple/"
-    eval "$($BREW shellenv)"
+    set -gx HOMEBREW_NO_AUTO_UPDATE "1"
+    eval "$(brew shellenv)"
 end
 
 # pip

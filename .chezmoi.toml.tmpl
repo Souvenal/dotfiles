@@ -17,7 +17,7 @@ encryption = "age"
 [data.personal]
 {{- $email := promptStringOnce . "personal.email" "Email address" "souvenal777@gmail.com" }}
     email = {{ $email | quote }}
-{{- $location_choices := list "nju" "unity-cn" "home" }}
+{{- $location_choices := list "nju" "home" }}
 {{- $location := promptChoiceOnce . "personal.location" "Location" $location_choices "home" }}
     location = {{ $location | quote }}
 {{- $name := promptStringOnce . "personal.name" "Name" "Souvenal" }}
@@ -78,6 +78,6 @@ encryption = "age"
 
 [data.zsh]
     use_kiro_cli = false
+    use_oh_my_zsh = {{ if eq .chezmoi.os "darwin" -}}true{{- else }}false{{- end }}
     use_theme_starship = true
-    use_theme_p10k = {{ if and (not .zsh.use_theme_starship) (eq .chezmoi.os "darwin") -}}true{{- else }}false{{- end }}
-    use_oh_my_zsh = {{ if and (not .zsh.use_theme_starship) (eq .chezmoi.os "darwin") -}}true{{- else }}false{{- end }}
+    use_theme_p10k = {{ if and (not .zsh.use_theme_starship) (.zsh.use_oh_my_zsh) -}}true{{- else }}false{{- end }}

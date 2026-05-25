@@ -27,14 +27,14 @@ export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Homebrew settings
-if [ -x "brew" ]; then
-    BREW=$(which brew 2>/dev/null)
+if command -v "brew" > /dev/null; then
     export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
     export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
     export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
     export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
     export HOMEBREW_PIP_INDEX_URL="https://mirrors.ustc.edu.cn/pypi/simple/"
-    eval "$($BREW shellenv)"
+    export HOMEBREW_NO_AUTO_UPDATE="1"
+    eval "$(brew shellenv)"
 fi
 
 # pip
