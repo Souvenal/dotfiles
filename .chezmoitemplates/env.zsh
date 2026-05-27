@@ -108,7 +108,7 @@ fi
 
 # Vulkan SDK
 export VULKAN_SDK_VERSION="{{ .sdk.vulkan_sdk_version }}"
-export VULKAN_SDK_PATH="$DEV_SDK_PATH/VulkanSDK/$VULKAN_SDK_VERSION"
+export VULKAN_SDK_PATH="$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
 if [ -f "$VULKAN_SDK_PATH/setup-env.sh" ]; then
     source "$VULKAN_SDK_PATH/setup-env.sh"
 fi

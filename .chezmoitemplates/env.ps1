@@ -82,7 +82,7 @@ if (Test-Path $env:SDK_ROOT -PathType Container) {
 
 # Vulkan SDK
 $env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
-$env:VULKAN_SDK_PATH = "$env:DEV_SDK_PATH/VulkanSDK/$env:VULKAN_SDK_VERSION"
+$env:VULKAN_SDK_PATH = "$env:SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION"
 if (Test-Path "$env:VULKAN_SDK_PATH/setup-env.sh" -PathType Leaf) {
     . source "$env:VULKAN_SDK_PATH/setup-env.sh"
 }

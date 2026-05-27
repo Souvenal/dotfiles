@@ -56,7 +56,8 @@ encryption = "age"
     sdk_path = "$HOME/SDKs"
     pkg_config_path = "" # the path depends on system
 
-    vulkan_sdk_version = "" # blank
+{{- $vulkan_sdk_version := promptStringOnce . "sdk.vulkan_sdk_version" "Vulkan SDK Version" "" }}
+    vulkan_sdk_version = {{ $vulkan_sdk_version | quote }}
 {{- if eq .chezmoi.os "darwin" }}
     llvm_path = "$(brew --prefix llvm)"
 {{- else }}
