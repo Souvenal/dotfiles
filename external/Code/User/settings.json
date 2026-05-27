@@ -129,5 +129,12 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "xmake.autoGenerateCompileCommands": "onBuild",
+    "xmake.compileCommandsDirectory": "${workspaceRoot}/build",
+    "xmake.debugConfigType": "lldb-dap",
+    "xmake.status.showMode": true,
+    "xmake.status.showXMake": false,
+    "xmake.status.showToolchain": true,
+    "xmake.status.showRebuild": false
 }

@@ -42,3 +42,7 @@ add_packages("spdlog")
 - Prefer `add_requires` + `add_packages` over git submodules or system package managers.
 - Pin versions explicitly when stability matters.
 - Run `xmake repo -u` before adding new packages.
+
+## Refer to Official Documents
+
+Whenever encountering any errors, please refer to https://xmake.io/llms-full.txt to understand xmake's complete API and features. DO NOT GUESS api usages.
