@@ -126,6 +126,8 @@
         "*.png": "magickImageReader.readImage"
     },
     "vscode-neovim.logOutputToConsole": true,
+    "window.restoreFullscreen": true,
+    "window.restoreWindows": "none",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.secondarySideBar.defaultVisibility": "visible",
     "workbench.startupEditor": "none",
@@ -134,7 +136,7 @@
     "xmake.compileCommandsDirectory": "${workspaceRoot}/build",
     "xmake.debugConfigType": "lldb-dap",
     "xmake.status.showMode": true,
-    "xmake.status.showXMake": false,
+    "xmake.status.showRebuild": false,
     "xmake.status.showToolchain": true,
-    "xmake.status.showRebuild": false
+    "xmake.status.showXMake": false
 }
