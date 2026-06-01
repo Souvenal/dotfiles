@@ -1,12 +1,14 @@
-# Python Toolchain: `uv` First
+# Python Toolchain: `uv` Only — No `pip`/`pip3`
 
-Use `uv` as default Python toolchain — never fall back to `pip`, `venv`, `pipenv`, `poetry`, or `conda` for package/dependency management.
+Use `uv` as the **sole** Python package manager. `pip` and `pip3` commands are **forbidden** — never use them, even as fallback.
 
-## Rule: uv First
+## Rule: uv Only
 
-Never fall back to `pip install`, `source .venv/bin/activate`, `python -m venv`. Use `uv` for everything.
+- **Never** run `pip install`, `pip3 install`, `pip list`, `pip freeze`, `pip uninstall`, or any other `pip`/`pip3` subcommand.
+- **Never** run `python -m venv`, `source .venv/bin/activate`, `virtualenv`.
+- For everything related to package/dependency management, use `uv` exclusively.
 
-If `uv` not found, ask user install via pkg mgr (`brew install uv`, `curl -LsSf https://astral.sh/uv/install.sh`) rather than falling back to pip.
+If `uv` not found, ask user to install via their package manager (`brew install uv`, `curl -LsSf https://astral.sh/uv/install.sh`) and stop — do not fall back to `pip`.
 
 ## Command Reference
 

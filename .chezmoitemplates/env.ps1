@@ -75,11 +75,6 @@ if (Test-Path $env:LLVM_PATH -PathType Container) {
     $env:PATH = "$env:LLVM_PATH/bin;$env:PATH"
 }
 
-# vcpkg
-if (Test-Path $env:SDK_ROOT -PathType Container) {
-    $env:VCPKG_ROOT = "$env:SDK_ROOT/vcpkg"
-}
-
 # Vulkan SDK
 $env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
 $env:VULKAN_SDK_PATH = "$env:SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION"

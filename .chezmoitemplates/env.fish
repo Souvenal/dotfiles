@@ -95,11 +95,6 @@ if test -d "$LLVM_PATH"
     set -gx PATH "$LLVM_PATH/bin:$PATH"
 end
 
-# vcpkg
-if test -d "$SDK_ROOT"
-    set -gx VCPKG_ROOT "$SDK_ROOT/vcpkg"
-end
-
 # Vulkan SDK
 set -gx VULKAN_SDK_VERSION "{{ .sdk.vulkan_sdk_version }}"
 set -gx VULKAN_SDK_PATH "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"

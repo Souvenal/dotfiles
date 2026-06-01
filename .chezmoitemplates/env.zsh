@@ -101,11 +101,6 @@ if [ -d "$LLVM_PATH" ]; then
     export PATH="$LLVM_PATH/bin:$PATH"
 fi
 
-# vcpkg
-if [ -d "$SDK_ROOT" ]; then
-    export VCPKG_ROOT="$SDK_ROOT/vcpkg"
-fi
-
 # Vulkan SDK
 export VULKAN_SDK_VERSION="{{ .sdk.vulkan_sdk_version }}"
 export VULKAN_SDK_PATH="$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
