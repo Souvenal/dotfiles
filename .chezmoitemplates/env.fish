@@ -97,7 +97,6 @@ end
 
 # Vulkan SDK
 set -gx VULKAN_SDK_VERSION "{{ .sdk.vulkan_sdk_version }}"
-set -gx VULKAN_SDK_PATH "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION"
-if test -f "$VULKAN_SDK_PATH/setup-env.sh"
-    source "$VULKAN_SDK_PATH/setup-env.sh"
+if test -f "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh"
+    source "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh"
 end
