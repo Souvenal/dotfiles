@@ -63,6 +63,7 @@ $env:CMAKE_GENERATOR = "{{ .language.cpp.cmake_generator }}"
 $env:CMAKE_BUILD_PARALLEL_LEVEL = "8"
 
 # xmake with XDG config
+$env:XMAKE_PKG_INSTALLDIR = "$env:XDG_DATA_HOME/xmake/packages"
 $env:XMAKE_PKG_CACHEDIR = "$env:XDG_CACHE_HOME/xmake/cache"
 
 # Dev config

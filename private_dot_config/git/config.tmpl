@@ -7,6 +7,7 @@
         template = "{{ .chezmoi.homeDir }}/.config/git/message"
 
 [core]
+        # the bottom layer of `autocrlf` is filter
 {{- if eq .chezmoi.os "windows" }}
         autocrlf = true
 {{- else }}
@@ -29,16 +30,31 @@
 [diff]
         renameLimit = 10000
 
+# git stores the snapshot of files, and `filter` inserts some logic
+# when we add files to git, or checkout files from git
+[filter "lfs"]
+        # `clean` happens when adding files to git
+        # It converts the large file to a LFS pointer file, which
+        # contains some text about the SHA256 and size of the original file,
+        # and stores it into git.
+        clean = git-lfs clean -- %f
+        # `smudge` happens when checking out files from git
+        # The word `smudge` means making something dirty, as oppisite to `clean`.
+        # It downloads the original files and substitude them to the workplace
+        # when checking out files.
+        smudge = git-lfs smudge -- %f
+        # Clean and smudge are called for each files. To cut the overhead,
+        # filter-process starts a permanent process, which batch processes files
+        # according to git long-running filter protocol.
+        process = git-lfs filter-process
+        # Git denies the action if `git-lfs is not usable on the machine,
+        # preventing large files from committing to the git repo.
+        required = true
+
+        # btw, the actual files of lfs are stored at <repo>/.git/lfs/objects/
+
 [gpg]
         program = gpg
-
-{{ if ne .personal.location "unity-cn" -}}
-[http]
-        proxy = {{ .network.http_proxy | quote }}
-
-[https]
-        proxy = {{ .network.https_proxy | quote }}
-{{- end }}
 
 [merge]
         ff = only

@@ -83,6 +83,7 @@ set -gx CMAKE_GENERATOR "{{ .language.cpp.cmake_generator }}"
 set -gx CMAKE_BUILD_PARALLEL_LEVEL "8"
 
 # xmake with XDG config
+set -gx XMAKE_PKG_INSTALLDIR "$XDG_DATA_HOME/xmake/packages"
 set -gx XMAKE_PKG_CACHEDIR "$XDG_CACHE_HOME/xmake/cache"
 
 # Dev config
