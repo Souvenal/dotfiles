@@ -7,7 +7,72 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "use_system_window_tabs": false,
+  "tabs": {
+    "show_close_button": "hover",
+    "show_diagnostics": "errors",
+    "file_icons": true,
+    "git_status": true
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false,
+    "show_tab_bar_buttons": true,
+    "show_nav_history_buttons": true,
+    "show": true
+  },
+  "diagnostics": {
+    "button": true
+  },
+  "debugger": {
+    "button": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_user_menu": true,
+    "show_user_picture": true,
+    "show_branch_status_icon": true
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "cursor_position_button": true,
+    "line_endings_button": false,
+    "active_encoding_button": "enabled"
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true
+    }
+  },
+  "ssh_connections": [
+    {
+      "host": "Souvenal-PC",
+      "args": [],
+      "projects": []
+    }
+  ],
+  "edit_predictions": {
+    "provider": "copilot",
+    "allow_data_collection": "no",
+    "open_ai_compatible_api": {
+      "model": ""
+    }
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "single_file_review": true,
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
     "codex-acp": {
       "type": "registry"
     },
@@ -36,6 +101,7 @@
   },
   "format_on_save": "off",
   "git_panel": {
+    "dock": "right",
     "tree_view": true
   },
   "gutter": {
@@ -55,6 +121,8 @@
     }
   },
   "project_panel": {
+    "button": false,
+    "dock": "right",
     "hide_root": false,
     "hide_hidden": false,
     "hide_gitignore": false
@@ -62,6 +130,10 @@
   "proxy": "http://localhost:7890",
   "semantic_tokens": "combined",
   "terminal": {
+    "button": false,
+    "toolbar": {
+      "breadcrumbs": false
+    },
     "font_fallbacks": ["Consolas"],
     "font_family": "Hack Nerd Font Mono",
     "font_size": 14.0
