@@ -2,6 +2,4 @@
 **/*.local.md
 **/*.local.json
 docs/plans/
-.codebuddy/plans/
 .sisyphus/
-.codely-cli/

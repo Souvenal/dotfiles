@@ -17,15 +17,12 @@
         symlinks = true
 
 [credential]
-{{- if eq .chezmoi.os "darwin" }}
-        helper = osxkeychain
-{{- else if eq .chezmoi.os "windows" }}
+        # let GCM deal with credentials
         helper = manager
-{{- else if eq .chezmoi.os "linux" }}
-        helper = libsecret
-{{- else }}
-        helper = cache --timeout=3600
-{{- end }}
+
+[credential "https://huggingface.co"]
+        # simply ask user username and password, and stores them into the system
+        provider = generic
 
 [diff]
         renameLimit = 10000

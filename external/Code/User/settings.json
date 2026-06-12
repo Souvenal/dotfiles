@@ -37,8 +37,8 @@
         "*ignore": "ignore",
         "*.uplugin": "json",
         "*.uproject": "json",
-        "*.ush": "glsl",
-        "*.usf": "glsl"
+        "*.ush": "hlsl",
+        "*.usf": "hlsl"
     },
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
@@ -108,6 +108,14 @@
                 "${env:windir}\\Sysnative\\cmd.exe",
                 "${env:windir}\\System32\\cmd.exe"
             ]
+        },
+        "Developer PowerShell for VS 18": {
+            "args": [
+                "-NoExit",
+                "-Command",
+                "&{ Import-Module 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\Microsoft.VisualStudio.DevShell.dll'; Enter-VsDevShell 057a656d -SkipAutomaticLocation -DevCmdArguments '-arch=x64 -host_arch=x64' }"],
+            "icon": "terminal-powershell",
+            "path": "pwsh.exe"
         },
         "Git Bash": {
             "source": "Git Bash"

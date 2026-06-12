@@ -1,9 +1,9 @@
 {
     // CodeBuddy CN settings
     "codingcopilot.enableInlineChat": true,
-    "codingcopilot.enableInlineChatIDEShortcutsTip": true,
+    "codingcopilot.enableInlineChatIDEShortcutsTip": false,
     "codingcopilot.commitMessageStyle": "Auto",
-    "codingcopilot.commitMessageLanguage": "en",
+    "codingcopilot.commitMessageLanguage": "zh_CN",
     "codingcopilot.toolbarOnSelection": false,
     "codingcopilot.enableAutoCompletions": true,
     "codingcopilot.enableNextEditSuggestions": true,
