@@ -23,6 +23,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.fontFamily": "Consolas",
     "editor.fontSize": 14,
+    "editor.guides.bracketPairs": "active",
     "editor.largeFileOptimizations": false,
     "editor.lineNumbers": "relative",
     "editor.renderWhitespace": "all",           // Render a dot in white space  
@@ -60,8 +61,8 @@
     "markdown.preview.typographer": true,
     "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
     "projectManager.tags": [
-        "Render",
-        "Lifter"
+        "Projects",
+        "Misc"
     ],
     "python.analysis.typeCheckingMode": "basic",
     "remote.defaultExtensionsIfInstalledLocally": [],

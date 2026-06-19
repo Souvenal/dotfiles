@@ -81,3 +81,6 @@ $env:VULKAN_SDK_VERSION = "{{ .sdk.vulkan_sdk_version }}"
 if (Test-Path "$env:SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION/setup-env.sh" -PathType Leaf) {
     . source "$env:SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION/setup-env.sh"
 }
+
+# direnv hook — pwsh
+Invoke-Expression "$(direnv hook pwsh)"

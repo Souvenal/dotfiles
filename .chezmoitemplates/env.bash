@@ -104,3 +104,6 @@ export VULKAN_SDK_VERSION="{{ .sdk.vulkan_sdk_version }}"
 if [ -f "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh" ]; then
     source "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh"
 fi
+
+# direnv hook — bash
+eval "$(direnv hook bash)"
