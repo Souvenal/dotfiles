@@ -62,6 +62,7 @@
     "markdown-preview-enhanced.alwaysShowBacklinksInPreview": true,
     "projectManager.tags": [
         "Projects",
+        "Scenes",
         "Misc"
     ],
     "python.analysis.typeCheckingMode": "basic",
@@ -135,6 +136,7 @@
         "*.png": "magickImageReader.readImage"
     },
     "vscode-neovim.logOutputToConsole": true,
+    "vscode-neovim.neovimInitVimPaths.win32": "~/.config/nvim/init.lua",
     "window.restoreFullscreen": true,
     "window.restoreWindows": "none",
     "workbench.iconTheme": "material-icon-theme",

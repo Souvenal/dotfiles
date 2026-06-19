@@ -1,5 +1,9 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+if vim.g.vscode then
+    vim.g.clipboard = vim.g.vscode_clipboard
+else
+    -- bootstrap lazy.nvim, LazyVim and your plugins
+    require("config.lazy")
+end
 
 vim.opt.clipboard:append("unnamedplus")
 

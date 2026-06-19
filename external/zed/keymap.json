@@ -21,7 +21,8 @@
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "a": "project_panel::NewFile",
-      "r": "project_panel::Rename"
+      "r": "project_panel::Rename",
+      "shift+a": "project_panel::NewDirectory"
     },
     "unbind": {
       "%": "project_panel::NewFile"
@@ -57,4 +58,25 @@
       "alt-cmd-shift-n": "agent::ToggleNewThreadMenu"
     }
   },
+  {
+    "context": "MarkdownPreview",
+    "unbind": {
+      "ctrl-e": "markdown::ScrollDown"
+    }
+  },
+  {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-e": [
+        "terminal::SendKeystroke",
+        "ctrl-e"
+      ]
+    }
+  },
+  {
+    "context": "KeymapEditor",
+    "unbind": {
+      "ctrl-e": "zed::OpenKeymapFile"
+    }
+  }
 ]

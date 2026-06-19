@@ -74,9 +74,9 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
-        "model": "haiku",
+        "model": "opus[1m]",
         "effort": "medium",
-        "mode": "acceptEdits"
+        "mode": "auto"
       },
       "type": "registry"
     },
