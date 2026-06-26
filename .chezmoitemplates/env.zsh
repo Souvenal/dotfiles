@@ -109,4 +109,6 @@ if [ -f "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh" ]; then
 fi
 
 # direnv hook — zsh
-eval "$(direnv hook zsh)"
+if command -v "direnv" > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi

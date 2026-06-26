@@ -70,7 +70,7 @@ def render_ps1_condition(cond_type: str, cond_value: str) -> str:
 
     env_var = to_env_var(cond_value)
     condition_map = {
-        "executable": f"(Get-Command {cond_value}).Source | Test-Path -PathType Leaf -ErrorAction SilentlyContinue",
+        "executable": f'[bool](Get-Command "{cond_value}" -ErrorAction SilentlyContinue)',
         "not_empty": f"[string]::IsNullOrEmpty({env_var}) -eq $false",
         "dir_exists": f"Test-Path {env_var} -PathType Container",
         "file_exists": f'Test-Path "{env_var}" -PathType Leaf',

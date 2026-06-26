@@ -106,4 +106,6 @@ if [ -f "$SDK_ROOT/VulkanSDK/$VULKAN_SDK_VERSION/setup-env.sh" ]; then
 fi
 
 # direnv hook — bash
-eval "$(direnv hook bash)"
+if command -v "direnv" > /dev/null; then
+    eval "$(direnv hook bash)"
+fi

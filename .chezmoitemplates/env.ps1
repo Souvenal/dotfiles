@@ -83,4 +83,6 @@ if (Test-Path "$env:SDK_ROOT/VulkanSDK/$env:VULKAN_SDK_VERSION/setup-env.sh" -Pa
 }
 
 # direnv hook — pwsh
-Invoke-Expression "$(direnv hook pwsh)"
+if ([bool](Get-Command "direnv" -ErrorAction SilentlyContinue)) {
+    Invoke-Expression "$(direnv hook pwsh)"
+}
