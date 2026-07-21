@@ -13,7 +13,7 @@
 {{- else }}
         autocrlf = input
 {{- end }}
-        editor = "code --wait"
+        editor = "zed --wait"
         symlinks = true
 
 [credential]
@@ -62,6 +62,7 @@
     
 [rebase]
         autoStash = true
+        autoSquash = true
 
 [user]
         email = {{ .personal.email | quote }}

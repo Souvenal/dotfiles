@@ -100,5 +100,11 @@
       "--target", "clean"
     ],
     "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "[Souvenal] xmake generate compile_commands",
+    "command": "xmake",
+    "args": ["project", "-k", "compile_commands"],
+    "cwd": "$ZED_WORKTREE_ROOT"
   }
 ]

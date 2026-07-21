@@ -74,9 +74,43 @@
     }
   },
   {
+    "context": "Workspace && !Terminal",
+    "bindings": {
+      "alt-shift-t": [
+        "task::Spawn",
+        {
+          "reveal_target": "center"
+        }
+      ]
+    }
+  },
+  {
     "context": "KeymapEditor",
     "unbind": {
       "ctrl-e": "zed::OpenKeymapFile"
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "unbind": {
+      "ctrl-alt-shift-r": [
+        "task::Spawn",
+        {
+          "reveal_target": "center"
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor && extension == md",
+    "bindings": {
+      "ctrl-shift-v": "markdown::OpenPreview"
+    }
+  },
+  {
+    "context": "Editor && extension == md",
+    "unbind": {
+      "cmd-shift-v": "markdown::OpenPreview"
     }
   }
 ]

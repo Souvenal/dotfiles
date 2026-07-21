@@ -63,7 +63,8 @@
     "projectManager.tags": [
         "Projects",
         "Scenes",
-        "Misc"
+        "Misc",
+        "Lessons"
     ],
     "python.analysis.typeCheckingMode": "basic",
     "remote.defaultExtensionsIfInstalledLocally": [],
