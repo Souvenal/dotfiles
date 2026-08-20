@@ -1,0 +1,54 @@
+# ~/.config/tmuxinator/dsh-services.yml
+# 启动方式: tmuxinator start dsh-services
+# 停止方式: tmuxinator stop dsh-services
+# 附着方式: tmuxinator attach dsh-services (或 tmux a -t dsh-services)
+
+name: dsh-services
+attach: false
+root: ~/
+
+# 启动前自动 kill 已有同名 session，避免冲突
+on_project_start: tmux kill-session -t dsh-services 2>/dev/null || true
+
+# 项目结束时不做额外清理（tmuxinator stop 会自动 kill）
+on_project_stop: ""
+
+windows:
+  # ── DeepSeek Harness Web UI ──────────────────────────────
+  - dsh-web:
+      layout: even-horizontal
+      panes:
+        - |
+          echo "🚀 Starting DeepSeek Harness Web UI..."
+          dsh --profile web
+        # 可选：在此追加第二个 pane，例如 tail 日志
+        # - tail -f ~/.dsh/logs/dsh-web.log
+
+  # ── OpenViking Server (Agent Team) ───────────────────────
+  - openviking:
+      layout: even-horizontal
+      panes:
+        - |
+          echo "🚀 Starting OpenViking Server..."
+          openviking-server --host 127.0.0.1 --port 8100
+        # 如需 bot 功能，改为:
+        # openviking-server --host 127.0.0.1 --port 8100 --with-bot
+
+  # ── Ollama Serve (本地嵌入模型) ───────────────────────────
+  - ollama:
+      layout: even-horizontal
+      panes:
+        - |
+          echo "🚀 Starting Ollama Server..."
+          ollama serve
+        # 可选：启动后自动加载嵌入模型
+        # - sleep 3 && ollama pull nomic-embed-text && echo "✅ Embedding model ready"
+
+# ── 可选：额外工具窗口 ─────────────────────────────────────
+#  - monitor:
+#      layout: tiled
+#      panes:
+#        - htop
+#        - |
+#          echo "📊 Service health check..."
+#          watch -n 5 'echo "=== DSH ===" && curl -s http://127.0.0.1:3080 >/dev/null && echo "OK" || echo "DOWN"; echo "=== OpenViking ===" && curl -s http://127.0.0.1:8100/health >/dev/null && echo "OK" || echo "DOWN"; echo "=== Ollama ===" && curl -s http://127.0.0.1:11434/ >/dev/null && echo "OK" || echo "DOWN"'

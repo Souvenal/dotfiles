@@ -12,8 +12,8 @@
       "ctrl-b": "workspace::ToggleLeftDock",
       "ctrl-alt-b": "workspace::ToggleRightDock",
       "ctrl-shift-b": "multi_workspace::ToggleWorkspaceSidebar",
-      "ctrl-g": "git_panel::Toggle",
-      "ctrl-e": "project_panel::Toggle",
+      "ctrl-shift-g": "git_panel::Toggle",
+      "ctrl-shift-e": "project_panel::Toggle",
       "ctrl-shift-o": "outline::Toggle"
     },
   },
@@ -111,6 +111,154 @@
     "context": "Editor && extension == md",
     "unbind": {
       "cmd-shift-v": "markdown::OpenPreview"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-d": "debug_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-shift-d": "debug_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-g": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-shift-e": [
+        "editor::SelectToEndOfLine",
+        {
+          "stop_at_soft_wraps": true
+        }
+      ]
+    }
+  },
+  {
+    "context": "GitCommit > Editor && mode == auto_height",
+    "bindings": {
+      "ctrl-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitCommit > Editor && mode == auto_height",
+    "unbind": {
+      "cmd-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "ctrl-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "unbind": {
+      "cmd-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "ctrl-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "unbind": {
+      "cmd-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "bindings": {
+      "ctrl-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "unbind": {
+      "cmd-shift-enter": "git::Amend"
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "bindings": {
+      "ctrl-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "GitDiff > Editor",
+    "unbind": {
+      "cmd-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "bindings": {
+      "ctrl-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "CommitEditor > Editor",
+    "unbind": {
+      "cmd-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "ctrl-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "unbind": {
+      "cmd-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "GitCommit > Editor && mode == auto_height",
+    "bindings": {
+      "ctrl-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "GitCommit > Editor && mode == auto_height",
+    "unbind": {
+      "cmd-enter": "git::Commit"
+    }
+  },
+  {
+    "context": "Editor && mode == auto_height",
+    "unbind": {
+      "ctrl-shift-enter": "editor::NewlineBelow"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "ctrl-shift-enter": "workspace::OpenWithSystem"
+    }
+  },
+  {
+    "context": "InvalidBuffer",
+    "unbind": {
+      "ctrl-shift-enter": "workspace::OpenWithSystem"
+    }
+  },
+  {
+    "context": "Editor && jupyter",
+    "unbind": {
+      "ctrl-shift-enter": "repl::Run"
     }
   }
 ]
