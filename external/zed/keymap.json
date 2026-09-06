@@ -13,8 +13,7 @@
       "ctrl-alt-b": "workspace::ToggleRightDock",
       "ctrl-shift-b": "multi_workspace::ToggleWorkspaceSidebar",
       "ctrl-shift-g": "git_panel::Toggle",
-      "ctrl-shift-e": "project_panel::Toggle",
-      "ctrl-shift-o": "outline::Toggle"
+      "ctrl-shift-e": "project_panel::Toggle"
     },
   },
   {
@@ -259,6 +258,11 @@
     "context": "Editor && jupyter",
     "unbind": {
       "ctrl-shift-enter": "repl::Run"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-shift-o": "outline_panel::Toggle"
     }
   }
 ]

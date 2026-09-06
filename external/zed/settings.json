@@ -135,12 +135,28 @@
       "indent_guides": {
         "coloring": "indent_aware"
       }
+    },
+    "Python": {
+      "language_servers": ["basedpyright", "!ruff"]
     }
   },
   "lsp": {
-    "clangd": {"binary": {
-      "path": "clangd"
-    }}
+    "clangd": {
+      "binary": {
+        "path": "clangd"
+      }
+    },
+    "basedpyright": {
+      "settings": {
+        "basedpyright": {
+          "analysis": {
+            "diagnosticSeverityOverrides": {
+              "reportUnusedCallResult": "none"
+            }
+          }
+        }
+      }
+    }
   },
   "node": {
     "ignore_system_version": false
