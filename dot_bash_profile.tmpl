@@ -3,7 +3,13 @@
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash"
 {{- end }}
 
-{{ template "env.bash" . }}
+{{- if eq .chezmoi.os "linux" -}}
+{{ template "env.bash-linux.tmpl" . }}
+{{- else if eq .chezmoi.os "darwin" -}}
+{{ template "env.bash-darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "windows" -}}
+{{ template "env.bash-windows.tmpl" . }}
+{{- end }}
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('{{ .language.python.conda_root }}/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

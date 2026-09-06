@@ -43,14 +43,14 @@ Install chezmoi according to [chezmoi page](https://www.chezmoi.io/install/).
 The `env.json` file contains all environment variable configuration. It is rendered by `generate_env.py` into shell-specific templates in `.chezmoitemplates/`.
 
 ```shell
-# Render specific shell
-python generate_env.py --shell bash
+# Render specific shell for specific OS
+python generate_env.py --shell bash --os linux
 
-# Render all shells
+# Render all shells for all OSes (Cartesian product)
 python generate_env.py --shell all
 
 # Render to custom output
-python generate_env.py --shell fish --output .chezmoitemplates/env.fish
+python generate_env.py --shell fish --os darwin --output .chezmoitemplates/env.fish-darwin.tmpl
 ```
 
 Each block in `env.json` can have:

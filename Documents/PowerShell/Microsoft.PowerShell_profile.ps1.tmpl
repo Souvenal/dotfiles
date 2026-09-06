@@ -1,2 +1,8 @@
-{{ template "env.ps1" . }}
+{{- if eq .chezmoi.os "linux" -}}
+{{ template "env.ps1-linux.tmpl" . }}
+{{- else if eq .chezmoi.os "darwin" -}}
+{{ template "env.ps1-darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "windows" -}}
+{{ template "env.ps1-windows.tmpl" . }}
+{{- end }}
 Invoke-Expression (&starship init powershell)

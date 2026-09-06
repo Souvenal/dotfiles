@@ -3,7 +3,13 @@
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zprofile.pre.zsh"
 {{- end -}}
 
-{{ template "env.zsh" . }}
+{{- if eq .chezmoi.os "linux" -}}
+{{ template "env.zsh-linux.tmpl" . }}
+{{- else if eq .chezmoi.os "darwin" -}}
+{{ template "env.zsh-darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "windows" -}}
+{{ template "env.zsh-windows.tmpl" . }}
+{{- end }}
 # Load .zshrc
 if [ -f ~/.zshrc ]; then
     source ~/.zshrc

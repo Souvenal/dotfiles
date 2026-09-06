@@ -294,7 +294,7 @@ BACKENDS = {
 }
 
 
-def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> str:
+def render(env_data: dict, backend: ShellBackend, target_shell: str = "all", target_os: str = "all") -> str:
     lines = []
 
     for block in env_data.get("blocks", []):
@@ -330,6 +330,23 @@ def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> 
                 block_depth = 1
 
         for env in env_vars:
+            # Check os filter
+            env_os = env.get("os", "all")
+            if env_os != "all":
+                if isinstance(env_os, str):
+                    env_os_list = [env_os]
+                else:
+                    env_os_list = env_os
+                # Handle "unix" alias
+                expanded_os_list = []
+                for os_item in env_os_list:
+                    if os_item == "unix":
+                        expanded_os_list.extend(["linux", "darwin"])
+                    else:
+                        expanded_os_list.append(os_item)
+                if target_os not in expanded_os_list:
+                    continue
+
             key = env.get("key", "")
             value = env.get("value", "").replace("\\n", "\n")
             value = convert_path_separator(value, target_shell)
@@ -380,10 +397,25 @@ def render(env_data: dict, backend: ShellBackend, target_shell: str = "all") -> 
     return "\n".join(lines)
 
 
+# Shell to default OS mapping
+SHELL_OS_DEFAULTS = {
+    "bash": ["linux", "darwin"],
+    "zsh": ["linux", "darwin"],
+    "fish": ["linux", "darwin"],
+    "ps1": ["windows"],
+}
+
+# All OS values for Cartesian product
+ALL_OS = ["linux", "darwin", "windows"]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--shell", choices=["bash", "zsh", "fish", "ps1", "all"], default="bash"
+    )
+    parser.add_argument(
+        "--os", choices=["linux", "darwin", "windows", "all"], default="all"
     )
     parser.add_argument("--output", type=Path)
     parser.add_argument("--input", type=Path, default=Path("env.json"))
@@ -394,25 +426,38 @@ def main():
 
     if args.shell == "all":
         for shell in ["bash", "zsh", "fish", "ps1"]:
-            output_path = args.output or Path(f".chezmoitemplates/env.{shell}")
-            content = render(env_data, BACKENDS[shell], shell)
-            # Post-process for PowerShell to convert env var references
-            if shell == "ps1":
-                content = postprocess_ps1(content)
-            with open(output_path, "w") as f:
-                f.write(content)
-            print(f"Written: {output_path}")
+            for os_name in ALL_OS:
+                output_path = args.output or Path(f".chezmoitemplates/env.{shell}-{os_name}.tmpl")
+                content = render(env_data, BACKENDS[shell], shell, os_name)
+                # Post-process for PowerShell to convert env var references
+                if shell == "ps1":
+                    content = postprocess_ps1(content)
+                with open(output_path, "w") as f:
+                    f.write(content)
+                print(f"Written: {output_path}")
     else:
-        content = render(env_data, BACKENDS[args.shell], args.shell)
-        # Post-process for PowerShell to convert env var references
-        if args.shell == "ps1":
-            content = postprocess_ps1(content)
-        if args.output:
-            with open(args.output, "w") as f:
-                f.write(content)
-            print(f"Written: {args.output}")
+        if args.os == "all":
+            # Generate for all OS variants of this shell
+            for os_name in ALL_OS:
+                output_path = args.output or Path(f".chezmoitemplates/env.{args.shell}-{os_name}.tmpl")
+                content = render(env_data, BACKENDS[args.shell], args.shell, os_name)
+                # Post-process for PowerShell to convert env var references
+                if args.shell == "ps1":
+                    content = postprocess_ps1(content)
+                with open(output_path, "w") as f:
+                    f.write(content)
+                print(f"Written: {output_path}")
         else:
-            print(content)
+            content = render(env_data, BACKENDS[args.shell], args.shell, args.os)
+            # Post-process for PowerShell to convert env var references
+            if args.shell == "ps1":
+                content = postprocess_ps1(content)
+            if args.output:
+                with open(args.output, "w") as f:
+                    f.write(content)
+                print(f"Written: {args.output}")
+            else:
+                print(content)
 
 
 if __name__ == "__main__":

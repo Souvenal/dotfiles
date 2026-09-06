@@ -1,4 +1,10 @@
-{{ template "env.fish" . }}
+{{- if eq .chezmoi.os "linux" -}}
+{{ template "env.fish-linux.tmpl" . }}
+{{- else if eq .chezmoi.os "darwin" -}}
+{{ template "env.fish-darwin.tmpl" . }}
+{{- else if eq .chezmoi.os "windows" -}}
+{{ template "env.fish-windows.tmpl" . }}
+{{- end }}
 
 # Fish abbreviations and functions
 abbr -a ll 'ls -la'
