@@ -141,6 +141,18 @@
     }
   },
   {
+    "context": "vim_mode == literal",
+    "unbind": {
+      "ctrl-p": [
+        "vim::Literal",
+        [
+          "ctrl-p",
+          "\u0010"
+        ]
+      ]
+    }
+  },
+  {
     "context": "GitCommit > Editor && mode == auto_height",
     "bindings": {
       "ctrl-shift-enter": "git::Amend"
@@ -263,6 +275,32 @@
   {
     "bindings": {
       "ctrl-shift-o": "outline_panel::Toggle"
+    }
+  },
+  {
+    "context": "vim_mode == insert && !(showing_code_actions || showing_completions)",
+    "unbind": {
+      "ctrl-p": "editor::ShowWordCompletions"
+    }
+  },
+  {
+    "unbind": {
+      "ctrl-p": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "(vim_mode == insert || vim_mode == normal) && showing_signature_help && !showing_completions",
+    "unbind": {
+      "ctrl-p": "editor::SignatureHelpPrevious"
+    }
+  },
+  {
+    "context": "Terminal",
+    "unbind": {
+      "ctrl-b": [
+        "terminal::SendKeystroke",
+        "ctrl-b"
+      ]
     }
   }
 ]
