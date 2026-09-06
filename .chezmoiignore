@@ -11,6 +11,9 @@ pyproject.toml
 uv.lock
 generate_env.py
 
+# node
+node_modules/
+
 # Files that are managed externally by other apps
 external/
 

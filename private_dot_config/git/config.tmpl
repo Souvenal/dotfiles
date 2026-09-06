@@ -17,8 +17,13 @@
         symlinks = true
 
 [credential]
-        # let GCM deal with credentials
+{{- if eq .chezmoi.os "windows" }}
+        # let Widows GCM deal with credentials
         helper = manager
+{{- else if eq .chezmoi.os "darwin" }}
+        # let macOS Keychain deal with credentials
+        helper = osxkeychain
+{{- end }}
 
 [credential "https://huggingface.co"]
         # simply ask user username and password, and stores them into the system

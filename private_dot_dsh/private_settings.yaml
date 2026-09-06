@@ -1,0 +1,61 @@
+ui-onboarding:
+  welcomeNoticeVersion: 2026-08-13.1
+locale:
+  preference: zh
+permission:
+  defaultPreset: danger-full-access
+llm-pi-ai:
+  providers:
+    kimi-coding:
+      models:
+        - id: k3
+          name: Kimi K3
+          contextWindow: 1048576
+          maxTokens: 131072
+        - id: k3-256k
+          name: Kimi K3-256K
+          contextWindow: 262144
+          maxTokens: 131072
+        - id: kimi-for-coding
+          name: Kimi K2.7 Code
+          contextWindow: 262144
+          maxTokens: 32768
+        - id: kimi-for-coding-highspeed
+          name: Kimi For Coding HighSpeed
+          contextWindow: 262144
+          maxTokens: 32768
+      apiKeyEnv: KIMI_CODING_API_KEY
+    codex-not-limited:
+      displayName: Codex 不限量
+      apiKeyEnv: CODEX_NOT_LIMITED_API_KEY
+      api: openai-responses
+      baseURL: https://codex.0u0o.com/v1
+      defaultInput: [ text, image ]
+      models:
+        - id: gpt-5.6-luna
+          name: gpt-5.6-luna
+        - id: gpt-5.6-sol
+          name: gpt-5.6-sol
+          contextWindow: 512000
+        - id: gpt-5.6-terra
+          name: gpt-5.6-terra
+          contextWindow: 512000
+        - id: gpt-image-2
+          name: gpt-image-2
+          contextWindow: 512000
+agent-presets:
+  default: liangshen
+agent-default-model:
+  provider: kimi-coding
+  model: k3
+pet:
+  visible: true
+  size: 160
+  right: 63
+  bottom: 568
+  petId: whale-girl-refined
+skin-background:
+  backgroundOpacity: 100
+  backgroundBlurContent: 20
+skin-custom-theme:
+  applied: true
