@@ -20,24 +20,4 @@ windows:
       panes:
         - |
           echo "🚀 Starting DeepSeek Harness Web UI..."
-          npx --verbose -y @deepseek-ai/dsh web
-        # 可选：在此追加第二个 pane，例如 tail 日志
-        # - tail -f ~/.dsh/logs/dsh-web.log
-
-  # ── OpenViking Server (Agent Team) ───────────────────────
-  - openviking:
-      layout: even-horizontal
-      panes:
-        - |
-          echo "🚀 Starting OpenViking Server..."
-          openviking-server
-
-
-# ── 可选：额外工具窗口 ─────────────────────────────────────
-#  - monitor:
-#      layout: tiled
-#      panes:
-#        - htop
-#        - |
-#          echo "📊 Service health check..."
-#          watch -n 5 'echo "=== DSH ===" && curl -s http://127.0.0.1:3080 >/dev/null && echo "OK" || echo "DOWN"; echo "=== OpenViking ===" && curl -s http://127.0.0.1:8100/health >/dev/null && echo "OK" || echo "DOWN"; echo "=== Ollama ===" && curl -s http://127.0.0.1:11434/ >/dev/null && echo "OK" || echo "DOWN"'
+          dsh web
