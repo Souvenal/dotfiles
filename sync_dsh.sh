@@ -1,5 +1,7 @@
 # update
-npx -y @deepseek-ai/dsh plugin --profile web update
+echo "HINT: Must turn off all running dsh processes !!!"
+npm i -g @deepseek-ai/dsh
+dsh plugin --profile web update
 
 chezmoi add ~/.dsh/settings.yaml
 chezmoi add ~/.dsh/.agent-presets

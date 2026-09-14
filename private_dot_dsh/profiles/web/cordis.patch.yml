@@ -4,9 +4,6 @@
 - id: web-ui-settings
   name: '@linxin666/dsh-client-ui-web-ui-settings'
   disabled: false
-- id: web-ui-plugin-manager
-  name: '@linxin666/dsh-client-ui-plugin-manager'
-  disabled: false
 - id: web-ui-community-plugins
   name: '@linxin666/dsh-client-ui-community-plugins'
   disabled: false
@@ -49,3 +46,22 @@
 - id: web-ui-better-sidebar
   name: dsh-better-sidebar
   disabled: false
+- id: web-ui-compat
+  name: "@linxin666/dsh-web-all"
+  disabled: false
+- id: web-ui-market
+  name: "@linxin666/dsh-web-all/market"
+  disabled: false
+- id: web-ui-doctor
+  name: "@linxin666/dsh-web-all/doctor"
+  disabled: false
+- id: web-ui-usage
+  name: "@linxin666/dsh-web-all/usage"
+  disabled: false
+- id: web-ui-session-archive
+  name: "@linxin666/dsh-web-all/session-archive"
+  disabled: false
+- id: web-ui-i18n
+  name: "@linxin666/dsh-i18n"
+  disabled: false
+

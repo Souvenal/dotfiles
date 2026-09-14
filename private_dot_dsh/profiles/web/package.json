@@ -2,13 +2,12 @@
   "name": "dsh-profile-web",
   "private": true,
   "dependencies": {
-    "@linxin666/dsh-web-all": "^0.3.16",
-    "@liustack/modlens": "^3.25.4",
-    "@nanmicoder/dsh-agent-teams": "0.1.16-rc.1",
-    "@openviking/dsh-memory-plugin": "^0.2.1",
+    "@linxin666/dsh-web-all": "^0.3.21",
+    "@liustack/modlens": "^3.26.1",
+    "@openviking/dsh-memory-plugin": "^0.3.0",
     "@tt-a1i/archify-dsh": "^0.1.0",
     "dsh-prompt-enhancer": "github:Fishsb/dsh-prompt-enhancer",
-    "dsh-tabbit": "^0.3.3"
+    "dsh-tabbit": "^0.3.4"
   },
   "dsh": {
     "profile": {
@@ -17,11 +16,10 @@
         "@deepseek-ai/dsh-web-app",
         "dsh-prompt-enhancer",
         "@liustack/modlens",
-        "@openviking/dsh-memory-plugin",
-        "@linxin666/dsh-web-all",
-        "@nanmicoder/dsh-agent-teams",
         "dsh-tabbit",
-        "@tt-a1i/archify-dsh"
+        "@tt-a1i/archify-dsh",
+        "@openviking/dsh-memory-plugin",
+        "@linxin666/dsh-web-all"
       ]
     }
   }

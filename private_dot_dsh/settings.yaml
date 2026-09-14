@@ -1,0 +1,140 @@
+ui-onboarding:
+  welcomeNoticeVersion: 2026-08-13.1
+locale:
+  preference: zh
+permission:
+  defaultPreset: danger-full-access
+llm-pi-ai:
+  providers:
+    kimi-coding:
+      models:
+        - id: k3
+          name: Kimi K3
+          contextWindow: 1048576
+          maxTokens: 131072
+          input:
+            - text
+            - image
+        - id: k3-256k
+          name: Kimi K3-256K
+          contextWindow: 262144
+          maxTokens: 131072
+        - id: kimi-for-coding
+          name: Kimi K2.7 Code
+          contextWindow: 262144
+          maxTokens: 32768
+        - id: kimi-for-coding-highspeed
+          name: Kimi For Coding HighSpeed
+          contextWindow: 262144
+          maxTokens: 32768
+      apiKeyEnv: KIMI_CODING_API_KEY
+    wanzhao-grok:
+      displayName: 晚照云-Grok
+      apiKeyEnv: WANZHAO_GROK_API_KEY
+      api: openai-completions
+      baseURL: https://sub.wanzhao.top
+      models:
+        - id: composer-2.5
+          name: composer-2.5
+        - id: grok-4.5-latest
+          name: grok-4.5-latest
+        - id: grok-4.6-latest
+          name: grok-4.6-latest
+        - id: grok-imagine-image-2.0
+          name: Grok Imagine Image 2.0
+    wanzhao-gpt:
+      displayName: 晚照云-GPT
+      apiKeyEnv: WANZHAO_GPT_API_KEY
+      api: openai-completions
+      baseURL: https://sub.wanzhao.top
+      models:
+        - id: gpt-5.6-sol
+          name: GPT-5.6 Sol
+          contextWindow: 272000
+          input:
+            - text
+            - image
+        - id: gpt-5.6-luna
+          name: GPT-5.6 Luna
+          contextWindow: 272000
+        - id: gpt-6-astra
+          name: GPT-6 Astra
+          contextWindow: 1050000
+          input:
+            - text
+            - image
+        - id: gpt-image-2.5-flare
+          name: GPT Image 2.5 Flare
+        - id: gpt-image-2.5-sunburst
+          name: GPT Image 2.5 Sunburst
+    wanzhao-glm:
+      apiKeyEnv: WANZHAO_GLM_API_KEY
+      displayName: 晚照云-GLM
+      api: openai-completions
+      baseURL: https://sub.wanzhao.top
+      models:
+        - id: glm-5.3
+          name: glm-5.3
+        - id: glm-5.3-flash
+          name: glm-5.3-flash
+    codex-not-limited-gpt:
+      displayName: Codex不限量-GPT
+      apiKeyEnv: CODEX_NOT_LIMITED_GPT_API_KEY
+      api: openai-completions
+      baseURL: https://codex.0u0o.com/v1
+      models:
+        - id: gpt-5.6-luna
+          name: GPT-5.6 Luna
+        - id: gpt-5.6-sol
+          name: GPT-5.6 Sol
+        - id: gpt-5.6-terra
+          name: GPT-5.6 Terra
+        - id: gpt-6-astra
+          name: GPT-6 Astra
+        - id: gpt-image-2
+          name: GPT Image 2
+    codex-not-limited-glm:
+      displayName: Codex不限量-GLM
+      apiKeyEnv: CODEX_NOT_LIMITED_GLM_API_KEY
+      api: openai-completions
+      baseURL: https://codex.0u0o.com/v1
+      models:
+        - id: GLM-5.3-Flash
+          name: GLM-5.3-Flash
+        - id: Qwen3.8-Flash-Next-FP8
+          name: Qwen3.8-Flash-Next-FP8
+agent-presets:
+  default: ptc
+agent-default-model:
+  provider: codex-not-limited-gpt
+  model: gpt-5.6-terra
+pet:
+  visible: true
+  size: 160
+  right: 219
+  bottom: 730
+  petId: whale-girl-refined
+skin-background:
+  backgroundOpacity: 100
+  backgroundBlurContent: 20
+skin-custom-theme:
+  applied: true
+subagent-model-selection:
+  enabled: true
+  allowedModels:
+    - provider: codex-not-limited
+      model: gpt-5.6-luna
+    - provider: wanzhao
+      model: gpt-5.6-luna
+    - provider: deepseek-official
+      model: deepseek-v4-flash
+    - provider: wanzhao
+      model: gpt-5.6-terra
+    - provider: wanzhao-glm
+      model: glm-5.3-flash
+    - provider: wanzhao-grok
+      model: composer-2.5
+    - provider: wanzhao-grok
+      model: grok-4.5-latest
+dsh-model-capabilities:
+  disabled: {}
