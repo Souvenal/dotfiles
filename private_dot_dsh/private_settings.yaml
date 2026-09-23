@@ -106,13 +106,13 @@ llm-pi-ai:
 agent-presets:
   default: ptc
 agent-default-model:
-  provider: codex-not-limited-gpt
-  model: gpt-5.6-terra
+  provider: kimi-coding
+  model: k3
 pet:
   visible: true
   size: 160
-  right: 219
-  bottom: 730
+  right: 54
+  bottom: 416
   petId: whale-girl-refined
 skin-background:
   backgroundOpacity: 100
@@ -138,3 +138,9 @@ subagent-model-selection:
       model: grok-4.5-latest
 dsh-model-capabilities:
   disabled: {}
+image-generation:
+  provider: openai-compat
+  openaiCompatModel: "gpt-image-2.5-sunburst"
+  openaiCompatBaseURL: https://sub.wanzhao.top
+  openaiCompatEditFormat: multipart
+  openaiCompatEditExtra: {}

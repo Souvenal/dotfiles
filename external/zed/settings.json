@@ -50,6 +50,17 @@
     {
       "host": "Souvenal-PC",
       "args": [],
+      "projects": [
+        {
+          "paths": [
+            "C:\\Users\\22067\\Projects\\SoulEngine"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "YellowBean",
+      "args": [],
       "projects": []
     }
   ],

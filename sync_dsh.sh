@@ -1,6 +1,6 @@
 # update
 echo "HINT: Must turn off all running dsh processes !!!"
-npm i -g @deepseek-ai/dsh
+npm i -g @deepseek-ai/dsh@next
 dsh plugin --profile web update
 
 chezmoi add ~/.dsh/settings.yaml

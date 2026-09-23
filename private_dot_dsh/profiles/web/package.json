@@ -2,10 +2,11 @@
   "name": "dsh-profile-web",
   "private": true,
   "dependencies": {
-    "@linxin666/dsh-web-all": "^0.3.21",
-    "@liustack/modlens": "^3.26.1",
-    "@openviking/dsh-memory-plugin": "^0.3.0",
+    "@linxin666/dsh-web-all": "^0.3.24",
+    "@liustack/modlens": "^3.26.2",
+    "@openviking/dsh-memory-plugin": "^0.3.2",
     "@tt-a1i/archify-dsh": "^0.1.0",
+    "dsh-image-gen": "^0.6.10",
     "dsh-prompt-enhancer": "github:Fishsb/dsh-prompt-enhancer",
     "dsh-tabbit": "^0.3.4"
   },
@@ -19,7 +20,8 @@
         "dsh-tabbit",
         "@tt-a1i/archify-dsh",
         "@openviking/dsh-memory-plugin",
-        "@linxin666/dsh-web-all"
+        "@linxin666/dsh-web-all",
+        "dsh-image-gen"
       ]
     }
   }

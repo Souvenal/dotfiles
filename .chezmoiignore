@@ -4,6 +4,8 @@ docs/plans/
 
 env.json
 
+sync_dsh.sh
+
 # python
 __pycache__
 .python-version
