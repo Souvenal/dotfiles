@@ -1,0 +1,615 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@linxin666/dsh-web-all':
+        specifier: ^0.4.8
+        version: 0.4.8
+      '@openviking/dsh-memory-plugin':
+        specifier: ^0.5.27
+        version: 0.5.27
+      '@tt-a1i/archify-dsh':
+        specifier: ^1.0.0
+        version: 1.0.0
+      dsh-image-gen:
+        specifier: ^0.9.2
+        version: 0.9.2(@deepseek-ai/schemastery@3.18.5)
+      dsh-notification:
+        specifier: ^0.1.2
+        version: 0.1.2(@deepseek-ai/schemastery@3.18.5)
+
+packages:
+
+  '@deepseek-ai/cosmokit@1.8.6':
+    resolution: {integrity: sha512-ZSD/fN52L498LBIOYwjIOlaLv5veY6ZEwI2yzvZUKQtctn0QAPqu8tKdJ+OF5+Tv6NBq1U+wJWH+QI6OGy5EvQ==}
+
+  '@deepseek-ai/schemastery@3.18.5':
+    resolution: {integrity: sha512-Mnobvqf9rHsZYv4g5edj5ddxS1oF1kIdSlz0DunUgnY3LWG5F26MqvH3YOOsSaodCgyzJ16OMN9O99/s5Crtdw==}
+
+  '@linxin666/dsh-client-ui-community-plugins@0.4.8':
+    resolution: {integrity: sha512-6N78lRXkVlApr6BIRmIDpIj5KDh9cYqkclf8W4dUjhwHL/sJbbdJmiUZURHFXi80a1q08Rr2XrNdyKArSwEROQ==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-git-graph@0.4.8':
+    resolution: {integrity: sha512-zy/kHgufrm0ddwE0+Ari380pGdN4bebgFgfaO3cZI2V6XQrytK5TLbgNLhqKUC+LXUviXIlc+Z/FVFr8HbDoTQ==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-market@0.4.8':
+    resolution: {integrity: sha512-WslTlWERV7adpcdIet2yHTgVpc6Lp6bDlQXneI38dSfKUa6Oq+bU8FojP8UBZoN7wO2JTy0T32G/UkoIsTeedQ==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-plugin-manager@0.4.8':
+    resolution: {integrity: sha512-4v3D7XHgYRBctRL/ynOPjMdwmj2g8iLnams+EfxoliPUxKW1HEmJIpMFW6tXQ23HLn3Q7G4Qx5iY93XmRmWArw==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-preset-center@0.4.8':
+    resolution: {integrity: sha512-8qLwYjehc3OV/hjn7+VbiYd7VvACDeRBgalZQrY8KD5OFExo9E+FZxicw5rzQETs0DGgWeR+ibelJSiHTRgcDA==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-skill-explorer@0.4.8':
+    resolution: {integrity: sha512-cYBMTsx77lNtlpoBoWLuZzQOX3oD8EkZ9FaWCvg4YcgNZsTRt1VF0oOpw0wJENMyyriXMoM4rt1KBUNdI7fFMA==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-skin-center@0.4.8':
+    resolution: {integrity: sha512-oGL7MiC3zLoCUa0h/aAfa0UrbEKk8SsoRKm4+JhX4dZf6Lc0hmXCsSDas+gyM09+oGCmU9lQVkx8vsl+ZW19JA==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-task-board-github@0.4.8':
+    resolution: {integrity: sha512-bACke2Q4ijOQsXkh88zeTzh4CyfGq4q1h5+u6RF4WOOjPUo021qupXDGKAZN4CsGVECdkBqqWXgBqTqzmEHS+g==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-task-board@0.4.8':
+    resolution: {integrity: sha512-dqk9fNuKQ2yMqt3l3cpyO3S2P6d7Gedx18AclVAF3bzE23dZ//wvRWhiqLNRT0Ut5au+8MbFOqnaSXrjOWkFAg==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-client-ui-web-ui-settings@0.4.8':
+    resolution: {integrity: sha512-lH7dnrEa1eWV4VLskplxgJS0c5v1VGYo+lyPuhUtuwvv/KBoeWCU71MD/xA5HEulQ7wZk2VGcN5X/qUeGD2YRA==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-i18n@0.4.8':
+    resolution: {integrity: sha512-BAaLRIUWHY3bT5TqXH88zHaoq99Lt9H1sv5robz88wkAtR2S7EsdaIGvwf+bcvFDUdNbzL3xp68cgJiZtCHIAg==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+
+  '@linxin666/dsh-liangshen@0.4.8':
+    resolution: {integrity: sha512-wD1/tH+7kP2y1bcWaVkmB2hLR8h+a4TfdaU9spbG189vEwBMdcFJuiqmPuuc0oHumc/KNnCAAzTP6a8yQfTUlw==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+
+  '@linxin666/dsh-pet@0.4.8':
+    resolution: {integrity: sha512-Mxj8Y2DuAvRgB0Ro2UTu6xsNU+H7yyvMr5zffYAMjbGObJzJYUKHREqmkSSVDQl3JTnOz7L0oYXFVKKNhczovw==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@linxin666/dsh-remote-bridge@0.4.8':
+    resolution: {integrity: sha512-lDNkTN7FibVIf5yN7okIl2yrWBJMb1MwFwp7ZJUPd+iw1vuRQdmOhPpwn31Sg5/CC9ckJgG0oLAWDlz8m57O+A==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@linxin666/dsh-remote-web-ui@0.4.8':
+    resolution: {integrity: sha512-MqmTb0IL1wGvUYdKFN4v5blj7F839hPMzl1BhUeYKp8xBFK3XT1s7YC4Ks1h/G0N6sIuRSeYq/UpAuDwtPVyKg==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@linxin666/dsh-session-archive@0.4.8':
+    resolution: {integrity: sha512-GgmIndUXfa4qKK2CMEOqwTm2pWhrZ6rGeM0zQzHomg/lDH+iUq2DHOwjiIJPHqKyreOY5pAkehLelGKRDAHenQ==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-ssh@0.4.8':
+    resolution: {integrity: sha512-6TalDxDec9o5H6AureAwEbjr8jolQvgZ0iP78Jnp1TWmrvk6/hVd2OgNKlu/0l1tMc8gEUS9hrVJD5o6KUWhFQ==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@linxin666/dsh-update@0.4.8':
+    resolution: {integrity: sha512-f9QqLKpbwPSeFswjMh4D+0TW+000JX6jYi6/RqzT73TdcybZtKoEzPDTnQ2reu8k0opKITMk9Y60CmacYIiYjA==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@linxin666/dsh-usage@0.4.8':
+    resolution: {integrity: sha512-+9nm18ffwetWz15J4tAqfVkuczF/8dJ+iZf4+oi7nBbolhUZTJjwj35N2UKZY+hBUzoPzyOs+Q4icmWxAvq5GQ==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+      react: ^18.2.0
+
+  '@linxin666/dsh-web-all@0.4.8':
+    resolution: {integrity: sha512-MOJ0YukWoR74EP4ilMZJ6jmp5Q3N/LKbSol5bhWzIwte4s91dwfEBiSch5BGs/CfN2k+xME7ocKMkOhjl0RiKQ==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+
+  '@linxin666/dsh-win-bash@0.4.8':
+    resolution: {integrity: sha512-pltISNtXkFo0t5OnaTndrxUgvHKAekTd/yFLRNuX/dKA154hwNLwsN8vdRoDe6D4sbnA5W0l3wMOtMnLLd96/Q==}
+    peerDependencies:
+      '@deepseek-ai/dsh': '>=0.2.1-rc.2'
+
+  '@openviking/dsh-memory-plugin@0.5.27':
+    resolution: {integrity: sha512-mvZXoFTwHV3Z8yZFl2F1yn24QeL6/8o+o7CLCZa0U6pc84TWKA9ln2Wa1A5WzqCTi8M4ISKwQEgfj099iADjgA==}
+    engines: {node: ^22.19.0 || >=24}
+    peerDependencies:
+      '@deepseek-ai/dsh-llm': '>=0.1.0-rc.6 <1.0.0-0'
+      '@deepseek-ai/dsh-mcp-client': '>=0.1.0-rc.6 <1.0.0-0'
+      '@deepseek-ai/dsh-skill-filesystem': '>=0.1.0-rc.6 <1.0.0-0'
+
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
+  '@tt-a1i/archify-dsh@1.0.0':
+    resolution: {integrity: sha512-ae5L+SyZngy3EzYnWHHfccAYJCZh5e9MTkEBh7mrwTMfpwpFtkIhiOg2vI5xnluCS8CSb+Ne1hi1kOWRQQtGBQ==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+
+  '@xterm/addon-fit@0.11.0':
+    resolution: {integrity: sha512-jYcgT6xtVYhnhgxh3QgYDnnNMYTcf8ElbxxFzX0IZo+vabQqSPAjC3c1wJrKB5E19VwQei89QCiZZP86DCPF7g==}
+
+  '@xterm/xterm@6.0.0':
+    resolution: {integrity: sha512-TQwDdQGtwwDt+2cgKDLn0IRaSxYu1tSUjgKarSDkUM0ZNiSRXFpjxEsvc/Zgc5kq5omJ+V0a8/kIM2WD3sMOYg==}
+
+  asn1@0.2.6:
+    resolution: {integrity: sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ==}
+
+  bcrypt-pbkdf@1.0.2:
+    resolution: {integrity: sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w==}
+
+  buildcheck@0.0.7:
+    resolution: {integrity: sha512-lHblz4ahamxpTmnsk+MNTRWsjYKv965MwOrSJyeD588rR3Jcu7swE+0wN5F+PbL5cjgu/9ObkhfzEPuofEMwLA==}
+    engines: {node: '>=10.0.0'}
+
+  cloudflared@0.7.3:
+    resolution: {integrity: sha512-dR4QMS4PbD287QqOV/vAoE1BcQCXphLOVrN9vjNUgkLrPDA5qxn9Dz0VId0P7/Czj4Mxu3hoLgbrVx5OtOWr5Q==}
+    hasBin: true
+
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
+
+  cosmokit@1.8.1:
+    resolution: {integrity: sha512-PDBv4l90xZKrUsZ0vtoycgZpO/j4iFsqJXrAxsyBDsnQRI7ZMJXIjgDJsKNjd5L8jnVnnlrDCdhkFbTncgCVjQ==}
+
+  cpu-features@0.0.10:
+    resolution: {integrity: sha512-9IkYqtX3YHPCzoVg1Py+o9057a3i0fp7S530UWokCSaFVTc7CwXPRiOjRjBQQ18ZCNafx78YfnG+HALxtVmOGA==}
+    engines: {node: '>=10.0.0'}
+
+  detect-libc@2.1.2:
+    resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
+    engines: {node: '>=8'}
+
+  dsh-image-gen@0.9.2:
+    resolution: {integrity: sha512-PhRVv3aiRkxgBvSiaQpS4j4em14fgzayYztaut61En2Fxg+TsQrKHMYP1Azg9s4DyRf+cgk0S3Vcy6XREwqVjA==}
+    engines: {node: ^22.19.0 || >=24.0.0}
+    peerDependencies:
+      '@deepseek-ai/cordis': '>=4.0.0 <5'
+      '@deepseek-ai/schemastery': '>=3.18.4 <4'
+      react: '>=18.2.0 <19'
+    peerDependenciesMeta:
+      '@deepseek-ai/cordis':
+        optional: true
+      '@deepseek-ai/schemastery':
+        optional: true
+      react:
+        optional: true
+
+  dsh-notification@0.1.2:
+    resolution: {integrity: sha512-irGPWJsFYkMii27sPKjw36j8evhZFKVWgvvxQ1vIJyDxYaTt+GPeQ7TJgCXpIThzsPvupowYl55j0Fp10+MpmA==}
+    peerDependencies:
+      '@deepseek-ai/schemastery': ^3
+
+  lightningcss-android-arm64@1.33.0:
+    resolution: {integrity: sha512-gEpRTalKdosp4Bb8qWtc2iOgE5SeIHlpS1up9bFq2wAyYhl1UdTObYiHe98zEM9SQvSoqQZ1IQD0JNpg3Ml5pg==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [android]
+
+  lightningcss-darwin-arm64@1.33.0:
+    resolution: {integrity: sha512-Sciaz8eenNTKn9b3t7+xr0ipTp9YxKQY4npwQ3mrRuL0BAVHBLyZxofhaKBAVtzmtRZ/zTyo0/to4B1uWG/Djg==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  lightningcss-darwin-x64@1.33.0:
+    resolution: {integrity: sha512-Z5UPAxzrjlWNNyGy6i65cJzzvgJ5D3T6wMvs+gWpY9d7qRhANrxqAp6LhxIgZhWEw18RfJTGcRxjuLIBr+m8XQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  lightningcss-freebsd-x64@1.33.0:
+    resolution: {integrity: sha512-QQM/Ti/hQajJwCY+RiWuCZ9sdtI/XQk7nDK5vC8kkdwixezOlDgvDx7+RT+QjK6FcFT4MpsuoBnHIo/O3StRRg==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [freebsd]
+
+  lightningcss-linux-arm-gnueabihf@1.33.0:
+    resolution: {integrity: sha512-N7FVBe6iS24MlM6R/4RBTxGhQheZGs7tiQ9U32UtF75NzP5Q7xWPRqLBCKxlRQRk3rY1jCIPLzx7WzOhuUIRLQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm]
+    os: [linux]
+
+  lightningcss-linux-arm64-gnu@1.33.0:
+    resolution: {integrity: sha512-j2v/itmy4HlNxlc6voKXYgBqNi0Ng2LShg4z7GufpEgs05P+2suBVyi9I6YHq5uoVFx9ETin3eCEhLVyXGQnKg==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  lightningcss-linux-arm64-musl@1.33.0:
+    resolution: {integrity: sha512-yiO5ROMuYQgXbC60yjZU5CYSFZGKXL0HFATXt9mHJn1+zW55oCtMI9NfcVhYLMFDL7gV7oBPon/EmMMGg2OvtQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  lightningcss-linux-x64-gnu@1.33.0:
+    resolution: {integrity: sha512-ar+Ju7LmcN0Jo4FpL4hpFybwNG9/3A/Br5KW2n2jyODg3MEZXaDYADdemoNS+BDNfMgKvylJLj4S5tyRActuAg==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  lightningcss-linux-x64-musl@1.33.0:
+    resolution: {integrity: sha512-RYiYbkokw0trfKqqzfF55lginwEPrD3OJDfTuJzFs1MK6iFnDenaz1fqLLtX4ITG3OktJQXOeTaw1awrBAlZPw==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  lightningcss-win32-arm64-msvc@1.33.0:
+    resolution: {integrity: sha512-1K+MPfLSFVpphzpdbfkhlWk6wBrTObBzS2T6db10PNOZgR9GoVsAWzwNyuhUYYbTp23j+4RrncfujZ4uAzXvwA==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  lightningcss-win32-x64-msvc@1.33.0:
+    resolution: {integrity: sha512-OlEICDx/Xl0FqSp4bry8zFnCvGpig3Gl4gCquvYwHuqJKEC1+n9NgDniFvqHGmMv1ZkqDJrDqKKSykTDX+ehuA==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [win32]
+
+  lightningcss@1.33.0:
+    resolution: {integrity: sha512-WkUDrojuJs0xkgGf2udWxa3yGBRxPtxUkB79i6aCZLRgc7PM8fZe9TosfPDcvEpQZbuFASnHYmRLBLUbmLOIIA==}
+    engines: {node: '>= 12.0.0'}
+
+  marked@18.1.1:
+    resolution: {integrity: sha512-zEGgrtUG8crk+TrMacJSVABU4DYDDkS8uqgU3ohrn/2fW9C2AEfUrO3m6IhpIpQpl7YcVpiXXC9cSMWDANT3dg==}
+    engines: {node: '>= 20'}
+    hasBin: true
+
+  nan@2.30.0:
+    resolution: {integrity: sha512-P5mokDkSvCGBz6mZDD/2l+w9QoICRXdCyZ9ONGmTePr40oihJg3Kpn0YU3twKd6PJnwSlLBWNQeOT6yWEV2c4A==}
+
+  qrcode.react@4.2.0:
+    resolution: {integrity: sha512-QpgqWi8rD9DsS9EP3z7BT+5lY5SFhsqGjpgW5DY/i3mK4M9DTBNz3ErMi8BWYEfI3L0d8GIbGmcdFAS1uIRGjA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  safer-buffer@2.1.2:
+    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
+
+  schemastery@3.18.0:
+    resolution: {integrity: sha512-Jw2uxjoyyqc/yeurmChUEc/jbi8GsrdXV/KmqRUDZXJAXAmrJiPsz8vKa17l/VckyzljHZ9oGaul443CQiXxtA==}
+
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  ssh2@1.17.0:
+    resolution: {integrity: sha512-wPldCk3asibAjQ/kziWQQt1Wh3PgDFpC0XpwclzKcdT1vql6KeYxf5LIt4nlFkUeR8WuphYMKqUA56X4rjbfgQ==}
+    engines: {node: '>=10.16.0'}
+
+  tweetnacl@0.14.5:
+    resolution: {integrity: sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA==}
+
+  ws@8.22.0:
+    resolution: {integrity: sha512-Ydggc987+RO0AnWtZ/7Wq9FtNvcrL1b/RO0ud9mWjUPgDrsAAwQSF51sm2hm1XofbU/4jkpGEsLFsZZxU+1DOg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  yaml@2.9.1:
+    resolution: {integrity: sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
+  zod@4.6.7:
+    resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
+
+snapshots:
+
+  '@deepseek-ai/cosmokit@1.8.6': {}
+
+  '@deepseek-ai/schemastery@3.18.5':
+    dependencies:
+      '@deepseek-ai/cosmokit': 1.8.6
+      '@standard-schema/spec': 1.1.0
+
+  '@linxin666/dsh-client-ui-community-plugins@0.4.8':
+    dependencies:
+      schemastery: 3.18.0
+
+  '@linxin666/dsh-client-ui-git-graph@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  '@linxin666/dsh-client-ui-market@0.4.8':
+    dependencies:
+      schemastery: 3.18.0
+
+  '@linxin666/dsh-client-ui-plugin-manager@0.4.8':
+    dependencies:
+      semver: 7.8.5
+      yaml: 2.9.1
+
+  '@linxin666/dsh-client-ui-preset-center@0.4.8':
+    dependencies:
+      schemastery: 3.18.0
+
+  '@linxin666/dsh-client-ui-skill-explorer@0.4.8': {}
+
+  '@linxin666/dsh-client-ui-skin-center@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+      lightningcss: 1.33.0
+
+  '@linxin666/dsh-client-ui-task-board-github@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  '@linxin666/dsh-client-ui-task-board@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+      marked: 18.1.1
+
+  '@linxin666/dsh-client-ui-web-ui-settings@0.4.8':
+    dependencies:
+      schemastery: 3.18.0
+      yaml: 2.9.1
+
+  '@linxin666/dsh-i18n@0.4.8': {}
+
+  '@linxin666/dsh-liangshen@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  '@linxin666/dsh-pet@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+      clsx: 2.1.1
+
+  '@linxin666/dsh-remote-bridge@0.4.8':
+    dependencies:
+      qrcode.react: 4.2.0
+
+  '@linxin666/dsh-remote-web-ui@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+      cloudflared: 0.7.3
+      clsx: 2.1.1
+      qrcode.react: 4.2.0
+      yaml: 2.9.1
+      zod: 4.6.7
+
+  '@linxin666/dsh-session-archive@0.4.8':
+    dependencies:
+      schemastery: 3.18.0
+
+  '@linxin666/dsh-ssh@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+      '@xterm/addon-fit': 0.11.0
+      '@xterm/xterm': 6.0.0
+      ssh2: 1.17.0
+      ws: 8.22.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  '@linxin666/dsh-update@0.4.8': {}
+
+  '@linxin666/dsh-usage@0.4.8':
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  '@linxin666/dsh-web-all@0.4.8':
+    dependencies:
+      '@linxin666/dsh-client-ui-community-plugins': 0.4.8
+      '@linxin666/dsh-client-ui-git-graph': 0.4.8
+      '@linxin666/dsh-client-ui-market': 0.4.8
+      '@linxin666/dsh-client-ui-plugin-manager': 0.4.8
+      '@linxin666/dsh-client-ui-preset-center': 0.4.8
+      '@linxin666/dsh-client-ui-skill-explorer': 0.4.8
+      '@linxin666/dsh-client-ui-skin-center': 0.4.8
+      '@linxin666/dsh-client-ui-task-board': 0.4.8
+      '@linxin666/dsh-client-ui-task-board-github': 0.4.8
+      '@linxin666/dsh-client-ui-web-ui-settings': 0.4.8
+      '@linxin666/dsh-i18n': 0.4.8
+      '@linxin666/dsh-liangshen': 0.4.8
+      '@linxin666/dsh-pet': 0.4.8
+      '@linxin666/dsh-remote-bridge': 0.4.8
+      '@linxin666/dsh-remote-web-ui': 0.4.8
+      '@linxin666/dsh-session-archive': 0.4.8
+      '@linxin666/dsh-ssh': 0.4.8
+      '@linxin666/dsh-update': 0.4.8
+      '@linxin666/dsh-usage': 0.4.8
+      '@linxin666/dsh-win-bash': 0.4.8
+    transitivePeerDependencies:
+      - bufferutil
+      - react
+      - react-dom
+      - utf-8-validate
+
+  '@linxin666/dsh-win-bash@0.4.8': {}
+
+  '@openviking/dsh-memory-plugin@0.5.27': {}
+
+  '@standard-schema/spec@1.1.0': {}
+
+  '@tt-a1i/archify-dsh@1.0.0': {}
+
+  '@xterm/addon-fit@0.11.0': {}
+
+  '@xterm/xterm@6.0.0': {}
+
+  asn1@0.2.6:
+    dependencies:
+      safer-buffer: 2.1.2
+
+  bcrypt-pbkdf@1.0.2:
+    dependencies:
+      tweetnacl: 0.14.5
+
+  buildcheck@0.0.7:
+    optional: true
+
+  cloudflared@0.7.3: {}
+
+  clsx@2.1.1: {}
+
+  cosmokit@1.8.1: {}
+
+  cpu-features@0.0.10:
+    dependencies:
+      buildcheck: 0.0.7
+      nan: 2.30.0
+    optional: true
+
+  detect-libc@2.1.2: {}
+
+  dsh-image-gen@0.9.2(@deepseek-ai/schemastery@3.18.5):
+    optionalDependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  dsh-notification@0.1.2(@deepseek-ai/schemastery@3.18.5):
+    dependencies:
+      '@deepseek-ai/schemastery': 3.18.5
+
+  lightningcss-android-arm64@1.33.0:
+    optional: true
+
+  lightningcss-darwin-arm64@1.33.0:
+    optional: true
+
+  lightningcss-darwin-x64@1.33.0:
+    optional: true
+
+  lightningcss-freebsd-x64@1.33.0:
+    optional: true
+
+  lightningcss-linux-arm-gnueabihf@1.33.0:
+    optional: true
+
+  lightningcss-linux-arm64-gnu@1.33.0:
+    optional: true
+
+  lightningcss-linux-arm64-musl@1.33.0:
+    optional: true
+
+  lightningcss-linux-x64-gnu@1.33.0:
+    optional: true
+
+  lightningcss-linux-x64-musl@1.33.0:
+    optional: true
+
+  lightningcss-win32-arm64-msvc@1.33.0:
+    optional: true
+
+  lightningcss-win32-x64-msvc@1.33.0:
+    optional: true
+
+  lightningcss@1.33.0:
+    dependencies:
+      detect-libc: 2.1.2
+    optionalDependencies:
+      lightningcss-android-arm64: 1.33.0
+      lightningcss-darwin-arm64: 1.33.0
+      lightningcss-darwin-x64: 1.33.0
+      lightningcss-freebsd-x64: 1.33.0
+      lightningcss-linux-arm-gnueabihf: 1.33.0
+      lightningcss-linux-arm64-gnu: 1.33.0
+      lightningcss-linux-arm64-musl: 1.33.0
+      lightningcss-linux-x64-gnu: 1.33.0
+      lightningcss-linux-x64-musl: 1.33.0
+      lightningcss-win32-arm64-msvc: 1.33.0
+      lightningcss-win32-x64-msvc: 1.33.0
+
+  marked@18.1.1: {}
+
+  nan@2.30.0:
+    optional: true
+
+  qrcode.react@4.2.0: {}
+
+  safer-buffer@2.1.2: {}
+
+  schemastery@3.18.0:
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      cosmokit: 1.8.1
+
+  semver@7.8.5: {}
+
+  ssh2@1.17.0:
+    dependencies:
+      asn1: 0.2.6
+      bcrypt-pbkdf: 1.0.2
+    optionalDependencies:
+      cpu-features: 0.0.10
+      nan: 2.30.0
+
+  tweetnacl@0.14.5: {}
+
+  ws@8.22.0: {}
+
+  yaml@2.9.1: {}
+
+  zod@4.6.7: {}

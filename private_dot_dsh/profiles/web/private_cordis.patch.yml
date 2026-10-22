@@ -1,0 +1,218 @@
+# Your patch layer for this dsh profile, applied after every bundle layer:
+# a top-level YAML array of loader patch entries (id-targeted config
+# overrides, disables, and insert lists; `!!js` expressions allowed).
+- id: web-ui-settings
+  name: '@linxin666/dsh-client-ui-web-ui-settings'
+  disabled: false
+- id: web-ui-community-plugins
+  name: '@linxin666/dsh-client-ui-community-plugins'
+  disabled: false
+- id: web-ui-dsh-aionui-panel
+  name: '@linxin666/dsh-client-ui-aionui-panel'
+  disabled: false
+- id: web-ui-task-board
+  name: '@linxin666/dsh-client-ui-task-board'
+  disabled: false
+- id: web-ui-git-graph
+  name: '@linxin666/dsh-client-ui-git-graph'
+  disabled: false
+- id: web-ui-remote-web-ui
+  name: '@linxin666/dsh-remote-web-ui'
+  disabled: false
+- id: web-ui-pet
+  name: '@linxin666/dsh-pet'
+  disabled: false
+  config:
+    visible: true
+    size: 160
+    right: 9
+    bottom: 201
+    petId: whale-girl-refined
+- id: web-ui-ssh
+  name: '@linxin666/dsh-ssh'
+  disabled: false
+- id: web-ui-describe-image
+  name: '@linxin666/dsh-tool-describe-image'
+  disabled: false
+- id: web-ui-chat-recovery
+  name: '@linxin666/dsh-chat-recovery'
+  disabled: false
+- id: web-ui-liangshen
+  name: '@linxin666/dsh-liangshen'
+  disabled: false
+- id: web-ui-skill-explorer
+  name: '@linxin666/dsh-client-ui-skill-explorer'
+  disabled: false
+- id: web-ui-desktop-launcher
+  name: '@linxin666/dsh-desktop-launcher'
+  disabled: false
+- id: web-ui-skin-center
+  name: '@linxin666/dsh-client-ui-skin-center'
+  disabled: false
+- id: web-ui-better-sidebar
+  name: dsh-better-sidebar
+  disabled: false
+- id: web-ui-compat
+  name: "@linxin666/dsh-web-all"
+  disabled: false
+- id: web-ui-market
+  name: "@linxin666/dsh-web-all/market"
+  disabled: false
+- id: web-ui-doctor
+  name: "@linxin666/dsh-web-all/doctor"
+  disabled: false
+- id: web-ui-usage
+  name: "@linxin666/dsh-web-all/usage"
+  disabled: false
+- id: web-ui-session-archive
+  name: "@linxin666/dsh-web-all/session-archive"
+  disabled: false
+  config:
+    plugin: "@linxin666/dsh-session-archive"
+    autoArchiveEnabled: true
+    autoDeleteEnabled: true
+    autoArchiveDays: 14
+    autoDeleteDays: 14
+- id: web-ui-i18n
+  name: "@linxin666/dsh-i18n"
+  disabled: false
+- id: ui-settings-general
+  name: "@deepseek-ai/dsh-client-ui-settings-general"
+  config:
+    welcomeNoticeVersion: 2026-09-28.1
+- id: locale
+  name: "@deepseek-ai/dsh-client-locale"
+  config:
+    preference: zh
+- id: permission
+  name: "@deepseek-ai/dsh-permission-presets"
+  config:
+    presets:
+      read-only:
+        sandbox: read-only
+        approval: ask
+      workspace-write:
+        sandbox: workspace-write
+        approval: ask
+      danger-full-access:
+        sandbox: danger-full-access
+        approval: never
+    defaultPreset: danger-full-access
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      kimi-coding:
+        models:
+          - id: k3
+            name: Kimi K3
+            contextWindow: 1048576
+            maxTokens: 131072
+            input:
+              - text
+              - image
+          - id: k3-256k
+            name: Kimi K3-256K
+            contextWindow: 262144
+            maxTokens: 131072
+          - id: kimi-for-coding
+            name: Kimi K2.7 Code
+            contextWindow: 262144
+            maxTokens: 32768
+          - id: kimi-for-coding-highspeed
+            name: Kimi For Coding HighSpeed
+            contextWindow: 262144
+            maxTokens: 32768
+        apiKeyEnv: KIMI_CODING_API_KEY
+      wanzhao-grok:
+        displayName: 晚照云-Grok
+        apiKeyEnv: WANZHAO_GROK_API_KEY
+        api: openai-completions
+        baseURL: https://sub.wanzhao.top
+        models:
+          - id: composer-2.5
+            name: composer-2.5
+          - id: grok-4.5-latest
+            name: grok-4.5-latest
+          - id: grok-4.6-latest
+            name: grok-4.6-latest
+          - id: grok-imagine-image-2.0
+            name: Grok Imagine Image 2.0
+      wanzhao-gpt:
+        displayName: 晚照云-GPT
+        apiKeyEnv: WANZHAO_GPT_API_KEY
+        api: openai-completions
+        baseURL: https://sub.wanzhao.top
+        defaultInput: [ text, image ]
+        models:
+          - id: gpt-6-astra
+            name: GPT-6 Astra
+            contextWindow: 1050000
+          - id: gpt-image-2.5-sunburst
+            name: GPT Image 2.5 Sunburst
+          - id: gpt-6.1-sol
+            name: GPT-6.1 Sol
+            contextWindow: 1050000
+      wanzhao-glm:
+        apiKeyEnv: WANZHAO_GLM_API_KEY
+        displayName: 晚照云-GLM
+        api: openai-completions
+        baseURL: https://sub.wanzhao.top
+        models:
+          - id: glm-5.3
+            name: glm-5.3
+          - id: glm-5.3-flash
+            name: glm-5.3-flash
+      codex-not-limited-gpt:
+        displayName: Codex不限量-GPT
+        apiKeyEnv: CODEX_NOT_LIMITED_GPT_API_KEY
+        api: openai-completions
+        baseURL: https://codex.0u0o.com/v1
+        models:
+          - id: gpt-5.6-luna
+            name: GPT-5.6 Luna
+          - id: gpt-5.6-sol
+            name: GPT-5.6 Sol
+          - id: gpt-5.6-terra
+            name: GPT-5.6 Terra
+          - id: gpt-6-astra
+            name: GPT-6 Astra
+          - id: gpt-image-2
+            name: GPT Image 2
+      codex-not-limited-glm:
+        displayName: Codex不限量-GLM
+        apiKeyEnv: CODEX_NOT_LIMITED_GLM_API_KEY
+        api: openai-completions
+        baseURL: https://codex.0u0o.com/v1
+        models:
+          - id: GLM-5.3-Flash
+            name: GLM-5.3-Flash
+          - id: Qwen3.8-Flash-Next-FP8
+            name: Qwen3.8-Flash-Next-FP8
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: wanzhao-gpt
+    model: gpt-6.1-sol
+- id: agent-preset-registry
+  name: "@deepseek-ai/dsh-agent-preset-registry"
+  config:
+    default: standard
+    selectedDefault: ptc
+- id: image-gen
+  name: dsh-image-gen
+  config:
+    provider: openai-compat
+    openaiCompatBaseURL: https://sub.wanzhao.top
+    openaiCompatModel: gpt-image-2.5-flare
+    openaiCompatQuality: ""
+    openaiCompatQualityOptions:
+      - auto
+      - low
+      - medium
+      - high
+    openaiCompatExtraBody: {}
+    openaiCompatEditSizeMode: auto
+    openaiCompatEditFormat: multipart
+    openaiCompatEditExtra: {}
+    openaiCompatSizes: {}

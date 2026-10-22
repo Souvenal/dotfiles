@@ -1,0 +1,26 @@
+{
+  "name": "dsh-profile-web",
+  "private": true,
+  "dependencies": {
+    "@linxin666/dsh-web-all": "^0.4.8",
+    "@openviking/dsh-memory-plugin": "^0.5.27",
+    "@tt-a1i/archify-dsh": "^1.0.0",
+    "dsh-image-gen": "^0.9.2",
+    "dsh-notification": "^0.1.2"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "@deepseek-ai/dsh-web-app",
+        "@tt-a1i/archify-dsh",
+        "@openviking/dsh-memory-plugin",
+        "@linxin666/dsh-web-all",
+        "dsh-image-gen",
+        "dsh-notification",
+        "@deepseek-ai/dsh-experimental-agent-team-profile",
+        "@deepseek-ai/dsh-experimental-auto-review"
+      ]
+    }
+  }
+}

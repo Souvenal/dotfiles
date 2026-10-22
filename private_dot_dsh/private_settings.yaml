@@ -111,8 +111,8 @@ agent-default-model:
 pet:
   visible: true
   size: 160
-  right: 54
-  bottom: 416
+  right: 11
+  bottom: 106
   petId: whale-girl-refined
 skin-background:
   backgroundOpacity: 100
@@ -136,6 +136,8 @@ subagent-model-selection:
       model: composer-2.5
     - provider: wanzhao-grok
       model: grok-4.5-latest
+    - provider: kimi-coding
+      model: kimi-for-coding
 dsh-model-capabilities:
   disabled: {}
 image-generation:
@@ -144,3 +146,9 @@ image-generation:
   openaiCompatBaseURL: https://sub.wanzhao.top
   openaiCompatEditFormat: multipart
   openaiCompatEditExtra: {}
+dsh-better-sidebar:
+  tabsEnabled:
+    browser: false
+dsh-session-archive:
+  autoArchiveEnabled: true
+  autoDeleteEnabled: true
