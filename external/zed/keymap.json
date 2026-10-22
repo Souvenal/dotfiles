@@ -302,5 +302,29 @@
         "ctrl-b"
       ]
     }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-p": "editor::MoveUp"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "unbind": {
+      "ctrl-p": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-p": "file_finder::Toggle"
+    }
   }
 ]
