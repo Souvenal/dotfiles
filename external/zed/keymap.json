@@ -51,7 +51,7 @@
   {
     "context": "AgentPanel",
     "bindings": {
-      "ctrl-shift-c": "agent::ToggleNewThreadMenu"
+      "ctrl-shift-n": "agent::ToggleNewThreadMenu"
     },
     "unbind": {
       "alt-cmd-shift-n": "agent::ToggleNewThreadMenu"

@@ -78,6 +78,10 @@
     "dock": "right"
   },
   "agent": {
+    "sandbox_permissions": {
+      "allow_all_hosts": true,
+      "allow_fs_write_all": true
+    },
     "single_file_review": true,
     "dock": "left",
     "favorite_models": [],
@@ -106,6 +110,15 @@
     },
     "opencode": {
       "type": "registry"
+    },
+    "Deepseek Harness": {
+      "default_config_options": {
+        "effort": "medium",
+        "model": "kimi-for-coding"
+      },
+      "type": "custom",
+      "command": "dsh",
+      "args": ["--profile", "acp"]
     }
   },
   "autosave": {
@@ -122,7 +135,8 @@
     "file_icons": true
   },
   "file_types": {
-    "glsl": [
+    "hlsl": [
+      "*.hlsli",
       "*.ush",
       "*.usf"
     ]
@@ -183,6 +197,7 @@
   "proxy": "http://localhost:7890",
   "semantic_tokens": "combined",
   "terminal": {
+    "shell": null,
     "button": false,
     "toolbar": {
       "breadcrumbs": false
