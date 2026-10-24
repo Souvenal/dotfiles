@@ -12,8 +12,8 @@ importers:
         specifier: ^0.4.8
         version: 0.4.8
       '@openviking/dsh-memory-plugin':
-        specifier: ^0.5.27
-        version: 0.5.27
+        specifier: ^0.5.28
+        version: 0.5.28
       '@tt-a1i/archify-dsh':
         specifier: ^1.0.0
         version: 1.0.0
@@ -169,8 +169,8 @@ packages:
     peerDependencies:
       '@deepseek-ai/dsh': '>=0.2.1-rc.2'
 
-  '@openviking/dsh-memory-plugin@0.5.27':
-    resolution: {integrity: sha512-mvZXoFTwHV3Z8yZFl2F1yn24QeL6/8o+o7CLCZa0U6pc84TWKA9ln2Wa1A5WzqCTi8M4ISKwQEgfj099iADjgA==}
+  '@openviking/dsh-memory-plugin@0.5.28':
+    resolution: {integrity: sha512-SybJdIHYq1nO/bWaRP2a7RNP8I1wEe1egSPATiK9FklIxF4B5wpphd2j+i8jvBNYjeCuH196LdDNFJLiL7rfYw==}
     engines: {node: ^22.19.0 || >=24}
     peerDependencies:
       '@deepseek-ai/dsh-llm': '>=0.1.0-rc.6 <1.0.0-0'
@@ -490,7 +490,7 @@ snapshots:
 
   '@linxin666/dsh-win-bash@0.4.8': {}
 
-  '@openviking/dsh-memory-plugin@0.5.27': {}
+  '@openviking/dsh-memory-plugin@0.5.28': {}
 
   '@standard-schema/spec@1.1.0': {}
 

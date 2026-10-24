@@ -25,8 +25,8 @@
   config:
     visible: true
     size: 160
-    right: 9
-    bottom: 201
+    right: 4
+    bottom: 364
     petId: whale-girl-refined
 - id: web-ui-ssh
   name: '@linxin666/dsh-ssh'
@@ -56,16 +56,16 @@
   name: "@linxin666/dsh-web-all"
   disabled: false
 - id: web-ui-market
-  name: "@linxin666/dsh-web-all/market"
+  name: "@linxin666/dsh-client-ui-market"
   disabled: false
 - id: web-ui-doctor
   name: "@linxin666/dsh-web-all/doctor"
   disabled: false
 - id: web-ui-usage
-  name: "@linxin666/dsh-web-all/usage"
+  name: "@linxin666/dsh-usage"
   disabled: false
 - id: web-ui-session-archive
-  name: "@linxin666/dsh-web-all/session-archive"
+  name: "@linxin666/dsh-session-archive"
   disabled: false
   config:
     plugin: "@linxin666/dsh-session-archive"
@@ -102,28 +102,6 @@
   name: "@deepseek-ai/dsh-llm-pi-ai"
   config:
     providers:
-      kimi-coding:
-        models:
-          - id: k3
-            name: Kimi K3
-            contextWindow: 1048576
-            maxTokens: 131072
-            input:
-              - text
-              - image
-          - id: k3-256k
-            name: Kimi K3-256K
-            contextWindow: 262144
-            maxTokens: 131072
-          - id: kimi-for-coding
-            name: Kimi K2.7 Code
-            contextWindow: 262144
-            maxTokens: 32768
-          - id: kimi-for-coding-highspeed
-            name: Kimi For Coding HighSpeed
-            contextWindow: 262144
-            maxTokens: 32768
-        apiKeyEnv: KIMI_CODING_API_KEY
       wanzhao-grok:
         displayName: 晚照云-Grok
         apiKeyEnv: WANZHAO_GROK_API_KEY
@@ -189,11 +167,35 @@
             name: GLM-5.3-Flash
           - id: Qwen3.8-Flash-Next-FP8
             name: Qwen3.8-Flash-Next-FP8
+      kimi-coding:
+        models:
+          - id: k3.1-pro
+            name: " Kimi K3.1 Pro"
+            contextWindow: 1048576
+            input:
+              - text
+              - image
+            maxTokens: 131072
+          - id: k3
+            name: Kimi K3
+            contextWindow: 1048576
+            maxTokens: 131072
+            input:
+              - text
+              - image
+          - id: kimi-for-coding
+            name: kimi-for-coding
+            contextWindow: 1048576
+            maxTokens: 32768
+            input:
+              - text
+              - image
+        apiKeyEnv: KIMI_CODING_API_KEY
 - id: agent-default-model
   name: "@deepseek-ai/dsh-agent-default-model"
   config:
-    provider: wanzhao-gpt
-    model: gpt-6.1-sol
+    provider: kimi-coding
+    model: k3.1-pro
 - id: agent-preset-registry
   name: "@deepseek-ai/dsh-agent-preset-registry"
   config:
