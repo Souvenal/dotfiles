@@ -25,8 +25,8 @@
   config:
     visible: true
     size: 160
-    right: 4
-    bottom: 364
+    right: 42
+    bottom: 842
     petId: whale-girl-refined
 - id: web-ui-ssh
   name: '@linxin666/dsh-ssh'
@@ -218,3 +218,7 @@
     openaiCompatEditFormat: multipart
     openaiCompatEditExtra: {}
     openaiCompatSizes: {}
+- id: ui-theme
+  name: "@deepseek-ai/dsh-client-ui-theme"
+  config:
+    preference: dark

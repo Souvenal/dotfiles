@@ -2,11 +2,12 @@
   "name": "dsh-profile-web",
   "private": true,
   "dependencies": {
-    "@linxin666/dsh-web-all": "^0.4.8",
-    "@openviking/dsh-memory-plugin": "^0.5.28",
+    "@linxin666/dsh-web-all": "^0.4.13",
+    "@openviking/dsh-memory-plugin": "^0.5.32",
     "@tt-a1i/archify-dsh": "^1.0.0",
-    "dsh-image-gen": "^0.9.2",
-    "dsh-notification": "^0.1.2"
+    "dsh-image-gen": "^0.10.2",
+    "dsh-notification": "^0.1.2",
+    "dsh-plugin-wallpaper-engine": "^1.4.0"
   },
   "dsh": {
     "profile": {
@@ -19,7 +20,8 @@
         "dsh-image-gen",
         "dsh-notification",
         "@deepseek-ai/dsh-experimental-agent-team-profile",
-        "@deepseek-ai/dsh-experimental-auto-review"
+        "@deepseek-ai/dsh-experimental-auto-review",
+        "dsh-plugin-wallpaper-engine"
       ]
     }
   }
