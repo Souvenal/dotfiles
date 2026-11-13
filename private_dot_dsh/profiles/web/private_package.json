@@ -2,26 +2,32 @@
   "name": "dsh-profile-web",
   "private": true,
   "dependencies": {
-    "@linxin666/dsh-web-all": "^0.4.13",
-    "@openviking/dsh-memory-plugin": "^0.5.32",
-    "@tt-a1i/archify-dsh": "^1.0.0",
-    "dsh-image-gen": "^0.10.2",
-    "dsh-notification": "^0.1.2",
-    "dsh-plugin-wallpaper-engine": "^1.4.0"
+    "@deepseek-ai/dsh-subagent-claude-code": "0.2.2-rc.1",
+    "@deepseek-ai/dsh-subagent-codex": "0.2.2-rc.1",
+    "@next-ai-drawio/dsh": "0.1.0",
+    "@openviking/dsh-memory-plugin": "^0.5.34",
+    "@wxg-prc-cpg/browser-skill-dsh-plugin": "0.5.0",
+    "dsh-context": "^0.84.0",
+    "dsh-mole": "0.1.4",
+    "dsh-notification": "^0.2.0"
   },
   "dsh": {
     "profile": {
       "bundles": [
         "@deepseek-ai/dsh-base",
         "@deepseek-ai/dsh-web-app",
-        "@tt-a1i/archify-dsh",
         "@openviking/dsh-memory-plugin",
-        "@linxin666/dsh-web-all",
-        "dsh-image-gen",
         "dsh-notification",
         "@deepseek-ai/dsh-experimental-agent-team-profile",
         "@deepseek-ai/dsh-experimental-auto-review",
-        "dsh-plugin-wallpaper-engine"
+        "dsh-context",
+        "@deepseek-ai/dsh-experimental-forge-bundle",
+        "@deepseek-ai/dsh-subagent-codex",
+        "@deepseek-ai/dsh-experimental-session-titles-bundle",
+        "@deepseek-ai/dsh-experimental-plugin-market-bundle",
+        "dsh-mole",
+        "@next-ai-drawio/dsh",
+        "@wxg-prc-cpg/browser-skill-dsh-plugin"
       ]
     }
   }

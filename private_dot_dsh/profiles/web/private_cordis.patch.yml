@@ -121,7 +121,9 @@
         apiKeyEnv: WANZHAO_GPT_API_KEY
         api: openai-completions
         baseURL: https://sub.wanzhao.top
-        defaultInput: [ text, image ]
+        defaultInput:
+          - text
+          - image
         models:
           - id: gpt-6-astra
             name: GPT-6 Astra
@@ -147,37 +149,32 @@
         api: openai-completions
         baseURL: https://codex.0u0o.com/v1
         models:
-          - id: gpt-5.6-luna
-            name: GPT-5.6 Luna
-          - id: gpt-5.6-sol
-            name: GPT-5.6 Sol
-          - id: gpt-5.6-terra
-            name: GPT-5.6 Terra
           - id: gpt-6-astra
             name: GPT-6 Astra
-          - id: gpt-image-2
-            name: GPT Image 2
-      codex-not-limited-glm:
-        displayName: Codex不限量-GLM
-        apiKeyEnv: CODEX_NOT_LIMITED_GLM_API_KEY
-        api: openai-completions
-        baseURL: https://codex.0u0o.com/v1
-        models:
-          - id: GLM-5.3-Flash
-            name: GLM-5.3-Flash
-          - id: Qwen3.8-Flash-Next-FP8
-            name: Qwen3.8-Flash-Next-FP8
-      kimi-coding:
-        models:
-          - id: k3.1-pro
-            name: " Kimi K3.1 Pro"
-            contextWindow: 1048576
+            contextWindow: 1050000
+            maxTokens: 32000
             input:
               - text
               - image
-            maxTokens: 131072
+          - id: gpt-image-2
+            name: GPT Image 2
+          - id: gpt-6.1-sol
+            name: GPT-6.1 Sol
+            input:
+              - text
+              - image
+            contextWindow: 1050000
+      kimi-coding:
+        models:
           - id: k3
             name: Kimi K3
+            contextWindow: 1048576
+            maxTokens: 131072
+            input:
+              - text
+              - image
+          - id: k3.1-pro
+            name: Kimi K3.1 Pro
             contextWindow: 1048576
             maxTokens: 131072
             input:
@@ -195,7 +192,7 @@
   name: "@deepseek-ai/dsh-agent-default-model"
   config:
     provider: kimi-coding
-    model: k3.1-pro
+    model: kimi-for-coding
 - id: agent-preset-registry
   name: "@deepseek-ai/dsh-agent-preset-registry"
   config:
@@ -222,3 +219,28 @@
   name: "@deepseek-ai/dsh-client-ui-theme"
   config:
     preference: dark
+- id: tool-plugin-manager
+  disabled: false
+
+- insert:
+    - id: mcp-blender
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: blender
+        transport: stdio
+        command: uvx
+        args:
+          - mcp-for-blender
+        failOnStartupError: true
+- id: subagent-model-selection-settings
+  name: "@deepseek-ai/dsh-tool-subagent/model-selection-settings"
+  config:
+    enabled: true
+    allowedModels:
+      - provider: kimi-coding
+        model: kimi-for-coding
+- id: plugin-market
+  name: "@deepseek-ai/dsh-plugin-market"
+  config:
+    indexes:
+      - https://dshopen.org/index.json

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "HINT: Must turn off all running dsh processes !!!"
-npm i -g "@deepseek-ai/dsh@next"
+npm i -g "@deepseek-ai/dsh"
 dsh plugin --profile web update --latest
 
 # Use re-add instead of add: it syncs contents of already-managed files while
