@@ -46,12 +46,16 @@
     "git.autoStash": true,
     "git.blame.editorDecoration.enabled": true,
     "git.blame.ignoreWhitespace": true,
+    "git.detectWorktrees": true,
     "git.enableCommitSigning": true,
     "git.fetchOnPull": true,
     "github.gitProtocol": "ssh",
     "github.copilot.enable": {
         "*": false,
     },
+    "gitlens.graph.details.location": "auto",
+    "gitlens.views.commitDetails.files.layout": "tree",
+    "githubPullRequests.pullBranch": "never",
     "json.schemaDownload.trustedDomains": {
         "https://aka.ms/": true,
         "https://models.dev/": true,
