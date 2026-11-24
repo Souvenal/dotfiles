@@ -192,7 +192,7 @@
   name: "@deepseek-ai/dsh-agent-default-model"
   config:
     provider: kimi-coding
-    model: kimi-for-coding
+    model: k3.1-pro
 - id: agent-preset-registry
   name: "@deepseek-ai/dsh-agent-preset-registry"
   config:
@@ -239,8 +239,16 @@
     allowedModels:
       - provider: kimi-coding
         model: kimi-for-coding
+      - provider: kimi-coding
+        model: k3.1-pro
+      - provider: wanzhao-glm
+        model: glm-5.3-flash
 - id: plugin-market
   name: "@deepseek-ai/dsh-plugin-market"
   config:
     indexes:
       - https://dshopen.org/index.json
+- id: subagent
+  name: "@deepseek-ai/dsh-subagent"
+  config:
+    maxDepth: 2
