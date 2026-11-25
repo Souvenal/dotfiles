@@ -145,6 +145,10 @@ for target in "${TARGETS[@]}"; do
   if ! source_path="$("${CHEZMOI[@]}" source-path "$target")"; then
     die "target is not managed by chezmoi; add it explicitly first: $target"
   fi
+  # Windows chezmoi prints C:/..., while Git Bash pwd prints /c/....
+  if [[ $source_path =~ ^[[:alpha:]]:[/\\] ]] && command -v cygpath >/dev/null 2>&1; then
+    source_path="$(cygpath -u "$source_path")"
+  fi
   case "$source_path" in
     "$SOURCE_DIR"/*) ;;
     *) die "target resolves outside the expected source directory: $source_path" ;;
