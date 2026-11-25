@@ -2,13 +2,7 @@
   "name": "dsh-profile-web",
   "private": true,
   "dependencies": {
-    "@deepseek-ai/dsh-subagent-claude-code": "0.2.2-rc.1",
-    "@deepseek-ai/dsh-subagent-codex": "0.2.2-rc.1",
-    "@next-ai-drawio/dsh": "0.1.0",
     "@openviking/dsh-memory-plugin": "^0.5.40",
-    "@wxg-prc-cpg/browser-skill-dsh-plugin": "0.5.0",
-    "dsh-context": "^0.87.1",
-    "dsh-mole": "0.1.6",
     "dsh-notification": "^0.2.0"
   },
   "dsh": {
@@ -18,17 +12,7 @@
         "@deepseek-ai/dsh-web-app",
         "@openviking/dsh-memory-plugin",
         "dsh-notification",
-        "@deepseek-ai/dsh-experimental-agent-team-profile",
-        "@deepseek-ai/dsh-experimental-auto-review",
-        "dsh-context",
-        "@deepseek-ai/dsh-experimental-forge-bundle",
-        "@deepseek-ai/dsh-subagent-codex",
-        "@deepseek-ai/dsh-experimental-session-titles-bundle",
-        "@deepseek-ai/dsh-experimental-plugin-market-bundle",
-        "dsh-mole",
-        "@next-ai-drawio/dsh",
-        "@wxg-prc-cpg/browser-skill-dsh-plugin",
-        "@deepseek-ai/dsh-experimental-inspector-profile"
+        "@deepseek-ai/dsh-experimental-auto-review"
       ]
     }
   }

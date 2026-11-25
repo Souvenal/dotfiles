@@ -1,10 +1,6 @@
 packages:
   - .
 
-skills:
-  dirs:
-    - .agents/skills
-
 nodeLinker: hoisted
 autoInstallPeers: false
 allowBuilds:
@@ -37,9 +33,3 @@ minimumReleaseAgeExclude:
   - '@liustack/modlens@3.22.1'
   - '@nanmicoder/dsh-agent-teams@0.1.9'
   - '@openviking/dsh-memory-plugin@0.2.1'
-  - '@wxg-prc-cpg/browser-skill-dsh-plugin@0.5.0'
-permissions:
-  '@openviking/dsh-memory-plugin':
-    skills: true
-  dsh-mole:
-    skills: true
